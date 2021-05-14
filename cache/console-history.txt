@@ -1,0 +1,130 @@
+await doodle.withdraw
+var res = await doodle.withdraw
+const res = await doodle.withdraw
+await doodle.withdraw
+await doodle.mint(1, { value: ethers.utils.parseEther("0.025")})
+await doodle.mint(5, { value: ethers.utils.parseEther("0.025")})
+await doodle.mint(4, { value: ethers.utils.parseEther("0.100")})
+await doodle.mint(5, { value: ethers.utils.parseEther("0.100")})
+await doodle.mint(5, { value: ethers.utils.parseEther("0.025")})
+await doodle.mint(9, { value: ethers.utils.parseEther("0.025")})
+await doodle.mint(10, { value: ethers.utils.parseEther("0.025")})
+await doodle.mint(11, { value: ethers.utils.parseEther("0.025")})
+await doodle.mint(1, { value: ethers.utils.parseEther("0.025")})
+await contract.mint(1, { value: ethers.utils.parseEther("0.025")})
+doodle.mintAllowList(5)
+doodle.setIsAllowListActive(x)
+var x = new Boolean(true);
+bool isPaid = true;
+bol = Boolean True
+doodle.mintAllowList(5)
+res
+const res = doodle.numAvailableToMint("0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266")
+doodle.numAvailableToMint("0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266")
+doodle.setAllowList(allow,10)
+doodle
+allow
+"0x8626f6940E2eb28930eFb4CeF49B2d1F2C9C1199"]
+"0xdD2FD4581271e230360230F9337D5c0430Bf44C0",
+"0xbDA5747bFD65F08deb54cb465eB87D40e51B197E",
+"0x2546BcD3c84621e976D8185a91A922aE77ECEc30",
+"0xcd3B766CCDd6AE721141F452C550Ca635964ce71",
+"0xdF3e18d64BC6A983f673Ab319CCaE4f1a57C7097",
+"0x1CBd3b2770909D4e10f157cABC84C7264073C9Ec",
+"0xFABB0ac9d68B0B445fB7357272Ff202C5651694a",
+"0x71bE63f3384f5fb98995898A86B02Fb2426c5788",
+"0xBcd4042DE499D14e55001CcbB24a551F3b954096",
+"0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+"0x23618e81E3f5cdF7f54C3d65f7FBc0aBf5B21E8f",
+"0x14dC79964da2C08b23698B3D3cc7Ca32193d9955",
+"0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+"0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+"0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+"0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+"0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC",
+"0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+const allow = [
+"0x8626f6940E2eb28930eFb4CeF49B2d1F2C9C1199"]
+"0xdD2FD4581271e230360230F9337D5c0430Bf44C0",
+"0xbDA5747bFD65F08deb54cb465eB87D40e51B197E",
+"0x2546BcD3c84621e976D8185a91A922aE77ECEc30",
+"0xcd3B766CCDd6AE721141F452C550Ca635964ce71",
+"0xdF3e18d64BC6A983f673Ab319CCaE4f1a57C7097",
+"0x1CBd3b2770909D4e10f157cABC84C7264073C9Ec",
+"0xFABB0ac9d68B0B445fB7357272Ff202C5651694a",
+"0x71bE63f3384f5fb98995898A86B02Fb2426c5788",
+"0xBcd4042DE499D14e55001CcbB24a551F3b954096",
+"0xa0Ee7A142d267C1f36714E4a8F75612F20a79720",
+"0x23618e81E3f5cdF7f54C3d65f7FBc0aBf5B21E8f",
+"0x14dC79964da2C08b23698B3D3cc7Ca32193d9955",
+"0x976EA74026E726554dB657fA54763abd0C3a0aa9",
+"0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc",
+"0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65",
+"0x90F79bf6EB2c4f870365E785982E1f101E93b906",
+"0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC",
+"0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+lst = [
+lst
+0x8626f6940E2eb28930eFb4CeF49B2d1F2C9C1199]
+0xdD2FD4581271e230360230F9337D5c0430Bf44C0,
+0xbDA5747bFD65F08deb54cb465eB87D40e51B197E,
+0x2546BcD3c84621e976D8185a91A922aE77ECEc30,
+0xcd3B766CCDd6AE721141F452C550Ca635964ce71,
+0xdF3e18d64BC6A983f673Ab319CCaE4f1a57C7097,
+0x1CBd3b2770909D4e10f157cABC84C7264073C9Ec,
+0xFABB0ac9d68B0B445fB7357272Ff202C5651694a,
+0x71bE63f3384f5fb98995898A86B02Fb2426c5788,
+0xBcd4042DE499D14e55001CcbB24a551F3b954096,
+0xa0Ee7A142d267C1f36714E4a8F75612F20a79720,
+0x23618e81E3f5cdF7f54C3d65f7FBc0aBf5B21E8f,
+0x14dC79964da2C08b23698B3D3cc7Ca32193d9955,
+0x976EA74026E726554dB657fA54763abd0C3a0aa9,
+0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc,
+0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65,
+0x90F79bf6EB2c4f870365E785982E1f101E93b906,
+0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC,
+0x70997970C51812dc3A010C7d01b50e0d17dc79C8,
+const lst = [0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266,
+await doodle.saleIsActive
+doodle
+await doodle.setSaleState(x)
+x
+var x = new Boolean(true);
+await doodle.setSaleState(True)
+await doodle.getApproved
+await contract
+doodle
+const doodle = await Doodles.attach("0x0165878A594ca255338adfa4d48449f69242Eb8F")
+const doodle = await Token.attach("0x0165878A594ca255338adfa4d48449f69242Eb8F")
+const Doodles = await ethers.getContractFactory("Doodles")
+const Token = await ethers.getContractFactory("Token")
+ethers.getContractFactory(“Doodles”)
+const Doodles = await ethers.getContractFactory(“Doodles”)
+val
+= 1
+val
+const
+ethers.getContractFactory(“Doodles”)
+const Doodles = ethers.getContractFactory(“Doodles”)
+const Doodles = await ethers.getContractFactory(“Doodles”)
+const Doodles = await ethers.getContractFactory("Doodles")
+await ethers.getContractFactory("Doodles")
+await ethers.getContractFactory("Minter")
+await ethers.getContractFactory("Token")
+assert.equal(totalSupply, 5)
+const totalSupply = await contract.totalSupply()
+assert.equal(totalSupply, 5)
+await contract.totalSupply()
+await contract.mint(5, { value: ethers.utils.parseEther("0.15")})
+const contract = await minter.deployed()
+const minter = await Minter.deploy()
+const Minter = await ethers.getContractFactory("Minter")
+      const Minter = await ethers.getContractFactory("Minter")
+const contract = await minter.deployed()
+Token
+const token = await Token.attach("0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512")
+const Token = await ethers.getContractFactory("Doodles")
+const Token = await ethers.getContractFactory("Minter")
+const Token = await ethers.getContractFactory("Doodles")

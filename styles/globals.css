@@ -1,0 +1,165 @@
+/*noinspection ALL*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "Nokia";
+    src: local("Nokia"),
+    url("../src/fonts/Nokia.ttf") format("truetype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Billy";
+    src: local("Billy"),
+    url("../src/fonts/Billy.ttf") format("truetype");
+}
+
+/**/
+
+* {
+    font-family: Nokia;
+}
+
+.shamrock-bg{
+    background-image: url("../public/tiles/shamrock_tile.png");
+    background-color: rgba(22, 45, 14, 0.950);
+    background-blend-mode: difference;
+}
+
+.binary-bg{
+    background-image: url("../public/tiles/binaryLg.gif");
+    background-color: rgba(22, 45, 14, 0.950);
+    background-blend-mode: difference;
+}
+
+.snowflake-bg{
+    background-image: url("../public/tiles/snowflake_tile.png");
+    background-color: rgba(22, 45, 14, 0.950);
+    background-blend-mode: difference;
+}
+
+.road-bg{
+    background-image: url("../public/tiles/road_tile.png");
+    background-color: rgba(22, 45, 14, 0.950);
+    background-blend-mode: difference;
+}
+
+.question-bg{
+    background-image: url("../public/tiles/question_tile.png");
+    background-color: rgba(22, 45, 14, 0.950);
+    background-blend-mode: difference;
+}
+
+.bytes-bg{
+    background-image: url("../public/tiles/bytes_tile.png");
+    background-color: rgba(22, 45, 14, 0.950);
+    background-blend-mode: difference;
+}
+
+.face-bg{
+    background-image: url("../public/tiles/face_tile.png");
+    background-color: rgba(22, 45, 14, 0.950);
+    background-blend-mode: difference;
+}
+
+.square {
+    width: 50px;
+    height: 50px;
+    padding-bottom: 0%; }
+
+.book-bg{
+    background-image: url("../public/tiles/book_tile.png");
+    background-color: rgba(22, 45, 14, 0.950);
+    background-blend-mode: soft-light;
+}
+
+.space-bg{
+    background-image: url("../public/images/web/backgrounds/bg_space.png");
+    background-size:100% 100%;
+}
+
+disabled,
+button[disabled]{
+    opacity: 0.90;
+    cursor: default !important;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.discordIcon {
+    opacity: 1;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.grid-row-wrapper {
+    display: contents;
+}
+
+.grid-row-wrapper > .grid-item {
+    background: transparent;
+}
+
+.truncateBtn {
+    /*width: 250px;*/
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+a {
+    color: #81ee7a;
+}
+
+a:hover {
+    cursor:pointer;
+}
+
+img, video {
+    max-width: 100%;
+    height: 100%;
+}
+
+/*'cloverHover': '#2f8a2f',*/
+/*'cloverLightGreen': '#81ee7a',*/
+/*'cloverDarkGreen': '#276227',*/
+
+h1 {
+    color: #81ee7a
+}
+
+h2 {
+    color: #81ee7a
+}
+
+h3 {
+    color: #81ee7a
+}
+
+h4 {
+    color: #81ee7a
+}
+
+p {
+    color: #8aff83
+}
+
+strong {color: black !important}
+
+/*.modal {*/
+/*    transition: opacity 0.25s ease;*/
+/*}*/
+/*body.modal-active {*/
+/*    overflow-x: hidden;*/
+/*    overflow-y: visible !important;*/
+/*}*/
