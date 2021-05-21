@@ -1,6 +1,12 @@
 import React from "react";
 
-export default function Footer() {
+export default function Footer(
+    {
+        openOpensea,
+        openDiscord,
+        openTwitter,
+    }
+) {
 
     return (
 
@@ -14,17 +20,17 @@ export default function Footer() {
                 </p>
                 <span
                     className="inline-flex justify-center mt-4 space-x-5 sm:ml-auto sm:mt-0 sm:justify-start">
-                            <a className="transition ease-in-out delay-50 duration-500 text-cloverHover hover:text-cloverLightGreen" href="#">
+                            <a onClick={openDiscord} className="transition ease-in-out delay-50 duration-500 text-cloverHover hover:text-cloverLightGreen" href="#">
                               <span className="sr-only">Discord</span>
-                                <i className="fa-brands fa-discord fa-xl"></i>
+                                <i className="fa-brands fa-discord fa-xl"/>
                             </a>
-                            <a className="transition ease-in-out delay-50 duration-500 text-cloverHover hover:text-cloverLightGreen" href="#">
-                              <span className="sr-only">Discord</span>
-                                <i className="fa-brands fa-twitter fa-xl"></i>
+                            <a onClick={openTwitter} className="transition ease-in-out delay-50 duration-500 text-cloverHover hover:text-cloverLightGreen" href="#">
+                              <span className="sr-only">Twitter</span>
+                                <i className="fa-brands fa-twitter fa-xl"/>
                             </a>
-                            <a className="transition ease-in-out delay-50 duration-500 text-cloverHover hover:text-cloverLightGreen" href="#">
-                              <span className="sr-only">Discord</span>
-                                <i className="fa-solid fa-sailboat fa-xl"></i>
+                            <a onClick={openOpensea} className="transition ease-in-out delay-50 duration-500 text-cloverHover hover:text-cloverLightGreen" href="#">
+                              <span className="sr-only">OpenSea</span>
+                                <i className="fa-solid fa-sailboat fa-xl"/>
                             </a>
                           </span>
             </div>

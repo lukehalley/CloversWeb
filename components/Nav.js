@@ -7,6 +7,7 @@ import {Link} from 'react-scroll'
 
 export default function Nav(
     {
+        globalShowMint,
         connected, updateConnectedState,
         loading, updateLoadingState,
         hasMetamask, updateHasMetamaskState,
@@ -57,9 +58,19 @@ export default function Nav(
                                                 <Link to="story" spy={true} smooth={true}>[ Story ]</Link>
                                             </a>
 
-                                            <a className="text-1xl px-2 inline-block w-full p-0 font-medium text-left transition ease-in-out delay-50 duration-500 text-cloverDarkGreen hover:text-cloverLighterGreen md:w-auto md:px-0 md:mx-2 lg:mx-3 md:text-center">
-                                                <Link to="mint" spy={true} smooth={true}>[ Mint ]</Link>
-                                            </a>
+                                            {
+                                                globalShowMint
+                                                ?
+                                                    <>
+                                                        <a className="text-1xl px-2 inline-block w-full p-0 font-medium text-left transition ease-in-out delay-50 duration-500 text-cloverDarkGreen hover:text-cloverLighterGreen md:w-auto md:px-0 md:mx-2 lg:mx-3 md:text-center">
+                                                            <Link to="mint" spy={true} smooth={true}>[ Mint ]</Link>
+                                                        </a>
+                                                    </>
+                                                :
+                                                    <>
+                                                    </>
+                                            }
+
 
                                             <a className="text-1xl px-2 inline-block w-full p-0 font-medium text-left transition ease-in-out delay-50 duration-500 text-cloverDarkGreen hover:text-cloverLighterGreen md:w-auto md:px-0 md:mx-2 lg:mx-3 md:text-center">
                                                 <Link to="ability" spy={true} smooth={true}>[ Ability ]</Link>

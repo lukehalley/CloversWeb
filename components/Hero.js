@@ -2,11 +2,30 @@ import {Transition} from "@headlessui/react";
 import React, {useEffect, useState} from "react";
 import {Link} from 'react-scroll'
 
-export default function Hero() {
+export default function Hero(
+    {
+        openOpensea,
+        openDiscord,
+        openTwitter,
+    }
+) {
 
     const [scrollDownBtnVisible, setScrollDownBtnVisible] = useState(true);
 
     const scrollLimit = 300;
+
+    // // Function that we can use to redirect the user to install Metamask
+    // function openURL(url) {
+    //     var win = window.open(url, '_blank');
+    //     win.focus();
+    // }
+
+    // Function that we can use to redirect the user to install Metamask
+    function buyOnOpensea() {
+        console.log("beep")
+        var win = window.open(openseaURL, '_blank');
+        win.focus();
+    }
 
     const toggleVisible = () => {
         const scrolled = document.documentElement.scrollTop;
@@ -52,15 +71,18 @@ export default function Hero() {
 
                                     <div>
                                         <button
+                                            onClick={openDiscord}
                                             className="border-2 border-cloverLightGreen bg-opacity-90 bg-cloverDarkGreen shadow-lg transition ease-in-out delay-50 duration-500 text-cloverLightGreen hover:bg-cloverLighterGreen py-2 px-4 mx-2 rounded inline-flex items-center">
-                                            <i className="fa-brands fa-discord pr-2"></i>
+                                            <i  className="fa-brands fa-discord pr-2">
+                                            </i>
                                             <span>Discord</span>
                                         </button>
                                     </div>
                                     <div>
                                         <button
+                                            onClick={openTwitter}
                                             className="border-2 border-cloverLightGreen bg-opacity-90 bg-cloverDarkGreen shadow-lg transition ease-in-out delay-50 duration-500 text-cloverLightGreen hover:bg-cloverLighterGreen py-2 px-4 mx-2 rounded inline-flex items-center">
-                                            <i className="fa-brands fa-twitter pr-2"></i>
+                                            <i className="fa-brands fa-twitter pr-2"/>
                                             <span>Twitter</span>
                                         </button>
                                     </div>
@@ -73,8 +95,9 @@ export default function Hero() {
 
                                     <div>
                                         <button
+                                            onClick={openOpensea}
                                             className="border-2 border-cloverLightGreen bg-opacity-90 bg-cloverDarkGreen shadow-lg transition ease-in-out delay-50 duration-500 text-cloverLightGreen hover:bg-cloverLighterGreen py-2 px-4 mx-2 rounded inline-flex items-center">
-                                            <i className="fa-solid fa-sailboat pr-2"></i>
+                                            <i className="fa-solid fa-sailboat pr-2"/>
                                             <span>Opensea</span>
                                         </button>
                                     </div>

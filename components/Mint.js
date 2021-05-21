@@ -1,10 +1,8 @@
-import React, {useEffect, useState, useRef} from 'react'
-import {ethers} from 'ethers'
-import {hasEthereum, requestAccount} from '../utils/ethereum'
+import React, { useEffect, useState, useRef } from 'react'
+import { ethers } from 'ethers'
+import { hasEthereum, requestAccount } from '../utils/ethereum'
 import Web3 from 'web3';
-// import 'tw-elements';
-import Contract from "../src/artifacts/contracts/F0.sol/F0.json";
-import {Transition} from "@headlessui/react";
+import { Transition } from "@headlessui/react";
 
 export default function Mint(
     {
@@ -35,6 +33,7 @@ export default function Mint(
     const [totalSupply, setTotalSupply] = useState(5);
     const [mintPrice, setMintPrice] = useState(0.025);
     const [mintResult, setMintResult] = useState([]);
+    const [mintSoldOut, setMintSoldOut] = useState(true);
 
     const [hasWhitelist, setHasWhitelist] = useState(false);
     const [mintInProgress, setMintInProgress] = useState(false);
@@ -49,21 +48,26 @@ export default function Mint(
 
         try {
 
-            try {
+            await f0.init({
+                web3: new Web3(window.ethereum),
+                contract: process.env.NEXT_PUBLIC_MINTER_ADDRESS,
+                network: process.env.NEXT_PUBLIC_NETWORK,
+                currency: process.env.NEXT_PUBLIC_CURRENCY
+            });
 
-                await f0.init({
-                    web3: new Web3(window.ethereum),
-                    contract: process.env.NEXT_PUBLIC_MINTER_ADDRESS,
-                    network: process.env.NEXT_PUBLIC_NETWORK,
-                    currency: process.env.NEXT_PUBLIC_CURRENCY
-                });
-            } catch (error) {
-                console.error(error.message);
-            }
+        } catch (error) {
+            console.error(error.message);
+        }
 
+        if (currentMintType !== null) {
             f0.invites().then((inviteValue) => {
 
-                if (Object.keys(inviteValue).length === 0) {
+                if (currentMintType === "public") {
+                    console.log("public!");
+                    console.log(f0)
+                }
+
+                if (Object.keys(inviteValue).length === 0 && currentMintType !== "public") {
                     setMintActive(false);
                 } else {
 
@@ -77,6 +81,12 @@ export default function Mint(
                         setTotalSupply(Number(configValue.converted.supply));
                         f0.nextId().then((nextIdValue) => {
                             setTotalMinted(Number(nextIdValue - 1));
+
+                            if (totalMinted === totalSupply) {
+                                console.log("Sold Out!");
+                                setMintSoldOut(true)
+                            }
+
                         });
                     });
 
@@ -94,12 +104,13 @@ export default function Mint(
                     }
                 }
             });
-
-
-
-        } catch (e) {
-
+        } else {
+            setMintActive(true);
         }
+
+
+
+        console.log(mintActive);
 
     }
 
@@ -154,7 +165,7 @@ export default function Mint(
     async function mintNFTs() {
         // Check quantity
         if (mintQuantity < 1) {
-            openPopup(true, "Mint Error!",'You need to mint at least 1 NFT.', );
+            openPopup(true, "Mint Error!", 'You need to mint at least 1 NFT.',);
         }
         if (mintQuantity > mintPerWalletLimit) {
             openPopup(true, "Mint Error!", ('You can only mint a maximum of' + mintPerWalletLimit + ' Clovers.'));
@@ -223,7 +234,7 @@ export default function Mint(
 
                     if (currentMintType === "public") {
 
-                        if(!hasEthereum()) {
+                        if (!hasEthereum()) {
                             updateHasMetamaskState(false);
                             updateLoadingState(false);
                         } else {
@@ -285,10 +296,16 @@ export default function Mint(
         }
     }
 
+    // Function that we can use to redirect the user to install Metamask
+    function buyOnOpensea() {
+        const win = window.open(process.env.NEXT_PUBLIC_OPENSEA_LINK, '_blank');
+        win.focus();
+    }
+
     // Check if user has the whitelist
     async function checkWalletHasWhitelist() {
 
-        if(! hasEthereum()) {
+        if (!hasEthereum()) {
             updateHasMetamaskState(false);
             updateLoadingState(false);
         } else {
@@ -312,18 +329,21 @@ export default function Mint(
             let invites = await f0.myInvites();
 
             setHasWhitelist(Object.getOwnPropertyNames(invites).length !== 0);
+
+            console.log("hasWhitelist " + hasWhitelist)
         }
 
     }
 
-    // Network changes - done
-    useEffect( function() {
+    // On Load
+    useEffect(() => {
         updateLoadingState(true);
         fetchConnectedAccount();
         checkWalletHasWhitelist();
         fetchTotals();
+        console.log("mintSoldOut: " + mintSoldOut);
         updateLoadingState(false);
-    },[]);
+    }, []);
 
     return (
         <>
@@ -359,12 +379,12 @@ export default function Mint(
 
                                         <div className="grid gap-0 grid-cols-2 grid-rows-1 divide-x-4 divide-green">
                                             <div className="place-self-center">
-                                                <p className="text-2xl md:text-2xl">
+                                                <p className="text-xl md:text-xl">
                                                     Minted:
                                                 </p>
                                             </div>
                                             <div>
-                                                <p className="place-self-center text-cloverWhite text-2xl md:text-2xl">
+                                                <p className="place-self-center text-cloverWhite text-xl md:text-xl">
                                                     {loading
                                                         ?
                                                         <>
@@ -385,12 +405,12 @@ export default function Mint(
 
                                         <div className="grid gap-0 grid-cols-2 grid-rows-1 divide-x-4 divide-green">
                                             <div className="place-self-center">
-                                                <p className="text-2xl md:text-2xl">
+                                                <p className="text-xl md:text-xl">
                                                     Price
                                                 </p>
                                             </div>
                                             <div>
-                                                <p className="place-self-center text-cloverWhite text-2xl md:text-2xl">
+                                                <p className="place-self-center text-cloverWhite text-xl md:text-xl">
 
 
                                                     {loading
@@ -414,12 +434,12 @@ export default function Mint(
 
                                         <div className="grid gap-0 grid-cols-2 grid-rows-1 divide-x-4 divide-green">
                                             <div className="place-self-center">
-                                                <p className="capitalize text-2xl md:text-2xl">
+                                                <p className="capitalize text-xl md:text-xl">
                                                     Mint Per Wallet
                                                 </p>
                                             </div>
                                             <div className="flex justify-center items-center h-full">
-                                                <p className="p-4 capitalize place-self-center text-cloverWhite text-2xl md:text-2xl">
+                                                <p className="p-4 capitalize place-self-center text-cloverWhite text-xl md:text-xl">
                                                     {loading
                                                         ?
                                                         <>
@@ -466,14 +486,14 @@ export default function Mint(
                                                     <span className="m-auto text-2xl">−</span>
                                                 </button>
                                                 <input type="number"
-                                                       className="bg-transparent mx-4 h-12 border border-8 border-cloverBorder focus:outline-none text-center w-full text-md hover:text-cloverLightGreen focus:text-cloverLightGreen md:text-basecursor-default flex items-center text-cloverLightGreen outline-none"
-                                                       name="custom-input-number"
-                                                       value={mintQuantity}
-                                                       placeholder="1"
-                                                       type="number"
-                                                       min="1"
-                                                       max="10"
-                                                       ref={mintQuantityInputRef}
+                                                    className="bg-transparent mx-4 h-12 border border-8 border-cloverBorder focus:outline-none text-center w-full text-md hover:text-cloverLightGreen focus:text-cloverLightGreen md:text-basecursor-default flex items-center text-cloverLightGreen outline-none"
+                                                    name="custom-input-number"
+                                                    value={mintQuantity}
+                                                    placeholder="1"
+                                                    type="number"
+                                                    min="1"
+                                                    max="10"
+                                                    ref={mintQuantityInputRef}
                                                 >
 
                                                 </input>
@@ -516,11 +536,11 @@ export default function Mint(
                                                                             cy="12"
                                                                             r="10"
                                                                             stroke="currentColor"
-                                                                            strokeWidth="4"/>
+                                                                            strokeWidth="4" />
                                                                         <path
                                                                             className="opacity-75"
                                                                             fill="currentColor"
-                                                                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/>
+                                                                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                                                                     </svg>
 
                                                                     <p className="text-xl">
@@ -543,90 +563,111 @@ export default function Mint(
                                                                         {connected
                                                                             ?
                                                                             <div>
-                                                                                {mintActive
-                                                                                    ?
-                                                                                    <div>
-                                                                                        {hasWhitelist
-                                                                                            ?
-                                                                                            <div>
-                                                                                                <button
-                                                                                                    disabled={!hasWhitelist}
-                                                                                                    className="w-full px-3 py-4 border border-8 border-cloverBorder md:text-2xltext-cloverLightGreen transition ease-in-out delay-50 duration-500 text-cloverLightGreen hover:bg-cloverLighterGreen bg-cloverDarkGreen rounded-lg disabled"
-                                                                                                    onClick={mintNFTs}
-                                                                                                >
-                                                                                                    <div
-                                                                                                        className="flex items-center justify-center">
 
-                                                                                                        {mintInProgress
-                                                                                                            ?
-                                                                                                            <>
-                                                                                                                <button
-                                                                                                                    type="button"
-                                                                                                                    className="inline-flex items-center px-4rounded-md text-cloverLightGreen transition ease-in-out duration-150"
-                                                                                                                    disabled={mintInProgress}>
-                                                                                                                    <svg
-                                                                                                                        className="animate-spin mr-3 h-6 w-6 text-cloverLightGreen"
-                                                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                                                        fill="none"
-                                                                                                                        viewBox="0 0 24 24">
-                                                                                                                        <circle
-                                                                                                                            className="opacity-25"
-                                                                                                                            cx="12"
-                                                                                                                            cy="12"
-                                                                                                                            r="10"
-                                                                                                                            stroke="currentColor"
-                                                                                                                            strokeWidth="4"/>
-                                                                                                                        <path
-                                                                                                                            className="opacity-75"
-                                                                                                                            fill="currentColor"
-                                                                                                                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/>
-                                                                                                                    </svg>
+                                                                                {
+                                                                                    mintSoldOut
+                                                                                        ?
+                                                                                        <>
+                                                                                            <button
+                                                                                                disabled={!mintSoldOut}
+                                                                                                className="w-full px-3 py-4 border border-8 border-cloverBorder md:text-2xltext-cloverLightGreen bg-cloverDarkGreen rounded-lg disabled"
+                                                                                                onClick={buyOnOpensea}
+                                                                                            >
+                                                                                                <p className="text-xl">
+                                                                                                    Buy On OpenSea
+                                                                                                </p>
+                                                                                            </button>
+                                                                                        </>
+                                                                                        :
+                                                                                        <>
+                                                                                            {mintActive
+                                                                                                ?
+                                                                                                <div>
+                                                                                                    {hasWhitelist
+                                                                                                        ?
+                                                                                                        <div>
+                                                                                                            <button
+                                                                                                                disabled={!hasWhitelist}
+                                                                                                                className="w-full px-3 py-4 border border-8 border-cloverBorder md:text-2xltext-cloverLightGreen transition ease-in-out delay-50 duration-500 text-cloverLightGreen hover:bg-cloverLighterGreen bg-cloverDarkGreen rounded-lg disabled"
+                                                                                                                onClick={mintNFTs}
+                                                                                                            >
+                                                                                                                <div
+                                                                                                                    className="flex items-center justify-center">
 
-                                                                                                                    <p className="text-xl">
-                                                                                                                        Minting
-                                                                                                                    </p>
+                                                                                                                    {mintInProgress
+                                                                                                                        ?
+                                                                                                                        <>
+                                                                                                                            <button
+                                                                                                                                type="button"
+                                                                                                                                className="inline-flex items-center px-4rounded-md text-cloverLightGreen transition ease-in-out duration-150"
+                                                                                                                                disabled={mintInProgress}>
+                                                                                                                                <svg
+                                                                                                                                    className="animate-spin mr-3 h-6 w-6 text-cloverLightGreen"
+                                                                                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                                                                                    fill="none"
+                                                                                                                                    viewBox="0 0 24 24">
+                                                                                                                                    <circle
+                                                                                                                                        className="opacity-25"
+                                                                                                                                        cx="12"
+                                                                                                                                        cy="12"
+                                                                                                                                        r="10"
+                                                                                                                                        stroke="currentColor"
+                                                                                                                                        strokeWidth="4" />
+                                                                                                                                    <path
+                                                                                                                                        className="opacity-75"
+                                                                                                                                        fill="currentColor"
+                                                                                                                                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                                                                                                                                </svg>
 
-                                                                                                                </button>
-                                                                                                            </>
-                                                                                                            :
+                                                                                                                                <p className="text-xl">
+                                                                                                                                    Minting
+                                                                                                                                </p>
 
-                                                                                                            <p className="capitalize text-xl">
-                                                                                                                {currentMintType} Mint
-                                                                                                            </p>
+                                                                                                                            </button>
+                                                                                                                        </>
+                                                                                                                        :
 
-                                                                                                        }
-                                                                                                    </div>
+                                                                                                                        <p className="capitalize text-xl">
+                                                                                                                            {currentMintType} Mint
+                                                                                                                        </p>
 
-                                                                                                </button>
-                                                                                            </div>
-                                                                                            :
-                                                                                            <div>
-                                                                                                <button
-                                                                                                    disabled="true"
-                                                                                                    className="w-full px-3 py-4 border border-8 border-cloverBorder md:text-2xltext-cloverLightGreen bg-cloverDarkGreen rounded-lg disabled"
-                                                                                                    onClick={mintNFTs}
-                                                                                                >
-                                                                                                    <p className="text-xl">
-                                                                                                        Account Not Whitelisted
-                                                                                                    </p>
-                                                                                                </button>
-                                                                                            </div>
-                                                                                        }
-                                                                                    </div>
+                                                                                                                    }
+                                                                                                                </div>
 
-                                                                                    :
-                                                                                    <div>
-                                                                                        <button
-                                                                                            disabled={!mintActive}
-                                                                                            className="w-full px-3 py-4 border border-8 border-cloverBorder md:text-2xltext-cloverLightGreen bg-cloverDarkGreen rounded-lg disabled"
-                                                                                            onClick={mintNFTs}
-                                                                                        >
-                                                                                            <p className="text-xl">
-                                                                                                Minting Not Active
-                                                                                            </p>
-                                                                                        </button>
-                                                                                    </div>
+                                                                                                            </button>
+                                                                                                        </div>
+                                                                                                        :
+                                                                                                        <div>
+                                                                                                            <button
+                                                                                                                disabled="true"
+                                                                                                                className="w-full px-3 py-4 border border-8 border-cloverBorder md:text-2xltext-cloverLightGreen bg-cloverDarkGreen rounded-lg disabled"
+                                                                                                                onClick={mintNFTs}
+                                                                                                            >
+                                                                                                                <p className="text-xl">
+                                                                                                                    Account Not Whitelisted
+                                                                                                                </p>
+                                                                                                            </button>
+                                                                                                        </div>
+                                                                                                    }
+                                                                                                </div>
+
+                                                                                                :
+                                                                                                <div>
+                                                                                                    <button
+                                                                                                        disabled={!mintActive}
+                                                                                                        className="w-full px-3 py-4 border border-8 border-cloverBorder md:text-2xltext-cloverLightGreen bg-cloverDarkGreen rounded-lg disabled"
+                                                                                                        onClick={mintNFTs}
+                                                                                                    >
+                                                                                                        <p className="text-xl">
+                                                                                                            Minting Not Active
+                                                                                                        </p>
+                                                                                                    </button>
+                                                                                                </div>
+                                                                                            }
+                                                                                        </>
                                                                                 }
+
+
                                                                             </div>
                                                                             :
                                                                             <div>
@@ -707,7 +748,7 @@ export default function Mint(
                 {/* className={`banner large ${active ? "active" : ""} ${ disabled ? "disabled" : "" }`} */}
                 {/* cloverLightRed */}
                 <div className="modal bg-opacity-50 fixed w-full h-full top-0 left-0 flex items-center justify-center z-50">
-                    <div className={`modal-overlay absolute w-full h-full ${popupIsError ? "bg-cloverLightRed opacity-50" : "bg-cloverDarkGreen opacity-75"}`}/>
+                    <div className={`modal-overlay absolute w-full h-full ${popupIsError ? "bg-cloverLightRed opacity-50" : "bg-cloverDarkGreen opacity-75"}`} />
 
                     <div className={`modal-container bg-opacity-50 w-11/12 md:max-w-md mx-auto rounded shadow-lg z-40 overflow-y-auto ${popupIsError ? "bg-cloverLightRed" : "bg-cloverDarkGreen"}`}>
 
@@ -724,29 +765,33 @@ export default function Mint(
 
                             <p className={`text-center items-center text-xl py-2 ${popupIsError ? "text-cloverWhite" : "text-cloverLightGreen"}`}>{popupMessage}</p>
 
-                            {mintResult && (
+                            {!popupIsError && (
 
-                                <ol className={`text-center items-center text-sm ${popupIsError ? "text-cloverWhite" : "text-cloverLightGreen"}`}>
-                                    {
-                                        mintResult.map(token =>
-                                            <li key={token.tokenId}>
-                                                <p className="py-2 text-cloverLightGreen text-sm text-cloverLightGreen">
-                                                    - [Clover #{token.tokenId}] View On <a target="_blank" className="text-cloverWhite underline underline-offset-1" rel="noopener noreferrer" href={token.links.opensea}>OpenSea</a> or <a target="_blank" className="text-cloverWhite underline underline-offset-1" rel="noopener noreferrer" href={token.links.rarible}> Rarible</a>
+                                <>
+                                    {mintResult && (
 
-                                                </p>
-                                            </li>
-                                        )
-                                    }
-                                </ol>
+                                        <ol className={`text-center items-center text-sm ${popupIsError ? "text-cloverWhite" : "text-cloverLightGreen"}`}>
+                                            {
+                                                mintResult.map(token =>
+                                                    <li key={token.tokenId}>
+                                                        <p className="py-2 text-cloverLightGreen text-sm text-cloverLightGreen">
+                                                            - [Clover #{token.tokenId}] View On <a target="_blank" className="text-cloverWhite underline underline-offset-1" rel="noopener noreferrer" href={token.links.opensea}>OpenSea</a> or <a target="_blank" className="text-cloverWhite underline underline-offset-1" rel="noopener noreferrer" href={token.links.rarible}> Rarible</a>
+
+                                                        </p>
+                                                    </li>
+                                                )
+                                            }
+                                        </ol>
+
+                                    )}
+                                </>
 
                             )}
-
-                            {/*  */}
 
 
                             <div className={`text-center items-center pt-2 ${popupIsError ? "text-cloverWhite" : "text-cloverLightGreen"}`}>
                                 <button type="button" onClick={closePopup}
-                                        className={`transition ease-in-out delay-50 duration-500 text-center border-2 items-center px-8 py-4 rounded-lg  ${popupIsError ? "text-cloverWhite border-cloverWhite bg-cloverDarkRed hover:bg-cloverRedHover" : "text-cloverLightGreen border-cloverBorder bg-cloverDarkGreen hover:bg-cloverHover"}`}>OK</button>
+                                    className={`transition ease-in-out delay-50 duration-500 text-center border-2 items-center px-8 py-4 rounded-lg  ${popupIsError ? "text-cloverWhite border-cloverWhite bg-cloverDarkRed hover:bg-cloverRedHover" : "text-cloverLightGreen border-cloverBorder bg-cloverDarkGreen hover:bg-cloverHover"}`}>OK</button>
                             </div>
 
                         </div>

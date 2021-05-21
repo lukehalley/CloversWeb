@@ -10,15 +10,23 @@ import Footer from '../components/Footer'
 import Story from '../components/Story'
 import Mint from '../components/Mint'
 import MintCountdown from '../components/MintCountdown'
-import React, {useRef, useEffect, useState} from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import moment from 'moment';
 
-import {ethers} from 'ethers'
-import {hasEthereum, requestAccount} from '../utils/ethereum'
+import { ethers } from 'ethers'
+import { hasEthereum, requestAccount } from '../utils/ethereum'
 import { Transition } from "@headlessui/react";
-import {Link} from 'react-scroll'
+import { Link } from 'react-scroll'
 
 export default function Home() {
+
+    const metamaskURL = process.env.NEXT_PUBLIC_DISCORD_LINK;
+    const discordURL = process.env.NEXT_PUBLIC_DISCORD_LINK;
+    const twitterURL = process.env.NEXT_PUBLIC_TWITTER_LINK;
+    const openseaURL = process.env.NEXT_PUBLIC_OPENSEA_LINK;
+
+    // Global Show Mint
+    const globalShowMint = (process.env.NEXT_PUBLIC_SHOW_MINT === 'true');
 
     // Page State
     const [loading, setLoading] = useState(true);
@@ -64,7 +72,7 @@ export default function Home() {
 
         const time = Date.parse(privateTime) - Date.parse(new Date());
         if (time < 0) {
-            setMintDatePassed(true );
+            setMintDatePassed(true);
             clearInterval(checkPrivateMintTimeInterval.current);
             const timeLeftForPublicMint = Date.parse(publicSaleMintDate) - Date.parse(new Date());
             if (timeLeftForPublicMint <= 0) {
@@ -82,6 +90,7 @@ export default function Home() {
 
         }
     };
+
     const watchPublicMintTime = (publicTime) => {
 
         const time = Date.parse(publicTime) - Date.parse(new Date());
@@ -97,16 +106,17 @@ export default function Home() {
     // Scroll Helpers
     const toggleScrollToTopBtnVisible = () => {
         const scrolled = document.documentElement.scrollTop;
-        if (scrolled > scrollLimit){
+        if (scrolled > scrollLimit) {
             setScrollToTopBtnVisible(true)
 
         }
-        else if (scrolled <= scrollLimit){
+        else if (scrolled <= scrollLimit) {
             setScrollToTopBtnVisible(false)
         }
 
     };
-    const scrollToTop = () =>{
+
+    const scrollToTop = () => {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
@@ -148,7 +158,7 @@ export default function Home() {
 
     // Wallet Helpers
     function generateShortWalletAddress(address) {
-        return address.substring(0,4) + "..." + address.substring(address.length - 8);
+        return address.substring(0, 4) + "..." + address.substring(address.length - 8);
     }
 
     //////////////////////////////////////////////
@@ -156,7 +166,7 @@ export default function Home() {
     //////////////////////////////////////////////
     // Listen to the account in Metamask
     async function listenToMetamaskAccount() {
-        if(! hasEthereum()) {
+        if (!hasEthereum()) {
             updateWalletTextState('Install MetaMask');
             updateHasMetamaskState(false);
             updateLoadingState(false);
@@ -164,8 +174,8 @@ export default function Home() {
         } else {
             updateHasMetamaskState(true);
         }
-        window.ethereum.on('accountsChanged', async function(accounts) {
-            if(accounts && accounts[0]) {
+        window.ethereum.on('accountsChanged', async function (accounts) {
+            if (accounts && accounts[0]) {
                 updateConnectedState(true);
                 const msg = generateShortWalletAddress(accounts[0]);
                 updateWalletTextState(msg);
@@ -178,7 +188,7 @@ export default function Home() {
 
     // Init Functions
     async function checkNetwork() {
-        if(! hasEthereum()) {
+        if (!hasEthereum()) {
             setWalletText('Install MetaMask');
             updateHasMetamaskState(false);
             updateLoadingState(false);
@@ -214,15 +224,14 @@ export default function Home() {
 
     // Watch our Metamask.
     async function reloadOnAccountChange() {
-        console.log("reloadOnAccountChange");
-        if(!hasEthereum()) {
+        if (!hasEthereum()) {
             setHasMetamask(false);
             setLoading(false);
         } else {
             setHasMetamask(true);
-            window.ethereum.on('accountsChanged', async function(accounts) {
+            window.ethereum.on('accountsChanged', async function (accounts) {
                 window.location.reload();
-                if(accounts && accounts[0]) {
+                if (accounts && accounts[0]) {
                     setConnected(true);
                 } else {
                     setConnected(false);
@@ -235,7 +244,7 @@ export default function Home() {
 
     // Reload on network change.
     async function reloadOnNetworkChange() {
-        if(! hasEthereum()) {
+        if (!hasEthereum()) {
             setHasMetamask(false);
             setLoading(false);
         } else {
@@ -251,7 +260,7 @@ export default function Home() {
     async function requestConnection() {
         try {
             await requestAccount()
-        } catch(error) {
+        } catch (error) {
             console.error(error)
         }
     }
@@ -259,7 +268,7 @@ export default function Home() {
     // Set address of connected wallet
     async function setConnectedAccount() {
         try {
-            if(! hasEthereum()) {
+            if (!hasEthereum()) {
                 updateWalletTextState('Install MetaMask');
                 updateHasMetamaskState(false);
                 updateLoadingState(false);
@@ -272,7 +281,7 @@ export default function Home() {
             const signer = provider.getSigner();
             const address = await signer.getAddress();
 
-            if(address) {
+            if (address) {
                 updateConnectedState(true);
                 const msg = generateShortWalletAddress(address);
                 updateWalletTextState(msg);
@@ -284,13 +293,29 @@ export default function Home() {
 
     // Function that we can use to redirect the user to install Metamask
     function installMetamask() {
-        var win = window.open("https://metamask.io/", '_blank');
+        const win = window.open(metamaskURL, '_blank');
+        win.focus();
+    }
+
+    // Open Opensea URL
+    function openOpensea() {
+        const win = window.open(openseaURL, '_blank');
+        win.focus();
+    }
+
+    function openTwitter() {
+        const win = window.open(twitterURL, '_blank');
+        win.focus();
+    }
+
+    function openDiscord() {
+        const win = window.open(discordURL, '_blank');
         win.focus();
     }
 
     // Fetch the current connected account
     async function fetchConnectedAccount() {
-        if(!hasEthereum()) {
+        if (!hasEthereum()) {
             updateWalletTextState('Install MetaMask');
             updateHasMetamaskState(false);
             updateLoadingState(false);
@@ -311,7 +336,7 @@ export default function Home() {
 
             await window.ethereum.request({
                 method: 'wallet_switchEthereumChain',
-                params: [{ chainId: ("0x" + CHAIN_ID)}],
+                params: [{ chainId: ("0x" + CHAIN_ID) }],
             });
         } catch (switchError) {
             console.log("Failed to switch to the network " + switchError)
@@ -322,7 +347,7 @@ export default function Home() {
     async function handleConnectWallet() {
         updateLoadingState(true);
 
-        if(! hasEthereum()) {
+        if (!hasEthereum()) {
             updateWalletTextState('Install MetaMask');
             updateHasMetamaskState(false);
             updateLoadingState(false);
@@ -343,17 +368,12 @@ export default function Home() {
         reloadOnAccountChange();
         reloadOnNetworkChange();
         checkNetwork();
-
         listenToMetamaskAccount();
         setConnectedAccount();
-
         initScrollUpToggle();
         initMintDataWatcher();
-
-        return () => {
-            watchPreMintTime(preSaleMintDate)
-        };
-    }, [preSaleMintDate]);
+        watchPreMintTime(preSaleMintDate);
+    });
 
     return (
 
@@ -361,8 +381,8 @@ export default function Home() {
 
             <Head>
                 <title>Clover</title>
-                <meta name="description" content="Mint an NFT, or a number of NFTs, from the client-side."/>
-                <link rel="icon" href="favicon.ico"/>
+                <meta name="description" content="Mint an NFT, or a number of NFTs, from the client-side." />
+                <link rel="icon" href="favicon.ico" />
             </Head>
 
             <div class="">
@@ -375,6 +395,7 @@ export default function Home() {
                             <div className="h-screen flex flex-col">
                                 <div className="">
                                     <Nav
+                                        globalShowMint={globalShowMint}
                                         connected={connected} updateConnectedState={updateConnectedState}
                                         loading={loading} updateLoadingState={updateLoadingState}
                                         hasMetamask={hasMetamask} updateHasMetamaskState={updateHasMetamaskState}
@@ -387,53 +408,43 @@ export default function Home() {
                                     />
                                 </div>
                                 <div className="flex-1  mx-auto h-full">
-                                    <Hero/>
+                                    <Hero
+                                        openOpensea={openOpensea}
+                                        openDiscord={openDiscord}
+                                        openTwitter={openTwitter}
+                                    />
                                 </div>
                             </div>
                         </section>
                     </div>
-                    
                     <div>
                         <section id="story" className="bg-repeat bg-blend-overlay book-bg">
                             <div className="container mx-auto">
-                                <Story/>
+                                <Story />
                             </div>
                         </section>
                     </div>
 
-                    {mintDatePassed
+                    {globalShowMint
                         ?
                         <>
-                            <div>
-                                <section id="mint" className="bg-repeat bg-blend-overlay book-bg">
-                                    <div className="container mx-auto p-4">
-                                        <h1 className="mb-0 pt-4 pb-2 md:text-xl lg:text-xl leading-0 tracking-tight text-center text-cloverLightGreen md:text-4xl lg:md:text-xl lg:text-xl">
-                                            <span className="text-3xl leading-tight border-0 border-gray-300 lg:text-5xl md:text-5xl sm:text-1xl">[ Mint ]</span>
-                                        </h1>
-                                        <div
-                                            className="capitalize p-4 text-center text-xl text-cloverLightGreen mx-4 mb-0 sm:lg:text-xl md:text-l md:text-2xl lg:text-2xl lg:text-3xl ">
-                                            Which Clover Will You Find?
-                                        </div>
-                                        <Mint
-                                            currentMintType={currentMintType}
-                                            countdownMessage={countdownMessage}
-                                            preSaleMintDate={publicSaleMintDate}
-                                            connected={connected} updateConnectedState={updateConnectedState}
-                                            loading={loading} updateLoadingState={updateLoadingState}
-                                            hasMetamask={hasMetamask} updateHasMetamaskState={updateHasMetamaskState}
-                                            walletText={walletText} updateWalletTextState={updateWalletTextState}
-                                            hasCorrectNetwork={hasCorrectNetwork} updateHasCorrectNetworkState={updateHasCorrectNetworkState}
-                                            switchToCorrectNetwork={switchToCorrectNetwork}
-                                            handleConnectWallet={handleConnectWallet}
-                                            installMetamask={installMetamask}
-                                            fetchConnectedAccount={fetchConnectedAccount}
-                                            requestConnection={requestConnection}
-                                        />
-                                        {
-                                            currentMintType === "private"
-                                        ?
-                                            <>
-                                                <MintCountdown
+                            {mintDatePassed
+                                ?
+                                <>
+                                    <div>
+                                        <section id="mint" className="bg-repeat bg-blend-overlay book-bg">
+                                            <div className="container mx-auto p-4">
+                                                <h1 className="mb-0 pt-4 pb-2 md:text-xl lg:text-xl leading-0 tracking-tight text-center text-cloverLightGreen md:text-4xl lg:md:text-xl lg:text-xl">
+                                                    <span className="text-3xl leading-tight border-0 border-gray-300 lg:text-5xl md:text-5xl sm:text-1xl">[ Mint ]</span>
+                                                </h1>
+                                                <div
+                                                    className="capitalize p-4 text-center text-xl text-cloverLightGreen mx-4 mb-0 sm:lg:text-xl md:text-l md:text-2xl lg:text-2xl lg:text-3xl ">
+                                                    Which Clover Will You Find?
+                                                </div>
+                                                <Mint
+                                                    key="minter"
+                                                    globalShowMint={globalShowMint}
+                                                    currentMintType={currentMintType}
                                                     countdownMessage={countdownMessage}
                                                     preSaleMintDate={publicSaleMintDate}
                                                     connected={connected} updateConnectedState={updateConnectedState}
@@ -445,35 +456,57 @@ export default function Home() {
                                                     handleConnectWallet={handleConnectWallet}
                                                     installMetamask={installMetamask}
                                                     fetchConnectedAccount={fetchConnectedAccount}
+                                                    requestConnection={requestConnection}
                                                 />
-                                            </>
-                                        :
-                                            <>
-                                            </>
-                                        }
+                                                {
+                                                    currentMintType === "private"
+                                                        ?
+                                                        <>
+                                                            <MintCountdown
+                                                                globalShowMint={globalShowMint}
+                                                                countdownMessage={countdownMessage}
+                                                                preSaleMintDate={publicSaleMintDate}
+                                                                connected={connected} updateConnectedState={updateConnectedState}
+                                                                loading={loading} updateLoadingState={updateLoadingState}
+                                                                hasMetamask={hasMetamask} updateHasMetamaskState={updateHasMetamaskState}
+                                                                walletText={walletText} updateWalletTextState={updateWalletTextState}
+                                                                hasCorrectNetwork={hasCorrectNetwork} updateHasCorrectNetworkState={updateHasCorrectNetworkState}
+                                                                switchToCorrectNetwork={switchToCorrectNetwork}
+                                                                handleConnectWallet={handleConnectWallet}
+                                                                installMetamask={installMetamask}
+                                                                fetchConnectedAccount={fetchConnectedAccount}
+                                                            />
+                                                        </>
+                                                        :
+                                                        <>
+                                                        </>
+                                                }
+                                            </div>
+                                        </section>
                                     </div>
-                                </section>
-                            </div>
+                                </>
+                                :
+                                <>
+                                    <section id="mint" className="bg-repeat bg-blend-overlay book-bg">
+                                        <div className="container mx-auto p-4">
+                                            <h1 className="mb-0 pt-4 pb-2 md:text-xl lg:text-xl leading-0 tracking-tight text-center text-cloverLightGreen md:text-4xl lg:md:text-xl lg:text-xl">
+                                                <span className="text-3xl leading-tight border-0 border-gray-300 lg:text-5xl md:text-5xl sm:text-1xl">[ Mint ]</span>
+                                            </h1>
+                                            <MintCountdown connected={connected} hasMetamask={hasMetamask} countdownMessage={countdownMessage} preSaleMintDate={preSaleMintDate} />
+                                        </div>
+                                    </section>
+                                </>
+                            }
                         </>
                         :
                         <>
-                            <section id="mint" className="bg-repeat bg-blend-overlay book-bg">
-                                <div className="container mx-auto p-4">
-                                    <h1 className="mb-0 pt-4 pb-2 md:text-xl lg:text-xl leading-0 tracking-tight text-center text-cloverLightGreen md:text-4xl lg:md:text-xl lg:text-xl">
-                                        <span className="text-3xl leading-tight border-0 border-gray-300 lg:text-5xl md:text-5xl sm:text-1xl">[ Mint ]</span>
-                                    </h1>
-                                    <MintCountdown connected={connected} hasMetamask={hasMetamask} countdownMessage={countdownMessage} preSaleMintDate={preSaleMintDate} />
-                                </div>
-                            </section>
                         </>
                     }
-
-
 
                     <div>
                         <section id="ability" className="bg-repeat bg-blend-overlay snowflake-bg">
                             <div className="container mx-auto">
-                                <Ability/>
+                                <Ability />
                             </div>
                         </section>
                     </div>
@@ -481,7 +514,7 @@ export default function Home() {
                     <div>
                         <section id="forms" className="bg-repeat bg-blend-overlay face-bg">
                             <div className="container mx-auto">
-                                <Forms/>
+                                <Forms />
                             </div>
                         </section>
                     </div>
@@ -489,7 +522,7 @@ export default function Home() {
                     <div>
                         <section id="roadmap" className="bg-repeat bg-blend-overlay road-bg">
                             <div className="container mx-auto">
-                                <Roadmap/>
+                                <Roadmap />
                             </div>
                         </section>
                     </div>
@@ -497,7 +530,7 @@ export default function Home() {
                     <div>
                         <section id="faq" className="bg-repeat bg-blend-overlay question-bg">
                             <div className="container mx-auto p-8">
-                                <FAQs/>
+                                <FAQs />
                             </div>
                         </section>
                     </div>
@@ -505,13 +538,17 @@ export default function Home() {
                     <div>
                         <section id="team" className="bg-repeat bg-blend-overlay bytes-bg">
                             <div className="container mx-auto p-0">
-                                <Team/>
+                                <Team />
                             </div>
                         </section>
                     </div>
 
                     <section className="bg-repeat bg-blend-overlay shamrock-bg">
-                        <Footer/>
+                        <Footer
+                            openOpensea={openOpensea}
+                            openDiscord={openDiscord}
+                            openTwitter={openTwitter}
+                        />
                     </section>
 
                 </div>
