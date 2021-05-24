@@ -1,6 +1,4 @@
 import React, {useEffect, useState, useRef} from 'react'
-import {ethers} from 'ethers'
-import {hasEthereum, requestAccount} from '../utils/ethereum'
 import { Transition } from "@headlessui/react";
 import {Link} from 'react-scroll'
 

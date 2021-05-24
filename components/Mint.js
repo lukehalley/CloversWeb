@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
-import { ethers } from 'ethers'
-import { hasEthereum, requestAccount } from '../utils/ethereum'
+import { hasEthereum } from '../utils/ethereum'
 import Web3 from 'web3';
 import { Transition } from "@headlessui/react";
 

@@ -11,12 +11,10 @@ import Story from '../components/Story'
 import Mint from '../components/Mint'
 import MintCountdown from '../components/MintCountdown'
 import React, { useRef, useEffect, useState } from 'react'
-import moment from 'moment';
 
 import { ethers } from 'ethers'
 import { hasEthereum, requestAccount } from '../utils/ethereum'
 import { Transition } from "@headlessui/react";
-import { Link } from 'react-scroll'
 
 export default function Home() {
 
