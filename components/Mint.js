@@ -84,6 +84,8 @@ export default function Mint(
                             if (totalMinted === totalSupply) {
                                 console.log("Sold Out!");
                                 setMintSoldOut(true)
+                            } else {
+                                setMintSoldOut(false)
                             }
 
                         });
