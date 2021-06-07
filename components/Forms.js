@@ -25,10 +25,10 @@ export default function Forms() {
     const rarePercentage = 10;
     const legendaryPercentage = 5;
 
-    var commonImgs = ["Basketballer", "Farmer", "Mexican", "Army", "Explorer", "Police", "Cowboy", "Pirate", "King", "Warrior", "Leprechaun", "Dude"];
-    var specialImgs = ["Zombie", "Wizard", "Caveman", "Mushroom", "Eskimo"];
-    var rareImgs = ["Mummy", "Explosion", "Snake", "Robot", "Alien"];
-    var legendaryImgs = ["Ghost", "Sun", "Devil", "Angel", "Rainbow"];
+    var commonImgs = ["basketballer", "farmer", "mexican", "army", "explorer", "police", "cowboy", "pirate", "king", "warrior", "leprechaun", "dude"];
+    var specialImgs = ["zombie", "wizard", "caveman", "mushroom", "eskimo"];
+    var rareImgs = ["mummy", "explosion", "snake", "robot", "alien"];
+    var legendaryImgs = ["ghost", "sun", "devil", "angel", "rainbow"];
 
     var commonNumInCollection = percentage(commonPercentage, collectionSize);
     var commonRarity = commonPercentage;
