@@ -112,8 +112,8 @@ export default function Hero(
                     <div className="z-0 absolute inset-x-0 bottom-0">
                         <div>
                             {/*<img className="ml-2 h-64 md:h-96 lg:h-136 xl:h-144 2xl:h-152 sticky bottom-0 left-0" src={"images/single/leprechaun.png"} alt="Leppy"/>*/}
-                            {/*<img className="ml-2 h-64 md:h-96 lg:h-136 xl:h-144 2xl:h-152 sticky bottom-0 left-0" src={"gifs/animation_leprechaun_1000x1000.gif"} alt="Leppy"/>*/}
-                            <img className="ml-2 h-64 md:h-96 lg:h-136 xl:h-144 2xl:h-152 sticky bottom-0 left-0" src={"gifs/hero.gif"} alt="Leppy"/>
+                            {/*<img className="ml-2 h-64 md:h-96 lg:h-136 xl:h-144 2xl:h-152 sticky bottom-0 left-0" src={"gif-opt/animation_leprechaun_1000x1000.gif"} alt="Leppy"/>*/}
+                            <img className="ml-2 h-64 md:h-96 lg:h-136 xl:h-144 2xl:h-152 sticky bottom-0 left-0" src={"gif-opt/hero.gif"} alt="Leppy"/>
 
                             <Transition
                                 show={scrollDownBtnVisible}
