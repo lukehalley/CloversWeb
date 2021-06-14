@@ -29,7 +29,7 @@
 }
 
 .binary-bg{
-    background-image: url("../public/tiles/binaryLg.gif");
+    background-image: url("../public/tiles/binary-opt.gif");
     background-color: rgba(22, 45, 14, 0.950);
     background-blend-mode: difference;
 }
