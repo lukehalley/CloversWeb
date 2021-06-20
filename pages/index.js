@@ -564,7 +564,7 @@ export default function Home() {
                 leaveFrom="opacity-100"
                 leaveTo="opacity-0"
             >
-                <div className="opacity-95 fixed bottom-0 right-0 text-center p-2 md:lg:p-6 lg:p-6">
+                <div className="z-50 opacity-95 fixed bottom-0 right-0 text-center p-2 md:lg:p-6 lg:p-6">
                     <button onClick={scrollToTop} className="border-2 border-cloverLightGreen text-cloverLightGreen transition ease-in-out delay-50 duration-500 text-cloverLightGreen hover:bg-cloverLighterGreen bg-cloverDarkGreen rounded-full text-center h-16 w-16 md:h-20 lg:h-20 md:w-20 lg:w-20 lg:p-6 cursor-pointer">
                         <i className="fa-solid fa-arrow-up fa-xl">
 
