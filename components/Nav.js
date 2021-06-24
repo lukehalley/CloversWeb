@@ -60,15 +60,16 @@ export default function Nav(
                                                 globalShowMint
                                                 ?
                                                     <>
+
                                                         <a className="text-1xl px-2 inline-block w-full p-0 font-medium text-left transition ease-in-out delay-50 duration-500 text-cloverDarkGreen hover:text-cloverLighterGreen md:w-auto md:px-0 md:mx-2 lg:mx-3 md:text-center">
                                                             <Link to="mint" spy={true} smooth={true}>[ Mint ]</Link>
                                                         </a>
+
                                                     </>
                                                 :
                                                     <>
                                                     </>
                                             }
-
 
                                             <a className="text-1xl px-2 inline-block w-full p-0 font-medium text-left transition ease-in-out delay-50 duration-500 text-cloverDarkGreen hover:text-cloverLighterGreen md:w-auto md:px-0 md:mx-2 lg:mx-3 md:text-center">
                                                 <Link to="ability" spy={true} smooth={true}>[ Ability ]</Link>
@@ -95,6 +96,8 @@ export default function Nav(
                                 </div>
                             </div>
                         </div>
+
+                        {/* DESKTOP BAR */}
 
                         <div className="hidden md:block flex-none w-1/5">
                             <div className="flex justify-center items-center">
@@ -135,7 +138,7 @@ export default function Nav(
                                                     :
                                                     <>
                                                         <button
-                                                            className="bg-opacity-90 inline-flex shadow-lg items-center w-full px-6 py-3 text-sm font-medium text-cloverLightGreen bg-cloverDarkGreen md:px-3 md:w-auto lg:px-5 hover:bg-cloverDarkGreen rounded-none rounded"
+                                                            className="border-2 border-cloverLightGreen bg-opacity-90 inline-flex shadow-lg items-center rounded-lg w-full p-2 text-sm font-medium text-cloverLightGreen bg-cloverDarkGreen md:px-3 md:w-auto lg:px-5 hover:bg-cloverDarkGreen"
                                                             onClick={switchToCorrectNetwork}
                                                         >
 
@@ -155,10 +158,10 @@ export default function Nav(
                                             :
                                             <>
                                                 <button
-                                                    className="bg-opacity-90 inline-flex shadow-lg items-center w-full px-6 py-3 text-sm font-medium text-cloverLightGreen bg-cloverDarkGreen md:px-3 md:w-auto lg:px-5 hover:bg-cloverDarkGreen"
+                                                    className="bg-opacity-90 inline-flex shadow-lg items-center w-full md:px-6 md:py-3 text-sm font-medium text-cloverLightGreen bg-cloverDarkGreen md:px-3 md:w-auto lg:px-5 hover:bg-cloverDarkGreen"
                                                     onClick={installMetamask}
                                                 >
-                                                    <span className="animate-pulse rounded-full h-2 w-2 block mr-2 bg-cloverLightRed"/>
+                                                    <span className="p-1 md:p-0 animate-pulse rounded-full h-2 w-2 block mr-2 bg-cloverLightRed"/>
                                                     Install Metamask
                                                 </button>
                                             </>
@@ -195,7 +198,7 @@ export default function Nav(
                                                     ?
                                                     <>
                                                         <button
-                                                            className="bg-opacity-90 inline-flex shadow-lg items-center w-full px-2 py-2 text-sm font-medium text-cloverLightGreen bg-cloverDarkGreen md:px-3 md:w-auto lg:px-5 hover:bg-cloverDarkGreen rounded-none rounded"
+                                                            className="border-2 border-cloverLightGreen bg-opacity-90 inline-flex shadow-lg items-center rounded-lg w-full p-2 text-sm font-medium text-cloverLightGreen bg-cloverDarkGreen md:px-3 md:w-auto lg:px-5 hover:bg-cloverDarkGreen"
                                                             onClick={handleConnectWallet}
                                                             disabled={connected}
                                                         >
@@ -207,7 +210,7 @@ export default function Nav(
                                                                         ?
                                                                         <>
                                                                 <span
-                                                                    className="animate-pulse rounded-full h-2 w-2 block mr-2 bg-cloverLightGreen"
+                                                                    className="animate-pulse p-1 rounded-full h-2 w-2 block mr-2 bg-cloverLightGreen"
                                                                 />
                                                                             Connected
                                                                         </>
@@ -229,14 +232,14 @@ export default function Nav(
                                                     :
                                                     <>
                                                         <button
-                                                            className="bg-opacity-90 inline-flex shadow-lg items-center w-full px-6 py-3 text-sm font-medium text-cloverLightGreen bg-cloverDarkGreen md:px-3 md:w-auto lg:px-5 hover:bg-cloverDarkGreen rounded-none rounded"
+                                                            className="border-2 border-cloverLightGreen bg-opacity-90 inline-flex shadow-lg items-center rounded-lg w-full p-2 text-sm font-medium text-cloverLightGreen bg-cloverDarkGreen md:px-3 md:w-auto lg:px-5 hover:bg-cloverDarkGreen"
                                                             onClick={switchToCorrectNetwork}
                                                         >
 
                                                             {!loading
                                                                 ?
                                                                 <>
-                                                                    <span className="animate-pulse rounded-full h-2 w-2 block mr-2 bg-cloverLightRed"/>
+                                                                    <span className="animate-pulse p-1 rounded-full h-2 w-2 block mr-2 bg-cloverLightRed"/>
                                                                     { "Switch" }
                                                                 </>
                                                                 :
@@ -249,10 +252,10 @@ export default function Nav(
                                             :
                                             <>
                                                 <button
-                                                    className="bg-opacity-90 inline-flex shadow-lg items-center w-full px-6 py-3 text-sm font-medium text-cloverLightGreen bg-cloverDarkGreen md:px-3 md:w-auto lg:px-5 hover:bg-cloverDarkGreen"
+                                                    className="border-2 border-cloverLightGreen bg-opacity-90 inline-flex shadow-lg items-center rounded-lg w-full py-1 px-2 text-sm font-medium text-cloverLightGreen bg-cloverDarkGreen md:px-3 md:w-auto lg:px-5 hover:bg-cloverDarkGreen"
                                                     onClick={installMetamask}
                                                 >
-                                                    <span className="animate-pulse rounded-full h-2 w-2 block mr-2 bg-cloverLightRed"/>
+                                                    <span className="animate-pulse p-1 rounded-full h-2 w-2 block mr-2 bg-cloverLightRed"/>
                                                     Install Metamask
                                                 </button>
                                             </>

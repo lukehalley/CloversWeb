@@ -1,4 +1,5 @@
 import React from "react";
+import Image from 'next/image'
 
 export default function Roadmap() {
 
@@ -22,7 +23,7 @@ export default function Roadmap() {
 
                     {/*IMG*/}
                     <div className="order-1 md:order-1 grid-item flex flex-col items-center justify-between col-span-1 lg:col-span-4 md:col-span-4 space-y-4 border-8 border-cloverBorder rounded-none rounded">
-                        <img className="" src="gif-opt/origin.gif"/>
+                        <Image width="500" height="500" src="/gif-opt/origin.gif"/>
                     </div>
 
                     {/*TEXT*/}
@@ -70,13 +71,13 @@ export default function Roadmap() {
 
                 {/*IMG*/}
                 <div className="order-3 md:order-4 flex flex-col items-center justify-between col-span-1 lg:col-span-4 md:col-span-4 px-0 py-0 space-y-4 border-8 border-cloverBorder rounded-none rounded">
-                    <img className="" src="gif-opt/transform.gif"/>
+                    <Image width="500" height="500" src="/gif-opt/transform.gif"/>
                 </div>
 
 
                 {/*IMG*/}
                 <div className="order-5 md:order-5 flex flex-col items-center justify-between col-span-1 lg:col-span-4 md:col-span-4 px-0 py-0 space-y-4 border-8 border-cloverBorder rounded-none rounded">
-                    <img className="" src="gif-opt/anti.gif"/>
+                    <Image width="500" height="500" src="/gif-opt/anti.gif"/>
                 </div>
 
                 {/*TEXT*/}
@@ -130,7 +131,7 @@ export default function Roadmap() {
 
                 {/*IMG*/}
                 <div className="order-7 md:order-8 flex flex-col items-center justify-between col-span-1 lg:col-span-4 md:col-span-4 px-0 py-0 space-y-4 border-8 border-cloverBorder rounded-none rounded">
-                    <img className="" src="gif-opt/planet.gif"/>
+                    <Image width="500" height="500" src="/gif-opt/planet.gif"/>
                 </div>
 
             </div>

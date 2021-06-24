@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/dist/client/image";
 
 export default function Roadmap() {
 
@@ -28,7 +29,7 @@ export default function Roadmap() {
 
                     {/*IMG*/}
                     <div className="order-2 md:order-2 grid-item flex flex-col items-center justify-between col-span-1 lg:col-span-4 md:col-span-3 space-y-4 border-8 border-cloverBorder rounded-none rounded">
-                        <img className="" src="gif-opt/eskimo.gif"/>
+                        <Image width="500" height="500" src="/gif-opt/eskimo.gif"/>
                     </div>
 
                     {/*TEXT*/}
@@ -78,7 +79,7 @@ export default function Roadmap() {
 
                 {/*IMG*/}
                 <div className="order-4 md:order-5 flex flex-col items-center justify-between col-span-1 lg:col-span-4 md:col-span-3 px-0 py-0 space-y-4 border-8 border-cloverBorder rounded-none rounded">
-                    <img className="" src="gif-opt/wizard.gif"/>
+                    <Image width="500" height="500" src="/gif-opt/wizard.gif"/>
                 </div>
 
                 {/*BLANK*/}
@@ -94,7 +95,7 @@ export default function Roadmap() {
 
                 {/*IMG*/}
                 <div className="order-8 md:order-8 flex flex-col items-center justify-between col-span-1 lg:col-span-4 md:col-span-3 px-0 py-0 space-y-4 border-8 border-cloverBorder rounded-none rounded">
-                    <img className="" src="gif-opt/explorer.gif"/>
+                    <Image width="500" height="500" src="/gif-opt/explorer.gif"/>
                 </div>
 
                 {/*TEXT*/}
@@ -145,7 +146,7 @@ export default function Roadmap() {
 
                 {/*IMG*/}
                 <div className="order-10 md:order-11 flex flex-col items-center justify-between col-span-1 lg:col-span-4 md:col-span-3 px-0 py-0 space-y-4 border-8 border-cloverBorder rounded-none rounded">
-                    <img className="" src="gif-opt/warrior.gif"/>
+                    <Image width="500" height="500" src="/gif-opt/warrior.gif"/>
                 </div>
 
                 {/*BLANK*/}
