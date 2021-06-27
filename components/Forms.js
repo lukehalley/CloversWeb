@@ -150,7 +150,7 @@ export default function Forms() {
                         >
                             {imgDict["Common"].map((item, index) => {
                                 return <SwiperSlide>
-                                    <img src={"images-opt/Common/" + item + ".png"} key={item}
+                                    <img src={"images-opt/common/" + item + ".png"} key={item}
                                          alt="BigCo Inc. logo"/>
                                 </SwiperSlide>
                             })}
