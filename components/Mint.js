@@ -61,11 +61,6 @@ export default function Mint(
         if (currentMintType !== null) {
             f0.invites().then((inviteValue) => {
 
-                if (currentMintType === "public") {
-                    console.log("public!");
-                    console.log(f0)
-                }
-
                 if (Object.keys(inviteValue).length === 0 && currentMintType !== "public") {
                     setMintActive(false);
                 } else {
@@ -82,7 +77,6 @@ export default function Mint(
                             setTotalMinted(Number(nextIdValue - 1));
 
                             if (totalMinted === totalSupply) {
-                                console.log("Sold Out!");
                                 setMintSoldOut(true)
                             } else {
                                 setMintSoldOut(false)
@@ -108,10 +102,6 @@ export default function Mint(
         } else {
             setMintActive(true);
         }
-
-
-
-        console.log(mintActive);
 
     }
 
@@ -331,7 +321,6 @@ export default function Mint(
 
             setHasWhitelist(Object.getOwnPropertyNames(invites).length !== 0);
 
-            console.log("hasWhitelist " + hasWhitelist)
         }
 
     }
@@ -342,7 +331,6 @@ export default function Mint(
         fetchConnectedAccount();
         checkWalletHasWhitelist();
         fetchTotals();
-        console.log("mintSoldOut: " + mintSoldOut);
         updateLoadingState(false);
     }, []);
 

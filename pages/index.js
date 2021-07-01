@@ -11,6 +11,7 @@ import Story from '../components/Story'
 import Mint from '../components/Mint'
 import MintCountdown from '../components/MintCountdown'
 import React, { useRef, useEffect, useState } from 'react'
+import moment from 'moment';
 
 import { ethers } from 'ethers'
 import { hasEthereum, requestAccount } from '../utils/ethereum'
@@ -52,6 +53,7 @@ export default function Home() {
         setHasCorrectNetwork(state);
     };
 
+
     // Scroll Vars
     const scrollLimit = 300;
     const [scrollToTopBtnVisible, setScrollToTopBtnVisible] = useState(false);
@@ -77,7 +79,12 @@ export default function Home() {
                 setCountdownMessage("");
                 setCurrentMintType("public");
             } else {
-                setCountdownMessage("Public Mint Begins In:");
+
+                let humanDate = createReadableDateTime(publicSaleMintDate);
+                setCountdownMessage("Public Mint Begins  " + humanDate);
+
+
+
                 setCurrentMintType("private");
                 checkPublicMintTimeInterval.current = setInterval(() => watchPublicMintTime(publicSaleMintDate), 1000);
             }
@@ -96,6 +103,7 @@ export default function Home() {
         if (time <= 0) {
             setCountdownMessage("");
             setCurrentMintType("public");
+            console.log(publicSaleMintDate);
             clearInterval(checkPublicMintTimeInterval.current);
 
         }
@@ -138,15 +146,27 @@ export default function Home() {
                 setCurrentMintType("public");
 
             } else {
-                setCountdownMessage("Public Mint Begins In:");
+
+                let humanDate = createReadableDateTime(preSaleMintDate);
+                setCountdownMessage("Whitelist Mint Begins  " + humanDate);
+
                 setCurrentMintType("private");
 
             }
 
         } else {
-            setCountdownMessage("Whitelist Mint Begins In:");
+
             setMintDatePassed(false);
+
+            let humanDate = createReadableDateTime(preSaleMintDate);
+            setCountdownMessage("Whitelist Mint Begins  " + humanDate);
         }
+    }
+
+    function createReadableDateTime(dateString) {
+        const momentDate = moment(dateString, 'MMM DD, YYYY, h:mm a');
+
+        return moment(momentDate).format('[[]DD/MM/YYYY [at] h:mma[]]');
     }
 
     // Scroll Up Toggle

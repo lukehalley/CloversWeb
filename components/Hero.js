@@ -1,6 +1,7 @@
 import {Transition} from "@headlessui/react";
 import React, {useEffect, useState} from "react";
 import {Link} from 'react-scroll'
+import Image from "next/dist/client/image";
 
 export default function Hero(
     {
@@ -13,19 +14,6 @@ export default function Hero(
     const [scrollDownBtnVisible, setScrollDownBtnVisible] = useState(true);
 
     const scrollLimit = 300;
-
-    // // Function that we can use to redirect the user to install Metamask
-    // function openURL(url) {
-    //     var win = window.open(url, '_blank');
-    //     win.focus();
-    // }
-
-    // Function that we can use to redirect the user to install Metamask
-    function buyOnOpensea() {
-        console.log("beep")
-        var win = window.open(openseaURL, '_blank');
-        win.focus();
-    }
 
     const toggleVisible = () => {
         const scrolled = document.documentElement.scrollTop;
@@ -111,9 +99,8 @@ export default function Hero(
                 <div className="row-span-3">
                     <div className="z-0 absolute inset-x-0 bottom-0">
                         <div>
-                            {/*<img className="ml-2 h-64 md:h-96 lg:h-136 xl:h-144 2xl:h-152 sticky bottom-0 left-0" src={"images/single/leprechaun.png"} alt="Leppy"/>*/}
-                            {/*<img className="ml-2 h-64 md:h-96 lg:h-136 xl:h-144 2xl:h-152 sticky bottom-0 left-0" src={"gif-opt/animation_leprechaun_1000x1000.gif"} alt="Leppy"/>*/}
                             <img className="ml-2 h-64 md:h-96 lg:h-136 xl:h-144 2xl:h-152 sticky bottom-0 left-0" src={"gif-opt/hero.gif"} alt="Leppy"/>
+
 
                             <Transition
                                 show={scrollDownBtnVisible}

@@ -29,8 +29,6 @@ function Clock (props) {
 
     useEffect(() => {
 
-        console.log();
-
         setInterval(() => getTimeUntil(props["preSaleMintDate"]), 1000);
 
         return () => getTimeUntil(props["preSaleMintDate"]);
