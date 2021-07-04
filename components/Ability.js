@@ -38,7 +38,7 @@ export default function Roadmap() {
                         <div className="h-full w-full flex flex-col justify-center items-center">
                             <div className="row-span-0">
                                 {/*<h1 className="mb-4">THIS WILL BE THE TITLE</h1>*/}
-                                <h1 className="mb-4 text-2xl md:text-4xl lg:text-4xl">[ Beauty ]</h1>
+                                <h1 className="mb-4 text-2xl md:text-4xl lg:text-4xl">[ Looks ]</h1>
                             </div>
                             <div className="lg:md:text-xl lg:text-l">
                                 <p>
