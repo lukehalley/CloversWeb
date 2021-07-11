@@ -398,7 +398,7 @@ export default function Home() {
         <div className="">
 
             <Head>
-                <title>Clover</title>
+                <title>Clovers</title>
                 <meta name="description" content="Mint an NFT, or a number of NFTs, from the client-side." />
                 <link rel="icon" href="favicon.ico" />
             </Head>
