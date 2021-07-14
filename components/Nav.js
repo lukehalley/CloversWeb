@@ -138,7 +138,7 @@ export default function Nav(
                                                     :
                                                     <>
                                                         <button
-                                                            className="border-2 border-cloverLightGreen bg-opacity-90 inline-flex shadow-lg items-center rounded-lg w-full p-2 text-sm font-medium text-cloverLightGreen bg-cloverDarkGreen md:px-3 md:w-auto lg:px-5 hover:bg-cloverDarkGreen"
+                                                            className="bg-opacity-90 inline-flex shadow-lg items-center w-full md:px-6 md:py-3 text-sm font-medium text-cloverLightGreen bg-cloverDarkGreen md:px-3 md:w-auto lg:px-5 hover:bg-cloverDarkGreen"
                                                             onClick={switchToCorrectNetwork}
                                                         >
 
