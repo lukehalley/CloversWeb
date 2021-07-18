@@ -443,83 +443,83 @@ export default function Home() {
                         </section>
                     </div>
 
-                    {/*{globalShowMint*/}
-                    {/*    ?*/}
-                    {/*    <>*/}
-                    {/*        {mintDatePassed*/}
-                    {/*            ?*/}
-                    {/*            <>*/}
-                    {/*                <div>*/}
-                    {/*                    <section id="mint" className="bg-repeat bg-blend-overlay book-bg">*/}
-                    {/*                        <div className="container mx-auto p-4">*/}
-                    {/*                            <h1 className="mb-0 pt-4 pb-2 md:text-xl lg:text-xl leading-0 tracking-tight text-center text-cloverLightGreen md:text-4xl lg:md:text-xl lg:text-xl">*/}
-                    {/*                                <span className="text-3xl leading-tight border-0 border-gray-300 lg:text-5xl md:text-5xl sm:text-1xl">[ Mint ]</span>*/}
-                    {/*                            </h1>*/}
-                    {/*                            <div*/}
-                    {/*                                className="capitalize p-4 text-center text-xl text-cloverLightGreen mx-4 mb-0 sm:lg:text-xl md:text-l md:text-2xl lg:text-2xl lg:text-3xl ">*/}
-                    {/*                                Which Clover Will You Find?*/}
-                    {/*                            </div>*/}
-                    {/*                            <Mint*/}
-                    {/*                                key="minter"*/}
-                    {/*                                globalShowMint={globalShowMint}*/}
-                    {/*                                currentMintType={currentMintType}*/}
-                    {/*                                countdownMessage={countdownMessage}*/}
-                    {/*                                preSaleMintDate={publicSaleMintDate}*/}
-                    {/*                                connected={connected} updateConnectedState={updateConnectedState}*/}
-                    {/*                                loading={loading} updateLoadingState={updateLoadingState}*/}
-                    {/*                                hasMetamask={hasMetamask} updateHasMetamaskState={updateHasMetamaskState}*/}
-                    {/*                                walletText={walletText} updateWalletTextState={updateWalletTextState}*/}
-                    {/*                                hasCorrectNetwork={hasCorrectNetwork} updateHasCorrectNetworkState={updateHasCorrectNetworkState}*/}
-                    {/*                                switchToCorrectNetwork={switchToCorrectNetwork}*/}
-                    {/*                                handleConnectWallet={handleConnectWallet}*/}
-                    {/*                                installMetamask={installMetamask}*/}
-                    {/*                                fetchConnectedAccount={fetchConnectedAccount}*/}
-                    {/*                                requestConnection={requestConnection}*/}
-                    {/*                            />*/}
-                    {/*                            {*/}
-                    {/*                                currentMintType === "private"*/}
-                    {/*                                    ?*/}
-                    {/*                                    <>*/}
-                    {/*                                        <MintCountdown*/}
-                    {/*                                            globalShowMint={globalShowMint}*/}
-                    {/*                                            countdownMessage={countdownMessage}*/}
-                    {/*                                            preSaleMintDate={publicSaleMintDate}*/}
-                    {/*                                            connected={connected} updateConnectedState={updateConnectedState}*/}
-                    {/*                                            loading={loading} updateLoadingState={updateLoadingState}*/}
-                    {/*                                            hasMetamask={hasMetamask} updateHasMetamaskState={updateHasMetamaskState}*/}
-                    {/*                                            walletText={walletText} updateWalletTextState={updateWalletTextState}*/}
-                    {/*                                            hasCorrectNetwork={hasCorrectNetwork} updateHasCorrectNetworkState={updateHasCorrectNetworkState}*/}
-                    {/*                                            switchToCorrectNetwork={switchToCorrectNetwork}*/}
-                    {/*                                            handleConnectWallet={handleConnectWallet}*/}
-                    {/*                                            installMetamask={installMetamask}*/}
-                    {/*                                            fetchConnectedAccount={fetchConnectedAccount}*/}
-                    {/*                                        />*/}
-                    {/*                                    </>*/}
-                    {/*                                    :*/}
-                    {/*                                    <>*/}
-                    {/*                                    </>*/}
-                    {/*                            }*/}
-                    {/*                        </div>*/}
-                    {/*                    </section>*/}
-                    {/*                </div>*/}
-                    {/*            </>*/}
-                    {/*            :*/}
-                    {/*            <>*/}
-                    {/*                <section id="mint" className="bg-repeat bg-blend-overlay book-bg">*/}
-                    {/*                    <div className="container mx-auto p-4">*/}
-                    {/*                        <h1 className="mb-0 pt-4 pb-2 md:text-xl lg:text-xl leading-0 tracking-tight text-center text-cloverLightGreen md:text-4xl lg:md:text-xl lg:text-xl">*/}
-                    {/*                            <span className="text-3xl leading-tight border-0 border-gray-300 lg:text-5xl md:text-5xl sm:text-1xl">[ Mint ]</span>*/}
-                    {/*                        </h1>*/}
-                    {/*                        <MintCountdown connected={connected} hasMetamask={hasMetamask} countdownMessage={countdownMessage} preSaleMintDate={preSaleMintDate} />*/}
-                    {/*                    </div>*/}
-                    {/*                </section>*/}
-                    {/*            </>*/}
-                    {/*        }*/}
-                    {/*    </>*/}
-                    {/*    :*/}
-                    {/*    <>*/}
-                    {/*    </>*/}
-                    {/*}*/}
+                    {globalShowMint
+                        ?
+                        <>
+                            {mintDatePassed
+                                ?
+                                <>
+                                    <div>
+                                        <section id="mint" className="bg-repeat bg-blend-overlay book-bg">
+                                            <div className="container mx-auto p-4">
+                                                <h1 className="mb-0 pt-4 pb-2 md:text-xl lg:text-xl leading-0 tracking-tight text-center text-cloverLightGreen md:text-4xl lg:md:text-xl lg:text-xl">
+                                                    <span className="text-3xl leading-tight border-0 border-gray-300 lg:text-5xl md:text-5xl sm:text-1xl">[ Mint ]</span>
+                                                </h1>
+                                                <div
+                                                    className="capitalize p-4 text-center text-xl text-cloverLightGreen mx-4 mb-0 sm:lg:text-xl md:text-l md:text-2xl lg:text-2xl lg:text-3xl ">
+                                                    Which Clover Will You Find?
+                                                </div>
+                                                <Mint
+                                                    key="minter"
+                                                    globalShowMint={globalShowMint}
+                                                    currentMintType={currentMintType}
+                                                    countdownMessage={countdownMessage}
+                                                    preSaleMintDate={publicSaleMintDate}
+                                                    connected={connected} updateConnectedState={updateConnectedState}
+                                                    loading={loading} updateLoadingState={updateLoadingState}
+                                                    hasMetamask={hasMetamask} updateHasMetamaskState={updateHasMetamaskState}
+                                                    walletText={walletText} updateWalletTextState={updateWalletTextState}
+                                                    hasCorrectNetwork={hasCorrectNetwork} updateHasCorrectNetworkState={updateHasCorrectNetworkState}
+                                                    switchToCorrectNetwork={switchToCorrectNetwork}
+                                                    handleConnectWallet={handleConnectWallet}
+                                                    installMetamask={installMetamask}
+                                                    fetchConnectedAccount={fetchConnectedAccount}
+                                                    requestConnection={requestConnection}
+                                                />
+                                                {
+                                                    currentMintType === "private"
+                                                        ?
+                                                        <>
+                                                            <MintCountdown
+                                                                globalShowMint={globalShowMint}
+                                                                countdownMessage={countdownMessage}
+                                                                preSaleMintDate={publicSaleMintDate}
+                                                                connected={connected} updateConnectedState={updateConnectedState}
+                                                                loading={loading} updateLoadingState={updateLoadingState}
+                                                                hasMetamask={hasMetamask} updateHasMetamaskState={updateHasMetamaskState}
+                                                                walletText={walletText} updateWalletTextState={updateWalletTextState}
+                                                                hasCorrectNetwork={hasCorrectNetwork} updateHasCorrectNetworkState={updateHasCorrectNetworkState}
+                                                                switchToCorrectNetwork={switchToCorrectNetwork}
+                                                                handleConnectWallet={handleConnectWallet}
+                                                                installMetamask={installMetamask}
+                                                                fetchConnectedAccount={fetchConnectedAccount}
+                                                            />
+                                                        </>
+                                                        :
+                                                        <>
+                                                        </>
+                                                }
+                                            </div>
+                                        </section>
+                                    </div>
+                                </>
+                                :
+                                <>
+                                    <section id="mint" className="bg-repeat bg-blend-overlay book-bg">
+                                        <div className="container mx-auto p-4">
+                                            <h1 className="mb-0 pt-4 pb-2 md:text-xl lg:text-xl leading-0 tracking-tight text-center text-cloverLightGreen md:text-4xl lg:md:text-xl lg:text-xl">
+                                                <span className="text-3xl leading-tight border-0 border-gray-300 lg:text-5xl md:text-5xl sm:text-1xl">[ Mint ]</span>
+                                            </h1>
+                                            <MintCountdown connected={connected} hasMetamask={hasMetamask} countdownMessage={countdownMessage} preSaleMintDate={preSaleMintDate} />
+                                        </div>
+                                    </section>
+                                </>
+                            }
+                        </>
+                        :
+                        <>
+                        </>
+                    }
 
                     <div>
                         <section id="ability" className="bg-repeat bg-blend-overlay snowflake-bg">
