@@ -180,7 +180,7 @@ export default function Mint(
                         currency: process.env.NEXT_PUBLIC_CURRENCY
                     });
                 } catch (error) {
-                    openPopup(true, "Mint Error!", error);
+                    openPopup(true, "Mint Error!", error.message);
                 }
 
                 if (hasWhitelist && currentMintType === "private") {
@@ -218,7 +218,7 @@ export default function Mint(
                             });
 
                     } catch (error) {
-                        openPopup(true, "Mint Error!", error);
+                        openPopup(true, "Mint Error!", error.message);
                     }
 
                 } else {
@@ -263,13 +263,13 @@ export default function Mint(
                                             });
 
                                     } catch (error) {
-                                        openPopup(true, "Mint Error!", error);
+                                        openPopup(true, "Mint Error!", error.message);
                                     }
 
                                 });
 
                             } catch (error) {
-                                openPopup(true, "Mint Error!", error);
+                                openPopup(true, "Mint Error!", error.message);
                             }
                         }
 
@@ -283,7 +283,7 @@ export default function Mint(
             }
 
         } catch (error) {
-            openPopup(true, "Mint Error!", error);
+            openPopup(true, "Mint Error!", error.message);
         }
     }
 
@@ -314,7 +314,7 @@ export default function Mint(
                     currency: process.env.NEXT_PUBLIC_CURRENCY
                 });
             } catch (error) {
-                openPopup(true, "Whitelist Check Error!", error);
+                // openPopup(true, "Whitelist Check Error!", error.message);
             }
 
             let invites = await f0.myInvites();
