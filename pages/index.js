@@ -547,7 +547,7 @@ export default function Home() {
 
                     <div>
                         <section id="faq" className="bg-repeat bg-blend-overlay question-bg">
-                            <div className="container mx-auto p-8">
+                            <div className="container mx-auto p-4">
                                 <FAQs />
                             </div>
                         </section>

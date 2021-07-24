@@ -23,15 +23,15 @@ export default function Roadmap() {
 
                     {/*IMG*/}
                     <div className="order-1 md:order-1 grid-item flex flex-col items-center justify-between col-span-1 lg:col-span-4 md:col-span-4 space-y-4 border-8 border-cloverBorder rounded-none rounded">
-                        <Image width="500" height="500" src="/gif-opt/origin.gif"/>
+                        <img src="/gif-opt/origin.gif"/>
                     </div>
 
                     {/*TEXT*/}
                     <div
-                        className="order-2 md:order-2 relative flex flex-col items-center text-center justify-between col-span-1 lg:col-span-8 md:col-span-4 p-8 space-y-4 overflow-hidden bg-cloverDarkGreen bg-opacity-40 border-dashed border-8 border-cloverBorder rounded-none rounded">
+                        className="order-2 md:order-2 relative flex flex-col items-center text-center justify-between col-span-1 lg:col-span-8 md:col-span-4 p-4 overflow-hidden bg-cloverDarkGreen bg-opacity-40 border-dashed border-8 border-cloverBorder rounded-none rounded">
                         <div className="h-full w-full flex flex-col justify-center items-center">
                             <div className="row-span-0">
-                                <h1 className="mb-4 text-2xl md:text-4xl lg:text-4xl">[ The Conception ]</h1>
+                                <h1 className="mb-4 text-2xl md:text-4xl">[ The Conception ]</h1>
                             </div>
                             <div className="capitalize lg:md:text-xl lg:text-xl">
                                 <p className="">
@@ -49,7 +49,7 @@ export default function Roadmap() {
                 {/*--RIGHT--*/}
                 {/*TEXT*/}
                 <div
-                    className="order-4 md:order-3 relative flex flex-col items-center text-center justify-between col-span-1 lg:col-span-8 md:col-span-8 p-8 space-y-4 overflow-hidden bg-cloverDarkGreen bg-opacity-40 border-dashed border-8 border-cloverBorder rounded-none rounded">
+                    className="order-4 md:order-3 relative flex flex-col items-center text-center justify-between col-span-1 lg:col-span-8 md:col-span-8 p-4 md:p-8 md:p-8 md:p-8 md:p-8 overflow-hidden bg-cloverDarkGreen bg-opacity-40 border-dashed border-8 border-cloverBorder rounded-none rounded">
                     <div className="h-full w-full flex flex-col justify-center items-center">
                         <div className="row-span-0">
                             {/*<h1 className="mb-4">THIS WILL BE THE TITLE</h1>*/}
@@ -71,18 +71,18 @@ export default function Roadmap() {
 
                 {/*IMG*/}
                 <div className="order-3 md:order-4 flex flex-col items-center justify-between col-span-1 lg:col-span-4 md:col-span-4 px-0 py-0 space-y-4 border-8 border-cloverBorder rounded-none rounded">
-                    <Image width="500" height="500" src="/gif-opt/transform.gif"/>
+                    <img src="/gif-opt/transform.gif"/>
                 </div>
 
 
                 {/*IMG*/}
                 <div className="order-5 md:order-5 flex flex-col items-center justify-between col-span-1 lg:col-span-4 md:col-span-4 px-0 py-0 space-y-4 border-8 border-cloverBorder rounded-none rounded">
-                    <Image width="500" height="500" src="/gif-opt/anti.gif"/>
+                    <img src="/gif-opt/anti.gif"/>
                 </div>
 
                 {/*TEXT*/}
                 <div
-                    className="order-6 md:order-6 relative flex flex-col items-center text-center justify-between col-span-1 lg:col-span-8 md:col-span-8 p-8 space-y-4 overflow-hidden bg-cloverDarkGreen bg-opacity-40 border-dashed border-8 border-cloverBorder rounded-none rounded">
+                    className="order-6 md:order-6 relative flex flex-col items-center text-center justify-between col-span-1 lg:col-span-8 md:col-span-8 p-4 md:p-8 md:p-8 md:p-8 md:p-8 overflow-hidden bg-cloverDarkGreen bg-opacity-40 border-dashed border-8 border-cloverBorder rounded-none rounded">
                     <div className="h-full w-full flex flex-col justify-center items-center">
                         <div className="row-span-0">
                             <h1 className="mb-4 text-2xl md:text-4xl lg:text-4xl">[ The Anti-Clover ]</h1>
@@ -105,7 +105,7 @@ export default function Roadmap() {
 
                 {/*TEXT*/}
                 <div
-                    className="order-8 md:order-7 relative flex flex-col items-center text-center justify-between col-span-1 lg:col-span-8 md:col-span-8 p-8 space-y-4 overflow-hidden bg-cloverDarkGreen bg-opacity-40 border-dashed border-8 border-cloverBorder rounded-none rounded">
+                    className="order-8 md:order-7 relative flex flex-col items-center text-center justify-between col-span-1 lg:col-span-8 md:col-span-8 p-4 md:p-8 md:p-8 md:p-8 md:p-8 overflow-hidden bg-cloverDarkGreen bg-opacity-40 border-dashed border-8 border-cloverBorder rounded-none rounded">
                     <div className="h-full w-full flex flex-col justify-center items-center">
 
                         {/*</div>*/}
@@ -131,7 +131,7 @@ export default function Roadmap() {
 
                 {/*IMG*/}
                 <div className="order-7 md:order-8 flex flex-col items-center justify-between col-span-1 lg:col-span-4 md:col-span-4 px-0 py-0 space-y-4 border-8 border-cloverBorder rounded-none rounded">
-                    <Image width="500" height="500" src="/gif-opt/planet.gif"/>
+                    <img src="/gif-opt/planet.gif"/>
                 </div>
 
             </div>

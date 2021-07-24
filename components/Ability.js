@@ -16,7 +16,7 @@ export default function Roadmap() {
                 When a Clover shape-shifts, its form has said to have the following four properties.
             </div>
 
-            <div className="capitalize p-4 grid grid-cols-1 gap-4 mx-4 mt-0 sm:grid-cols-8 lg:grid-cols-12 sm:px-4 xl:px-0">
+            <div className="capitalize p-0 grid grid-cols-1 gap-4 mx-4 mt-0 sm:grid-cols-8 lg:grid-cols-12 sm:px-4 xl:px-0">
 
 
                 <div className="grid-row-wrapper">
@@ -29,7 +29,7 @@ export default function Roadmap() {
 
                     {/*IMG*/}
                     <div className="order-2 md:order-2 grid-item flex flex-col items-center justify-between col-span-1 lg:col-span-4 md:col-span-3 space-y-4 border-8 border-cloverBorder rounded-none rounded">
-                        <Image width="500" height="500" src="/gif-opt/eskimo.gif"/>
+                        <img src="/gif-opt/eskimo.gif"/>
                     </div>
 
                     {/*TEXT*/}
@@ -79,7 +79,7 @@ export default function Roadmap() {
 
                 {/*IMG*/}
                 <div className="order-4 md:order-5 flex flex-col items-center justify-between col-span-1 lg:col-span-4 md:col-span-3 px-0 py-0 space-y-4 border-8 border-cloverBorder rounded-none rounded">
-                    <Image width="500" height="500" src="/gif-opt/wizard.gif"/>
+                    <img src="/gif-opt/wizard.gif"/>
                 </div>
 
                 {/*BLANK*/}
@@ -95,7 +95,7 @@ export default function Roadmap() {
 
                 {/*IMG*/}
                 <div className="order-8 md:order-8 flex flex-col items-center justify-between col-span-1 lg:col-span-4 md:col-span-3 px-0 py-0 space-y-4 border-8 border-cloverBorder rounded-none rounded">
-                    <Image width="500" height="500" src="/gif-opt/explorer.gif"/>
+                    <img src="/gif-opt/explorer.gif"/>
                 </div>
 
                 {/*TEXT*/}
@@ -146,7 +146,7 @@ export default function Roadmap() {
 
                 {/*IMG*/}
                 <div className="order-10 md:order-11 flex flex-col items-center justify-between col-span-1 lg:col-span-4 md:col-span-3 px-0 py-0 space-y-4 border-8 border-cloverBorder rounded-none rounded">
-                    <Image width="500" height="500" src="/gif-opt/warrior.gif"/>
+                    <img src="/gif-opt/warrior.gif"/>
                 </div>
 
                 {/*BLANK*/}

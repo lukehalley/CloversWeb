@@ -38,10 +38,10 @@ export default function Hero(
                 <div className="z-10 row-span-5">
                     <div className="flex h-full">
                         <div className="m-auto">
-                            <h1 className="text-cloverLightGreen px-2 text-4xl leading-10 tracking-tight text-center text-cloverLightGreen md:text-6xl lg:text-7xl">
+                            <h1 className="text-cloverLightGreen px-0 text-4xl leading-10 tracking-tight text-center text-cloverLightGreen md:text-6xl lg:text-7xl">
                                 <span className="text-cloverLightGreen m-0 text-center leading-tight border-0 border-gray-300 lg:text-7xl md:text-5xl sm:text-1xl">They're Hiding.</span>
                             </h1>
-                            <h2 className="px-2 leading-10 tracking-tight text-center text-cloverLightGreen md:text-center sm:leading-none md:text-6xl lg:text-7xl">
+                            <h2 className="px-0 leading-10 tracking-tight text-center text-cloverLightGreen md:text-center sm:leading-none md:text-6xl lg:text-7xl">
                                 <span className="m-0 text-cloverLightGreen text-xl leading-tight border-0 border-gray-300 lg:text-4xl md:text-2xl">Which One Will You Find?</span>
                             </h2>
                             <div

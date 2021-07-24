@@ -315,6 +315,7 @@ export default function Mint(
                 });
             } catch (error) {
                 // openPopup(true, "Whitelist Check Error!", error.message);
+                console.log(error)
             }
 
             let invites = await f0.myInvites();
@@ -357,7 +358,7 @@ export default function Mint(
                 </div>
 
                 <div className="h-full order-1 md:order-2  col-span-5">
-                    <div className="h-full bg-cloverDarkGreen bg-opacity-40 border-dashed border-8 border-cloverBorder rounded-lg m-0 p-8 mx-auto">
+                    <div className="h-full bg-cloverDarkGreen bg-opacity-40 border-dashed border-8 border-cloverBorder rounded-lg m-0 p-4 mx-auto">
                         <div className="h-full text-center flex flex-col items-center md:flex-row">
 
                             <div className="w-full md:w-2/5 md:p-4">
@@ -454,7 +455,7 @@ export default function Mint(
 
                             <div className="bg-cloverLightGreen bg-opacity-5 h-full w-full mt-4 md:mt-0 md:w-3/5">
                                 <div
-                                    className="h-full relative h-auto p-4 overflow-hidden bg-cloverDarkGreen bg-opacity-40 border-dashed border-8 border-cloverBorder rounded-lg shadow-2xl px-7">
+                                    className="h-full relative h-auto py-4 overflow-hidden bg-cloverDarkGreen bg-opacity-40 border-dashed border-8 border-cloverBorder rounded-lg shadow-2xl px-4">
 
                                     <div className="grid place-items-center gap-0 grid-cols-1">
 
@@ -471,7 +472,7 @@ export default function Mint(
 
                                         <div className="py-0 w-full">
                                             <div className="flex flex-row h-12 w-full rounded-lg relative bg-transparent my-4">
-                                                <button onClick={decrementCounter} className="text-cloverLightGreen transition ease-in-out delay-50 duration-500 text-cloverLightGreen hover:bg-cloverLighterGreen bg-cloverDarkGreen h-full w-20 rounded-l cursor-pointer outline-none">
+                                                <button onClick={decrementCounter} className="text-cloverLightGreen border border-4 border-cloverBorder transition ease-in-out delay-50 duration-500 text-cloverLightGreen hover:bg-cloverLighterGreen bg-cloverDarkGreen h-full w-20 rounded-l cursor-pointer outline-none">
                                                     <span className="m-auto text-2xl">−</span>
                                                 </button>
                                                 <input type="number"
@@ -486,7 +487,7 @@ export default function Mint(
                                                 >
 
                                                 </input>
-                                                <button onClick={incrementCounter} className="text-cloverLightGreen transition ease-in-out delay-50 duration-500 text-cloverLightGreen hover:bg-cloverLighterGreen bg-cloverDarkGreen h-full w-20 rounded-r cursor-pointer outline-none">
+                                                <button onClick={incrementCounter} className="text-cloverLightGreen border border-8 border-cloverBorder transition ease-in-out delay-50 duration-500 text-cloverLightGreen hover:bg-cloverLighterGreen bg-cloverDarkGreen h-full w-20 rounded-r cursor-pointer outline-none">
                                                     <span className="m-auto text-2xl">+</span>
                                                 </button>
                                             </div>

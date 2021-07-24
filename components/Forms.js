@@ -104,23 +104,23 @@ export default function Forms() {
     return (
         <>
 
-            <h1 className="mb-0 pt-8 pb-2 md:text-xl lg:text-xl leading-0 tracking-tight text-center text-cloverLightGreen md:text-4xl lg:md:text-xl lg:text-xl">
+            <h1 className="mb-0 pt-8 md:text-xl lg:text-xl leading-0 tracking-tight text-center text-cloverLightGreen md:text-4xl lg:md:text-xl lg:text-xl">
                 <span className="capitalize text-3xl leading-tight border-0 border-gray-300 lg:text-5xl md:text-5xl sm:text-1xl">[ Forms ]</span>
             </h1>
 
             <div
-                className="capitalize p-4 text-center text-xl text-cloverLightGreen mx-4 mb-0 sm:lg:text-xl md:text-l md:text-2xl lg:text-3xl ">
+                className="capitalize py-4 text-center text-xl text-cloverLightGreen mx-4 mb-0 sm:lg:text-xl md:text-l md:text-2xl lg:text-3xl ">
                 Below is all documented forms a Clover has said to be able to shape-shift into.
             </div>
 
             <div
-                className="p-4 text-center text-xl text-cloverLightGreen mx-4 mb-0 sm:lg:text-xl md:text-l md:text-2xl lg:text-3xl ">
+                className="p-0 text-center text-xl text-cloverLightGreen mx-4 mb-0 sm:lg:text-xl md:text-l md:text-2xl lg:text-3xl ">
                 They're is four different Rarity levels for each form.
                 <br></br>
                 [ Common | Special | Rare | Legendary ]
             </div>
 
-            <div className="capitalize p-4 grid grid-cols-1 gap-4 mx-4 mt-0 sm:grid-cols-8 lg:grid-cols-12 sm:px-4 xl:px-0">
+            <div className="capitalize pt-4 grid grid-cols-1 gap-4 mx-4 mt-0 sm:grid-cols-8 lg:grid-cols-12 sm:px-4 xl:px-0">
 
 
                 <div className="grid-row-wrapper">
