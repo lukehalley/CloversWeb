@@ -6,11 +6,11 @@ export default function Team() {
 
         <>
 
-            <h1 className="capitalize mb-0 pt-8 md:text-xl lg:text-xl leading-0 tracking-tight text-center text-cloverLightGreen md:text-4xl lg:md:text-xl lg:text-xl">
+            <h1 className="capitalize mb-0 pt-4 md:text-xl lg:text-xl leading-0 tracking-tight text-center text-cloverLightGreen md:text-4xl lg:md:text-xl lg:text-xl">
                 <span className="text-3xl leading-tight border-0 border-gray-300 lg:text-5xl md:text-5xl sm:text-1xl">[ Team ]</span>
             </h1>
 
-            <div className="capitalize py-8 grid grid-cols-1 gap-4 mx-4 mt-0 lg:grid-cols-2 sm:px-8 xl:px-0">
+            <div className="capitalize py-4 md:py-8 grid grid-cols-1 gap-4 mx-4 mt-0 lg:grid-cols-2 sm:px-8 xl:px-0">
 
 
                 <div className="grid-row-wrapper">

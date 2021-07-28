@@ -127,7 +127,7 @@ export default function Roadmap() {
                 {/*--RIGHT--*/}
                 {/*TEXT*/}
                 <div
-                    className="order-11 md:order-10 relative flex flex-col items-center text-center justify-between col-span-1 lg:col-span-4 md:col-span-3 p-8 space-y-4 overflow-hidden bg-cloverDarkGreen bg-opacity-40 border-dashed border-8 border-cloverBorder rounded-none rounded">
+                    className="mb-4 md:mb-0 order-11 md:order-10 relative flex flex-col items-center text-center justify-between col-span-1 lg:col-span-4 md:col-span-3 p-8 space-y-4 overflow-hidden bg-cloverDarkGreen bg-opacity-40 border-dashed border-8 border-cloverBorder rounded-none rounded">
                     <div className="h-full w-full flex flex-col justify-center items-center">
                         <div className="row-span-0">
                             <h1 className="mb-4 text-2xl md:text-4xl lg:text-4xl">[ Consistency ]</h1>
