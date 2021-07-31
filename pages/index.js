@@ -19,6 +19,7 @@ import { Transition } from "@headlessui/react";
 
 export default function Home() {
 
+    // Env Vars
     const metamaskURL = process.env.NEXT_PUBLIC_DISCORD_LINK;
     const discordURL = process.env.NEXT_PUBLIC_DISCORD_LINK;
     const twitterURL = process.env.NEXT_PUBLIC_TWITTER_LINK;
@@ -35,6 +36,12 @@ export default function Home() {
     const [hasMetamask, setHasMetamask] = useState(false);
     const [walletText, setWalletText] = useState('Connect Wallet');
     const [hasCorrectNetwork, setHasCorrectNetwork] = useState(false);
+
+    // Popup State
+    const [showPopup, setShowPopup] = useState(false);
+    const [popupMessage, setPopupMessage] = useState('enter the amount of Clover(s) you would like to mint.');
+    const [popupTitle, setPopupTitle] = useState('Clover');
+    const [popupIsError, setPopupIsError] = useState('Msg');
 
     // State Functions
     const updateHasMetamaskState = (state) => {
@@ -53,6 +60,32 @@ export default function Home() {
         setHasCorrectNetwork(state);
     };
 
+    const updateShowPopupState = (state) => {
+        setShowPopup(state);
+    };
+    const updateSetPopupTitle = (state) => {
+        setPopupTitle(state);
+    };
+    const updateSetPopupMessage = (state) => {
+        setPopupMessage(state);
+    };
+    const updateSetPopupIsError = (state) => {
+        setPopupIsError(state);
+    };
+
+    // Close The Mint Popup
+    function closePopup() {
+        setShowPopup(false);
+    }
+
+    // Open The Modal
+    function openPopup(isError, popupTitle, popupMessage) {
+        updateSetPopupTitle(popupTitle);
+        updateSetPopupIsError(isError);
+        updateSetPopupMessage(popupMessage);
+        updateShowPopupState(true);
+
+    }
 
     // Scroll Vars
     const scrollLimit = 300;
@@ -103,7 +136,6 @@ export default function Home() {
         if (time <= 0) {
             setCountdownMessage("");
             setCurrentMintType("public");
-            console.log(publicSaleMintDate);
             clearInterval(checkPublicMintTimeInterval.current);
 
         }
@@ -224,8 +256,6 @@ export default function Home() {
 
             let chainName = chain.name;
 
-            console.log(chainName);
-
             let chainID = (chain.chainId).toString();
 
             if (chainName === NETWORK && chainID === CHAIN_ID) {
@@ -279,7 +309,7 @@ export default function Home() {
         try {
             await requestAccount()
         } catch (error) {
-            console.error(error)
+            openPopup(true, "Error Connecting To Wallet!", error.message);
         }
     }
 
@@ -357,7 +387,7 @@ export default function Home() {
                 params: [{ chainId: ("0x" + CHAIN_ID) }],
             });
         } catch (switchError) {
-            console.log("Failed to switch to the network " + switchError.message)
+            openPopup(true, "Failed To Switch To The Network!", switchError.message);
         }
     }
 
@@ -382,7 +412,6 @@ export default function Home() {
 
     // On Load
     useEffect(() => {
-        console.log("fire");
         reloadOnAccountChange();
         reloadOnNetworkChange();
         checkNetwork();
@@ -461,6 +490,7 @@ export default function Home() {
                                                 </div>
                                                 <Mint
                                                     key="minter"
+                                                    openPopup={openPopup}
                                                     globalShowMint={globalShowMint}
                                                     currentMintType={currentMintType}
                                                     countdownMessage={countdownMessage}
@@ -571,7 +601,68 @@ export default function Home() {
 
                 </div>
 
+                <Transition
+                    show={showPopup}
+                    enter="transition-opacity duration-500"
+                    enterFrom="opacity-0"
+                    enterTo="opacity-100"
+                    leave="transition-opacity duration-500"
+                    leaveFrom="opacity-100"
+                    leaveTo="opacity-0"
+                >
+                    {/* className={`banner large ${active ? "active" : ""} ${ disabled ? "disabled" : "" }`} */}
+                    {/* cloverLightRed */}
+                    <div className="modal bg-opacity-50 fixed w-full h-full top-0 left-0 flex items-center justify-center z-50">
+                        <div className={`modal-overlay absolute w-full h-full ${popupIsError ? "bg-cloverLightRed opacity-50" : "bg-cloverDarkGreen opacity-75"}`} />
 
+                        <div className={`modal-container bg-opacity-50 w-11/12 md:max-w-md mx-auto rounded shadow-lg z-40 overflow-y-auto ${popupIsError ? "bg-cloverLightRed" : "bg-cloverDarkGreen"}`}>
+
+                            <div className={`modal-content border-dashed border-4 py-4 text-left px-6 bg-cloverDarkGreen ${popupIsError ? "border-cloverWhite bg-opacity-30" : "bg-opacity-80 border-cloverBorder"}`}>
+
+                                <p className="text-center items-center text-2xl p-4 underline">
+
+                                    <i className={`fa-2xl ${popupIsError ? "fa-solid fa-circle-exclamation text-cloverWhite" : "fa-solid fa-circle-check text-cloverLightGreen"}`}>
+
+                                    </i>
+                                </p>
+
+                                <p className={`text-center items-center text-3xl pt-2 underline ${popupIsError ? "text-cloverWhite" : "text-cloverLightGreen"}`}>{popupTitle}</p>
+
+                                <p className={`text-center items-center text-xl py-2 ${popupIsError ? "text-cloverWhite" : "text-cloverLightGreen"}`}>{popupMessage}</p>
+
+                                {!popupIsError && (
+
+                                    <>
+                                        {mintResult && (
+
+                                            <ol className={`text-center items-center text-sm ${popupIsError ? "text-cloverWhite" : "text-cloverLightGreen"}`}>
+                                                {
+                                                    mintResult.map(token =>
+                                                        <li key={token.tokenId}>
+                                                            <p className="py-2 text-cloverLightGreen text-sm text-cloverLightGreen">
+                                                                - [Clover #{token.tokenId}] View On <a target="_blank" className="text-cloverWhite underline underline-offset-1" rel="noopener noreferrer" href={token.links.opensea}>OpenSea</a> or <a target="_blank" className="text-cloverWhite underline underline-offset-1" rel="noopener noreferrer" href={token.links.rarible}> Rarible</a>
+
+                                                            </p>
+                                                        </li>
+                                                    )
+                                                }
+                                            </ol>
+
+                                        )}
+                                    </>
+
+                                )}
+
+
+                                <div className={`text-center items-center pt-2 ${popupIsError ? "text-cloverWhite" : "text-cloverLightGreen"}`}>
+                                    <button type="button" onClick={closePopup}
+                                            className={`transition ease-in-out delay-50 duration-500 text-center border-2 items-center px-8 py-4 rounded-lg  ${popupIsError ? "text-cloverWhite border-cloverWhite bg-cloverDarkRed hover:bg-cloverRedHover" : "text-cloverLightGreen border-cloverBorder bg-cloverDarkGreen hover:bg-cloverHover"}`}>OK</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </Transition>
 
             </div>
 
@@ -584,7 +675,7 @@ export default function Home() {
                 leaveFrom="opacity-100"
                 leaveTo="opacity-0"
             >
-                <div className="z-50 opacity-95 fixed bottom-0 right-0 text-center p-2 md:lg:p-6 lg:p-6">
+                <div className="z-40 opacity-95 fixed bottom-0 right-0 text-center p-2 md:lg:p-6 lg:p-6">
                     <button onClick={scrollToTop} className="border-2 border-cloverLightGreen text-cloverLightGreen transition ease-in-out delay-50 duration-500 text-cloverLightGreen hover:bg-cloverLighterGreen bg-cloverDarkGreen rounded-full text-center h-16 w-16 md:h-20 lg:h-20 md:w-20 lg:w-20 lg:p-6 cursor-pointer">
                         <i className="fa-solid fa-arrow-up fa-xl">
 

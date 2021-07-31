@@ -6,11 +6,11 @@ import {Link} from 'react-scroll'
 export default function Nav(
     {
         globalShowMint,
-        connected, updateConnectedState,
-        loading, updateLoadingState,
-        hasMetamask, updateHasMetamaskState,
-        walletText, updateWalletTextState,
-        hasCorrectNetwork, updateHasCorrectNetworkState,
+        connected,
+        loading,
+        hasMetamask,
+        walletText,
+        hasCorrectNetwork,
         switchToCorrectNetwork,
         handleConnectWallet,
         installMetamask,
