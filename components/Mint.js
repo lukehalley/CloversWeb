@@ -334,7 +334,7 @@ export default function Mint(
     return (
         <>
 
-            <div className="pb-4 grid grid-cols-1 gap-y-4 md:gap-4 mt-0 md:grid-rows-1 md:grid-cols-8 sm:px-8 xl:px-0">
+            <div className="pb-0 grid grid-cols-1 gap-y-4 md:gap-4 mt-0 md:grid-rows-1 md:grid-cols-8 sm:px-8 xl:px-0">
 
                 <div
                     className="order-2 md:order-1 relative flex flex-col items-center text-center justify-between col-span-1 lg:col-span-3 md:col-span-3 p-8 space-y-4 overflow-hidden bg-cloverDarkGreen bg-opacity-40 border-dashed border-8 border-cloverBorder rounded-none rounded">

@@ -120,7 +120,7 @@ export default function Forms() {
                 [ Common | Special | Rare | Legendary ]
             </div>
 
-            <div className="capitalize pt-4 grid grid-cols-1 gap-4 mx-4 mt-0 sm:grid-cols-8 lg:grid-cols-12 sm:px-4 xl:px-0">
+            <div className="capitalize py-6 grid grid-cols-1 gap-4 mx-4 mt-0 sm:grid-cols-8 lg:grid-cols-12 sm:px-4 xl:px-0">
 
 
                 <div className="grid-row-wrapper">

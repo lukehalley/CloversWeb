@@ -29,6 +29,7 @@ export default function Home() {
     const globalShowMint = (process.env.NEXT_PUBLIC_SHOW_MINT === 'true');
 
     // Page State
+    const [siteIsLoading, setSiteIsLoading] = useState(false);
     const [loading, setLoading] = useState(true);
 
     // Wallet State Vars
@@ -432,259 +433,303 @@ export default function Home() {
                 <link rel="icon" href="favicon.ico" />
             </Head>
 
-            <div class="">
+            {
+                siteIsLoading
+                ?
+                    <>
+                        <div className="fixed top-0 left-0 right-0 bottom-0 w-full h-screen z-50 overflow-hidden bg-cloverDarkGreen opacity-100 flex flex-col items-center justify-center">
+                            <div className="loader ease-linear rounded-full border-4 border-t-4 border-cloverLighterGreen h-12 w-12 mb-4"/>
+                            <h2 className="text-center text-white text-xl">Loading...</h2>
+                        </div>
+                    </>
+                :
+                    <>
+                        <div className="">
 
-                <div className="grid grid-cols-1 divide-y-4 divide-green">
+                            <div className="grid grid-cols-1 divide-y-4 divide-green">
 
-                    <div className="bg-repeat bg-blend-overlay binary-bg">
-                        <section className="relative h-screen px-0 pb-0 antialiased">
+                                <div className="bg-repeat bg-blend-overlay binary-bg">
+                                    <section className="relative h-screen px-0 pb-0 antialiased">
 
-                            <div className="h-screen flex flex-col">
-                                <div className="">
-                                    <Nav
-                                        globalShowMint={globalShowMint}
-                                        connected={connected} updateConnectedState={updateConnectedState}
-                                        loading={loading} updateLoadingState={updateLoadingState}
-                                        hasMetamask={hasMetamask} updateHasMetamaskState={updateHasMetamaskState}
-                                        walletText={walletText} updateWalletTextState={updateWalletTextState}
-                                        hasCorrectNetwork={hasCorrectNetwork} updateHasCorrectNetworkState={updateHasCorrectNetworkState}
-                                        switchToCorrectNetwork={switchToCorrectNetwork}
-                                        handleConnectWallet={handleConnectWallet}
-                                        installMetamask={installMetamask}
-                                        fetchConnectedAccount={fetchConnectedAccount}
-                                    />
-                                </div>
-                                <div className="flex-1  mx-auto h-full">
-                                    <Hero
-                                        openOpensea={openOpensea}
-                                        openDiscord={openDiscord}
-                                        openTwitter={openTwitter}
-                                    />
-                                </div>
-                            </div>
-                        </section>
-                    </div>
-                    <div>
-                        <section id="story" className="bg-repeat bg-blend-overlay book-bg">
-                            <div className="container mx-auto">
-                                <Story />
-                            </div>
-                        </section>
-                    </div>
-
-                    {globalShowMint
-                        ?
-                        <>
-                            {mintDatePassed
-                                ?
-                                <>
-                                    <div>
-                                        <section id="mint" className="bg-repeat bg-blend-overlay book-bg">
-                                            <div className="container mx-auto p-4">
-                                                <h1 className="mb-0 pt-4 pb-2 md:text-xl lg:text-xl leading-0 tracking-tight text-center text-cloverLightGreen md:text-4xl lg:md:text-xl lg:text-xl">
-                                                    <span className="text-3xl leading-tight border-0 border-gray-300 lg:text-5xl md:text-5xl sm:text-1xl">[ Mint ]</span>
-                                                </h1>
-                                                <div
-                                                    className="capitalize p-4 text-center text-xl text-cloverLightGreen mx-4 mb-0 sm:lg:text-xl md:text-l md:text-2xl lg:text-2xl lg:text-3xl ">
-                                                    Which Clover Will You Find?
-                                                </div>
-                                                <Mint
-                                                    key="minter"
-                                                    openPopup={openPopup}
+                                        <div className="h-screen flex flex-col">
+                                            <div className="">
+                                                <Nav
                                                     globalShowMint={globalShowMint}
-                                                    currentMintType={currentMintType}
-                                                    countdownMessage={countdownMessage}
-                                                    preSaleMintDate={publicSaleMintDate}
                                                     connected={connected} updateConnectedState={updateConnectedState}
                                                     loading={loading} updateLoadingState={updateLoadingState}
-                                                    hasMetamask={hasMetamask} updateHasMetamaskState={updateHasMetamaskState}
-                                                    walletText={walletText} updateWalletTextState={updateWalletTextState}
-                                                    hasCorrectNetwork={hasCorrectNetwork} updateHasCorrectNetworkState={updateHasCorrectNetworkState}
+                                                    hasMetamask={hasMetamask}
+                                                    updateHasMetamaskState={updateHasMetamaskState}
+                                                    walletText={walletText}
+                                                    updateWalletTextState={updateWalletTextState}
+                                                    hasCorrectNetwork={hasCorrectNetwork}
+                                                    updateHasCorrectNetworkState={updateHasCorrectNetworkState}
                                                     switchToCorrectNetwork={switchToCorrectNetwork}
                                                     handleConnectWallet={handleConnectWallet}
                                                     installMetamask={installMetamask}
                                                     fetchConnectedAccount={fetchConnectedAccount}
-                                                    requestConnection={requestConnection}
                                                 />
-                                                {
-                                                    currentMintType === "private"
-                                                        ?
-                                                        <>
-                                                            <MintCountdown
+                                            </div>
+                                            <div className="flex-1  mx-auto h-full">
+                                                <Hero
+                                                    openOpensea={openOpensea}
+                                                    openDiscord={openDiscord}
+                                                    openTwitter={openTwitter}
+                                                />
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                                <div>
+                                    <section id="story" className="bg-repeat bg-blend-overlay book-bg">
+                                        <div className="container mx-auto">
+                                            <Story/>
+                                        </div>
+                                    </section>
+                                </div>
+
+                                {globalShowMint
+                                    ?
+                                    <>
+                                        {mintDatePassed
+                                            ?
+                                            <>
+                                                <div>
+                                                    <section id="mint" className="bg-repeat bg-blend-overlay book-bg">
+                                                        <div className="container mx-auto p-4">
+                                                            <h1 className="mb-0 pt-4 pb-2 md:text-xl lg:text-xl leading-0 tracking-tight text-center text-cloverLightGreen md:text-4xl lg:md:text-xl lg:text-xl">
+                                                                <span
+                                                                    className="text-3xl leading-tight border-0 border-gray-300 lg:text-5xl md:text-5xl sm:text-1xl">[ Mint ]</span>
+                                                            </h1>
+                                                            <div
+                                                                className="capitalize p-4 text-center text-xl text-cloverLightGreen mx-4 mb-0 sm:lg:text-xl md:text-l md:text-2xl lg:text-2xl lg:text-3xl ">
+                                                                Which Clover Will You Find?
+                                                            </div>
+                                                            <Mint
+                                                                key="minter"
+                                                                openPopup={openPopup}
                                                                 globalShowMint={globalShowMint}
+                                                                currentMintType={currentMintType}
                                                                 countdownMessage={countdownMessage}
                                                                 preSaleMintDate={publicSaleMintDate}
-                                                                connected={connected} updateConnectedState={updateConnectedState}
-                                                                loading={loading} updateLoadingState={updateLoadingState}
-                                                                hasMetamask={hasMetamask} updateHasMetamaskState={updateHasMetamaskState}
-                                                                walletText={walletText} updateWalletTextState={updateWalletTextState}
-                                                                hasCorrectNetwork={hasCorrectNetwork} updateHasCorrectNetworkState={updateHasCorrectNetworkState}
+                                                                connected={connected}
+                                                                updateConnectedState={updateConnectedState}
+                                                                loading={loading}
+                                                                updateLoadingState={updateLoadingState}
+                                                                hasMetamask={hasMetamask}
+                                                                updateHasMetamaskState={updateHasMetamaskState}
+                                                                walletText={walletText}
+                                                                updateWalletTextState={updateWalletTextState}
+                                                                hasCorrectNetwork={hasCorrectNetwork}
+                                                                updateHasCorrectNetworkState={updateHasCorrectNetworkState}
                                                                 switchToCorrectNetwork={switchToCorrectNetwork}
                                                                 handleConnectWallet={handleConnectWallet}
                                                                 installMetamask={installMetamask}
                                                                 fetchConnectedAccount={fetchConnectedAccount}
+                                                                requestConnection={requestConnection}
                                                             />
-                                                        </>
-                                                        :
-                                                        <>
-                                                        </>
-                                                }
-                                            </div>
-                                        </section>
-                                    </div>
-                                </>
-                                :
-                                <>
-                                    <section id="mint" className="bg-repeat bg-blend-overlay book-bg">
-                                        <div className="container mx-auto p-4">
-                                            <h1 className="mb-0 pt-4 pb-2 md:text-xl lg:text-xl leading-0 tracking-tight text-center text-cloverLightGreen md:text-4xl lg:md:text-xl lg:text-xl">
-                                                <span className="text-3xl leading-tight border-0 border-gray-300 lg:text-5xl md:text-5xl sm:text-1xl">[ Mint ]</span>
-                                            </h1>
-                                            <MintCountdown connected={connected} hasMetamask={hasMetamask} countdownMessage={countdownMessage} preSaleMintDate={preSaleMintDate} />
+                                                            {
+                                                                currentMintType === "private"
+                                                                    ?
+                                                                    <>
+                                                                        <MintCountdown
+                                                                            globalShowMint={globalShowMint}
+                                                                            countdownMessage={countdownMessage}
+                                                                            preSaleMintDate={publicSaleMintDate}
+                                                                            connected={connected}
+                                                                            updateConnectedState={updateConnectedState}
+                                                                            loading={loading}
+                                                                            updateLoadingState={updateLoadingState}
+                                                                            hasMetamask={hasMetamask}
+                                                                            updateHasMetamaskState={updateHasMetamaskState}
+                                                                            walletText={walletText}
+                                                                            updateWalletTextState={updateWalletTextState}
+                                                                            hasCorrectNetwork={hasCorrectNetwork}
+                                                                            updateHasCorrectNetworkState={updateHasCorrectNetworkState}
+                                                                            switchToCorrectNetwork={switchToCorrectNetwork}
+                                                                            handleConnectWallet={handleConnectWallet}
+                                                                            installMetamask={installMetamask}
+                                                                            fetchConnectedAccount={fetchConnectedAccount}
+                                                                        />
+                                                                    </>
+                                                                    :
+                                                                    <>
+                                                                    </>
+                                                            }
+                                                        </div>
+                                                    </section>
+                                                </div>
+                                            </>
+                                            :
+                                            <>
+                                                <section id="mint" className="bg-repeat bg-blend-overlay book-bg">
+                                                    <div className="container mx-auto p-4">
+                                                        <h1 className="mb-0 pt-4 pb-2 md:text-xl lg:text-xl leading-0 tracking-tight text-center text-cloverLightGreen md:text-4xl lg:md:text-xl lg:text-xl">
+                                                            <span
+                                                                className="text-3xl leading-tight border-0 border-gray-300 lg:text-5xl md:text-5xl sm:text-1xl">[ Mint ]</span>
+                                                        </h1>
+                                                        <MintCountdown connected={connected} hasMetamask={hasMetamask}
+                                                                       countdownMessage={countdownMessage}
+                                                                       preSaleMintDate={preSaleMintDate}/>
+                                                    </div>
+                                                </section>
+                                            </>
+                                        }
+                                    </>
+                                    :
+                                    <>
+                                    </>
+                                }
+
+                                <div>
+                                    <section id="ability" className="bg-repeat bg-blend-overlay snowflake-bg">
+                                        <div className="container mx-auto">
+                                            <Ability/>
                                         </div>
                                     </section>
-                                </>
-                            }
-                        </>
-                        :
-                        <>
-                        </>
-                    }
-
-                    <div>
-                        <section id="ability" className="bg-repeat bg-blend-overlay snowflake-bg">
-                            <div className="container mx-auto">
-                                <Ability />
-                            </div>
-                        </section>
-                    </div>
-
-                    <div>
-                        <section id="forms" className="bg-repeat bg-blend-overlay face-bg">
-                            <div className="container mx-auto">
-                                <Forms />
-                            </div>
-                        </section>
-                    </div>
-
-                    <div>
-                        <section id="roadmap" className="bg-repeat bg-blend-overlay road-bg">
-                            <div className="container mx-auto">
-                                <Roadmap />
-                            </div>
-                        </section>
-                    </div>
-
-                    <div>
-                        <section id="faq" className="bg-repeat bg-blend-overlay question-bg">
-                            <div className="container mx-auto p-4">
-                                <FAQs />
-                            </div>
-                        </section>
-                    </div>
-
-                    <div>
-                        <section id="team" className="bg-repeat bg-blend-overlay bytes-bg">
-                            <div className="container mx-auto p-0">
-                                <Team />
-                            </div>
-                        </section>
-                    </div>
-
-                    <section className="bg-repeat bg-blend-overlay shamrock-bg">
-                        <Footer
-                            openOpensea={openOpensea}
-                            openDiscord={openDiscord}
-                            openTwitter={openTwitter}
-                        />
-                    </section>
-
-                </div>
-
-                <Transition
-                    show={showPopup}
-                    enter="transition-opacity duration-500"
-                    enterFrom="opacity-0"
-                    enterTo="opacity-100"
-                    leave="transition-opacity duration-500"
-                    leaveFrom="opacity-100"
-                    leaveTo="opacity-0"
-                >
-                    {/* className={`banner large ${active ? "active" : ""} ${ disabled ? "disabled" : "" }`} */}
-                    {/* cloverLightRed */}
-                    <div className="modal bg-opacity-50 fixed w-full h-full top-0 left-0 flex items-center justify-center z-50">
-                        <div className={`modal-overlay absolute w-full h-full ${popupIsError ? "bg-cloverLightRed opacity-50" : "bg-cloverDarkGreen opacity-75"}`} />
-
-                        <div className={`modal-container bg-opacity-50 w-11/12 md:max-w-md mx-auto rounded shadow-lg z-40 overflow-y-auto ${popupIsError ? "bg-cloverLightRed" : "bg-cloverDarkGreen"}`}>
-
-                            <div className={`modal-content border-dashed border-4 py-4 text-left px-6 bg-cloverDarkGreen ${popupIsError ? "border-cloverWhite bg-opacity-30" : "bg-opacity-80 border-cloverBorder"}`}>
-
-                                <p className="text-center items-center text-2xl p-4 underline">
-
-                                    <i className={`fa-2xl ${popupIsError ? "fa-solid fa-circle-exclamation text-cloverWhite" : "fa-solid fa-circle-check text-cloverLightGreen"}`}>
-
-                                    </i>
-                                </p>
-
-                                <p className={`text-center items-center text-3xl pt-2 underline ${popupIsError ? "text-cloverWhite" : "text-cloverLightGreen"}`}>{popupTitle}</p>
-
-                                <p className={`text-center items-center text-xl py-2 ${popupIsError ? "text-cloverWhite" : "text-cloverLightGreen"}`}>{popupMessage}</p>
-
-                                {!popupIsError && (
-
-                                    <>
-                                        {mintResult && (
-
-                                            <ol className={`text-center items-center text-sm ${popupIsError ? "text-cloverWhite" : "text-cloverLightGreen"}`}>
-                                                {
-                                                    mintResult.map(token =>
-                                                        <li key={token.tokenId}>
-                                                            <p className="py-2 text-cloverLightGreen text-sm text-cloverLightGreen">
-                                                                - [Clover #{token.tokenId}] View On <a target="_blank" className="text-cloverWhite underline underline-offset-1" rel="noopener noreferrer" href={token.links.opensea}>OpenSea</a> or <a target="_blank" className="text-cloverWhite underline underline-offset-1" rel="noopener noreferrer" href={token.links.rarible}> Rarible</a>
-
-                                                            </p>
-                                                        </li>
-                                                    )
-                                                }
-                                            </ol>
-
-                                        )}
-                                    </>
-
-                                )}
-
-
-                                <div className={`text-center items-center pt-2 ${popupIsError ? "text-cloverWhite" : "text-cloverLightGreen"}`}>
-                                    <button type="button" onClick={closePopup}
-                                            className={`transition ease-in-out delay-50 duration-500 text-center border-2 items-center px-8 py-4 rounded-lg  ${popupIsError ? "text-cloverWhite border-cloverWhite bg-cloverDarkRed hover:bg-cloverRedHover" : "text-cloverLightGreen border-cloverBorder bg-cloverDarkGreen hover:bg-cloverHover"}`}>OK</button>
                                 </div>
 
+                                <div>
+                                    <section id="forms" className="bg-repeat bg-blend-overlay face-bg">
+                                        <div className="container mx-auto">
+                                            <Forms/>
+                                        </div>
+                                    </section>
+                                </div>
+
+                                <div>
+                                    <section id="roadmap" className="bg-repeat bg-blend-overlay road-bg">
+                                        <div className="container mx-auto">
+                                            <Roadmap/>
+                                        </div>
+                                    </section>
+                                </div>
+
+                                <div>
+                                    <section id="faq" className="bg-repeat bg-blend-overlay question-bg">
+                                        <div className="container mx-auto p-4">
+                                            <FAQs/>
+                                        </div>
+                                    </section>
+                                </div>
+
+                                <div>
+                                    <section id="team" className="bg-repeat bg-blend-overlay bytes-bg">
+                                        <div className="container mx-auto p-0">
+                                            <Team/>
+                                        </div>
+                                    </section>
+                                </div>
+
+                                <section className="bg-repeat bg-blend-overlay shamrock-bg">
+                                    <Footer
+                                        openOpensea={openOpensea}
+                                        openDiscord={openDiscord}
+                                        openTwitter={openTwitter}
+                                    />
+                                </section>
+
                             </div>
+
+                            <Transition
+                                show={showPopup}
+                                enter="transition-opacity duration-500"
+                                enterFrom="opacity-0"
+                                enterTo="opacity-100"
+                                leave="transition-opacity duration-500"
+                                leaveFrom="opacity-100"
+                                leaveTo="opacity-0"
+                            >
+                                {/* className={`banner large ${active ? "active" : ""} ${ disabled ? "disabled" : "" }`} */}
+                                {/* cloverLightRed */}
+                                <div
+                                    className="modal bg-opacity-50 fixed w-full h-full top-0 left-0 flex items-center justify-center z-50">
+                                    <div
+                                        className={`modal-overlay absolute w-full h-full ${popupIsError ? "bg-cloverLightRed opacity-50" : "bg-cloverDarkGreen opacity-75"}`}/>
+
+                                    <div
+                                        className={`modal-container bg-opacity-50 w-11/12 md:max-w-md mx-auto rounded shadow-lg z-40 overflow-y-auto ${popupIsError ? "bg-cloverLightRed" : "bg-cloverDarkGreen"}`}>
+
+                                        <div
+                                            className={`modal-content border-dashed border-4 py-4 text-left px-6 bg-cloverDarkGreen ${popupIsError ? "border-cloverWhite bg-opacity-30" : "bg-opacity-80 border-cloverBorder"}`}>
+
+                                            <p className="text-center items-center text-2xl p-4 underline">
+
+                                                <i className={`fa-2xl ${popupIsError ? "fa-solid fa-circle-exclamation text-cloverWhite" : "fa-solid fa-circle-check text-cloverLightGreen"}`}>
+
+                                                </i>
+                                            </p>
+
+                                            <p className={`text-center items-center text-3xl pt-2 underline ${popupIsError ? "text-cloverWhite" : "text-cloverLightGreen"}`}>{popupTitle}</p>
+
+                                            <p className={`text-center items-center text-xl py-2 ${popupIsError ? "text-cloverWhite" : "text-cloverLightGreen"}`}>{popupMessage}</p>
+
+                                            {!popupIsError && (
+
+                                                <>
+                                                    {mintResult && (
+
+                                                        <ol className={`text-center items-center text-sm ${popupIsError ? "text-cloverWhite" : "text-cloverLightGreen"}`}>
+                                                            {
+                                                                mintResult.map(token =>
+                                                                    <li key={token.tokenId}>
+                                                                        <p className="py-2 text-cloverLightGreen text-sm text-cloverLightGreen">
+                                                                            - [Clover #{token.tokenId}] View On <a
+                                                                            target="_blank"
+                                                                            className="text-cloverWhite underline underline-offset-1"
+                                                                            rel="noopener noreferrer"
+                                                                            href={token.links.opensea}>OpenSea</a> or <a
+                                                                            target="_blank"
+                                                                            className="text-cloverWhite underline underline-offset-1"
+                                                                            rel="noopener noreferrer"
+                                                                            href={token.links.rarible}> Rarible</a>
+
+                                                                        </p>
+                                                                    </li>
+                                                                )
+                                                            }
+                                                        </ol>
+
+                                                    )}
+                                                </>
+
+                                            )}
+
+
+                                            <div
+                                                className={`text-center items-center pt-2 ${popupIsError ? "text-cloverWhite" : "text-cloverLightGreen"}`}>
+                                                <button type="button" onClick={closePopup}
+                                                        className={`transition ease-in-out delay-50 duration-500 text-center border-2 items-center px-8 py-4 rounded-lg  ${popupIsError ? "text-cloverWhite border-cloverWhite bg-cloverDarkRed hover:bg-cloverRedHover" : "text-cloverLightGreen border-cloverBorder bg-cloverDarkGreen hover:bg-cloverHover"}`}>OK
+                                                </button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </Transition>
+
+                            <Transition
+                                show={scrollToTopBtnVisible}
+                                enter="transition-opacity duration-1000"
+                                enterFrom="opacity-0"
+                                enterTo="opacity-100"
+                                leave="transition-opacity duration-1000"
+                                leaveFrom="opacity-100"
+                                leaveTo="opacity-0"
+                            >
+                                <div
+                                    className="z-40 opacity-95 fixed bottom-0 right-0 text-center p-2 md:lg:p-6 lg:p-6">
+                                    <button onClick={scrollToTop}
+                                            className="border-2 border-cloverLightGreen text-cloverLightGreen transition ease-in-out delay-50 duration-500 text-cloverLightGreen hover:bg-cloverLighterGreen bg-cloverDarkGreen rounded-full text-center h-16 w-16 md:h-20 lg:h-20 md:w-20 lg:w-20 lg:p-6 cursor-pointer">
+                                        <i className="fa-solid fa-arrow-up fa-xl">
+
+                                        </i>
+                                    </button>
+                                </div>
+                            </Transition>
+
                         </div>
-                    </div>
-                </Transition>
-
-            </div>
-
-            <Transition
-                show={scrollToTopBtnVisible}
-                enter="transition-opacity duration-1000"
-                enterFrom="opacity-0"
-                enterTo="opacity-100"
-                leave="transition-opacity duration-1000"
-                leaveFrom="opacity-100"
-                leaveTo="opacity-0"
-            >
-                <div className="z-40 opacity-95 fixed bottom-0 right-0 text-center p-2 md:lg:p-6 lg:p-6">
-                    <button onClick={scrollToTop} className="border-2 border-cloverLightGreen text-cloverLightGreen transition ease-in-out delay-50 duration-500 text-cloverLightGreen hover:bg-cloverLighterGreen bg-cloverDarkGreen rounded-full text-center h-16 w-16 md:h-20 lg:h-20 md:w-20 lg:w-20 lg:p-6 cursor-pointer">
-                        <i className="fa-solid fa-arrow-up fa-xl">
-
-                        </i>
-                    </button>
-                </div>
-            </Transition>
-
-
+                    </>
+            }
 
         </div>
     )

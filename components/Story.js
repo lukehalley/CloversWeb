@@ -1,7 +1,8 @@
-import React from "react";
+
+import React, { useState } from 'react'
 import Image from 'next/image'
 
-export default function Roadmap() {
+export default function Story() {
 
     return (
 

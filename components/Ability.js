@@ -16,7 +16,7 @@ export default function Roadmap() {
                 When a Clover shape-shifts, its form has said to have the following four properties.
             </div>
 
-            <div className="capitalize p-0 grid grid-cols-1 gap-4 mx-4 mt-0 sm:grid-cols-8 lg:grid-cols-12 sm:px-4 xl:px-0">
+            <div className="capitalize py-6 grid grid-cols-1 gap-4 mx-4 mt-0 sm:grid-cols-8 lg:grid-cols-12 sm:px-4 xl:px-0">
 
 
                 <div className="grid-row-wrapper">
