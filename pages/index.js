@@ -44,6 +44,9 @@ export default function Home() {
     const [popupTitle, setPopupTitle] = useState('Clover');
     const [popupIsError, setPopupIsError] = useState('Msg');
 
+    // Mint State
+    const [mintResult, setMintResult] = useState([]);
+
     // State Functions
     const updateHasMetamaskState = (state) => {
         setHasMetamask(state);
@@ -72,6 +75,10 @@ export default function Home() {
     };
     const updateSetPopupIsError = (state) => {
         setPopupIsError(state);
+    };
+
+    const updateMintResultState = (state) => {
+        setMintResult(state);
     };
 
     // Close The Mint Popup
@@ -512,6 +519,7 @@ export default function Home() {
                                                                 countdownMessage={countdownMessage}
                                                                 preSaleMintDate={publicSaleMintDate}
                                                                 connected={connected}
+                                                                updateMintResultState={updateMintResultState}
                                                                 updateConnectedState={updateConnectedState}
                                                                 loading={loading}
                                                                 updateLoadingState={updateLoadingState}

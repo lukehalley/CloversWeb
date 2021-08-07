@@ -14,7 +14,9 @@ export default function Mint(
         installMetamask,
         fetchConnectedAccount,
         requestConnection,
-        openPopup
+        openPopup,
+        updateMintResultState
+
     }) {
 
     // Minting state
@@ -25,7 +27,6 @@ export default function Mint(
     const [totalMinted, setTotalMinted] = useState(0);
     const [totalSupply, setTotalSupply] = useState(5);
     const [mintPrice, setMintPrice] = useState(0.025);
-    const [mintResult, setMintResult] = useState([]);
     const [mintSoldOut, setMintSoldOut] = useState(true);
 
     const [hasWhitelist, setHasWhitelist] = useState(false);
@@ -175,8 +176,8 @@ export default function Mint(
                     try {
 
                         f0.mint(invite, mintQuantity)
-                            .then((mintResult) => {
-                                if (typeof mintResult !== 'undefined' && mintResult.length > 0) {
+                            .then((mintValue) => {
+                                if (typeof mintValue !== 'undefined' && mintValue.length > 0) {
 
                                     if (mintQuantity === 1) {
                                         openPopup(false, "Mint Successful!", "You minted a Clover!");
@@ -187,7 +188,7 @@ export default function Mint(
 
                                     setMintInProgress(false);
 
-                                    setMintResult(mintResult);
+                                    updateMintResultState(mintValue);
                                     fetchTotals();
                                 }
                             })
@@ -226,8 +227,8 @@ export default function Mint(
                                     try {
 
                                         f0.mint(null, mintQuantity)
-                                            .then((mintResult) => {
-                                                if (typeof mintResult !== 'undefined' && mintResult.length > 0) {
+                                            .then((mintValue) => {
+                                                if (typeof mintValue !== 'undefined' && mintValue.length > 0) {
 
                                                     if (mintQuantity === 1) {
                                                         openPopup(false, "Mint Successful!", "You minted a Clover!");
@@ -236,7 +237,7 @@ export default function Mint(
                                                     }
 
                                                     setMintInProgress(false);
-                                                    setMintResult(mintResult);
+                                                    updateMintResultState(mintValue);
                                                     fetchTotals();
                                                 }
                                             })
