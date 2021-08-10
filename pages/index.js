@@ -42,7 +42,7 @@ export default function Home() {
     const [showPopup, setShowPopup] = useState(false);
     const [popupMessage, setPopupMessage] = useState('enter the amount of Clover(s) you would like to mint.');
     const [popupTitle, setPopupTitle] = useState('Clover');
-    const [popupIsError, setPopupIsError] = useState('Msg');
+    const [popupIsError, setPopupIsError] = useState(false);
 
     // Mint State
     const [mintResult, setMintResult] = useState([]);
@@ -109,9 +109,9 @@ export default function Home() {
     const publicSaleMintDate = process.env.NEXT_PUBLIC_PUBLIC_MINT_DATE;
 
     // Mint Date Watchers
-    const watchPreMintTime = (privateTime) => {
+    const watchPreMintTime = (whitelistTime) => {
 
-        const time = Date.parse(privateTime) - Date.parse(new Date());
+        const time = Date.parse(whitelistTime) - Date.parse(new Date());
         if (time < 0) {
             setMintDatePassed(true);
             clearInterval(checkPrivateMintTimeInterval.current);
@@ -126,7 +126,7 @@ export default function Home() {
 
 
 
-                setCurrentMintType("private");
+                setCurrentMintType("whitelist");
                 checkPublicMintTimeInterval.current = setInterval(() => watchPublicMintTime(publicSaleMintDate), 1000);
             }
 
@@ -190,7 +190,7 @@ export default function Home() {
                 let humanDate = createReadableDateTime(preSaleMintDate);
                 setCountdownMessage("Whitelist Mint Begins  " + humanDate);
 
-                setCurrentMintType("private");
+                setCurrentMintType("whitelist");
 
             }
 
@@ -315,9 +315,10 @@ export default function Home() {
     // Request connection to wallet
     async function requestConnection() {
         try {
-            await requestAccount()
+            await requestAccount();
+            updateConnectedState(true);
         } catch (error) {
-            openPopup(true, "Error Connecting To Wallet!", error.message);
+            console.error(error.message);
         }
     }
 
@@ -387,7 +388,6 @@ export default function Home() {
     // Set address of connected wallet
     async function switchToCorrectNetwork() {
         try {
-
             let CHAIN_ID = process.env.NEXT_PUBLIC_CHAIN_ID;
 
             await window.ethereum.request({
@@ -395,7 +395,7 @@ export default function Home() {
                 params: [{ chainId: ("0x" + CHAIN_ID) }],
             });
         } catch (switchError) {
-            openPopup(true, "Failed To Switch To The Network!", switchError.message);
+            return true;
         }
     }
 
@@ -503,14 +503,6 @@ export default function Home() {
                                                 <div>
                                                     <section id="mint" className="bg-repeat bg-blend-overlay book-bg">
                                                         <div className="container mx-auto p-4">
-                                                            <h1 className="mb-0 pt-4 pb-2 md:text-xl lg:text-xl leading-0 tracking-tight text-center text-cloverLightGreen md:text-4xl lg:md:text-xl lg:text-xl">
-                                                                <span
-                                                                    className="text-3xl leading-tight border-0 border-gray-300 lg:text-5xl md:text-5xl sm:text-1xl">[ Mint ]</span>
-                                                            </h1>
-                                                            <div
-                                                                className="capitalize p-4 text-center text-xl text-cloverLightGreen mx-4 mb-0 sm:lg:text-xl md:text-l md:text-2xl lg:text-2xl lg:text-3xl ">
-                                                                Which Clover Will You Find?
-                                                            </div>
                                                             <Mint
                                                                 key="minter"
                                                                 openPopup={openPopup}
@@ -536,7 +528,7 @@ export default function Home() {
                                                                 requestConnection={requestConnection}
                                                             />
                                                             {
-                                                                currentMintType === "private"
+                                                                currentMintType === "whitelist"
                                                                     ?
                                                                     <>
                                                                         <MintCountdown
@@ -704,9 +696,9 @@ export default function Home() {
 
 
                                             <div
-                                                className={`text-center items-center pt-2 ${popupIsError ? "text-cloverWhite" : "text-cloverLightGreen"}`}>
+                                                className={`capitalize text-center items-center pt-2 ${popupIsError ? "text-cloverWhite" : "text-cloverLightGreen"}`}>
                                                 <button type="button" onClick={closePopup}
-                                                        className={`transition ease-in-out delay-50 duration-500 text-center border-2 items-center px-8 py-4 rounded-lg  ${popupIsError ? "text-cloverWhite border-cloverWhite bg-cloverDarkRed hover:bg-cloverRedHover" : "text-cloverLightGreen border-cloverBorder bg-cloverDarkGreen hover:bg-cloverHover"}`}>OK
+                                                        className={`capitalize transition ease-in-out delay-50 duration-500 text-center border-2 items-center px-8 py-4 rounded-lg  ${popupIsError ? "text-cloverWhite border-cloverWhite bg-cloverDarkRed hover:bg-cloverRedHover" : "text-cloverLightGreen border-cloverBorder bg-cloverDarkGreen hover:bg-cloverHover"}`}>OK
                                                 </button>
                                             </div>
 

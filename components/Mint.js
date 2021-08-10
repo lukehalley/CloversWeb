@@ -38,32 +38,54 @@ export default function Mint(
     // Fetch all the data we need from our contract.
     async function fetchTotals() {
 
-        const f0 = new F0();
+        if (!hasEthereum()) {
+            updateHasMetamaskState(false);
+            updateLoadingState(false);
+        } else {
 
-        try {
+            const f0 = new F0();
 
-            await f0.init({
-                web3: new Web3(window.ethereum),
-                contract: process.env.NEXT_PUBLIC_MINTER_ADDRESS,
-                network: process.env.NEXT_PUBLIC_NETWORK,
-                currency: process.env.NEXT_PUBLIC_CURRENCY
-            });
+            try {
 
-        } catch (error) {
-            console.error(error.message);
-        }
+                await f0.init({
+                    web3: new Web3(window.ethereum),
+                    contract: process.env.NEXT_PUBLIC_MINTER_ADDRESS,
+                    network: process.env.NEXT_PUBLIC_NETWORK,
+                    currency: process.env.NEXT_PUBLIC_CURRENCY
+                });
 
-        if (currentMintType !== null) {
-            f0.invites().then((inviteValue) => {
+            } catch (error) {
+                console.error(error.message);
+            }
 
-                if (Object.keys(inviteValue).length === 0 && currentMintType !== "public") {
+            if (currentMintType !== null) {
+
+                setMintActive(true);
+                let inviteValue = null;
+                let inviteObj = null;
+
+                if (currentMintType === "whitelist") {
+
+                    inviteValue = await f0.invites();
+                    const invite = (Object.keys(inviteValue)[0]);
+                    inviteObj = inviteValue[invite];
+
+                } else if (currentMintType === "public") {
+                    inviteValue = await f0.invite(null)
+                    inviteObj = inviteValue
+                }
+
+                if (Object.keys(inviteValue).length === 0) {
                     setMintActive(false);
                 } else {
 
-                    const invite = (Object.keys(inviteValue)[0]);
-                    const inviteObj = inviteValue[invite];
                     setMintPrice(Number(inviteObj.condition.converted.eth));
-                    setMintSumTotal(Number(inviteObj.condition.converted.eth));
+
+                    if (mintQuantity <= 1) {
+                        setMintSumTotal(Number(inviteObj.condition.converted.eth));
+                    }
+
+
                     setMintPerWalletLimit(inviteObj.condition.converted.limit);
 
                     f0.config().then((configValue) => {
@@ -93,11 +115,12 @@ export default function Mint(
                         }
                     }
                 }
-            });
-        } else {
-            setMintActive(true);
-        }
 
+            } else {
+                setMintActive(false);
+            }
+
+        }
     }
 
     function parseError(error) {
@@ -164,10 +187,11 @@ export default function Mint(
                     });
                 } catch (error) {
                     openPopup(true, "Mint Error!", error.message);
+                    console.error(error.message);
                     setMintInProgress(false);
                 }
 
-                if (hasWhitelist && currentMintType === "private") {
+                if (hasWhitelist && currentMintType === "whitelist") {
 
                     let invites = await f0.myInvites();
 
@@ -196,10 +220,19 @@ export default function Mint(
 
                                 const err = parseError(mintError);
 
+                                const errorIsInsufficientFunds = ((mintError.message).includes("insufficient funds"));
+
+                                const errorIsMintReject = ((mintError.message).includes("User denied transaction signature"));
+
                                 if (err === "execution reverted: 10") {
                                     openPopup(true, "Mint Limit Reached!", "You have already minted " + mintPerWalletLimit + " Clovers!");
+                                } else if (errorIsInsufficientFunds) {
+                                    openPopup(true, "Insufficient Funds!", "You Don't Have Enough ETH In Your Wallet To Mint " + mintQuantity + " Clover(s)!");
+                                } else if (errorIsMintReject) {
+                                    openPopup(true, "Mint Rejected!", "User Rejected Minted Request In Wallet!");
                                 } else {
                                     openPopup(true, "Mint Error!", err);
+                                    console.error(mintError.message)
                                 }
 
                                 setMintInProgress(false);
@@ -208,12 +241,15 @@ export default function Mint(
 
                     } catch (error) {
                         openPopup(true, "Mint Error!", error.message);
+                        console.error(mintError.message);
                         setMintInProgress(false);
                     }
 
                 } else {
 
                     if (currentMintType === "public") {
+
+                        console.log("public mint");
 
                         if (!hasEthereum()) {
                             updateHasMetamaskState(false);
@@ -231,9 +267,9 @@ export default function Mint(
                                                 if (typeof mintValue !== 'undefined' && mintValue.length > 0) {
 
                                                     if (mintQuantity === 1) {
-                                                        openPopup(false, "Mint Successful!", "You minted a Clover!");
+                                                        openPopup(false, "Mint Successful!", "You minted A Clover!");
                                                     } else {
-                                                        openPopup(false, "Mint Successful!", "You minted " + mintQuantity + " Clover(s)!");
+                                                        openPopup(false, "Mint Successful!", "You Minted " + mintQuantity + " Clover(s)!");
                                                     }
 
                                                     setMintInProgress(false);
@@ -248,14 +284,16 @@ export default function Mint(
                                                 if (err === "execution reverted: 10") {
                                                     openPopup(true, "Mint Limit Reached!", "You have already minted " + mintPerWalletLimit + " Clovers!");
                                                 } else {
-                                                    openPopup(true, "Mint Error!", err);
+                                                    openPopup(true, "Public Mint Error!", "Public Mint Has Not Been Enabled.");
+                                                    console.error(mintError.message)
                                                 }
                                                 setMintInProgress(false);
 
                                             });
 
                                     } catch (error) {
-                                        openPopup(true, "Mint Error!", error.message);
+
+                                        openPopup(true, "Public Mint Error!", "Public Mint Has Not Been Enabled.");
                                         setMintInProgress(false);
                                     }
 
@@ -263,6 +301,7 @@ export default function Mint(
 
                             } catch (error) {
                                 openPopup(true, "Mint Error!", error.message);
+                                console.error(error.message);
                                 setMintInProgress(false);
                             }
                         }
@@ -274,12 +313,13 @@ export default function Mint(
                     }
                 }
             } else {
-                openPopup(true, "Mint Error!", "Unknown Error.");
+                openPopup(true, "Mint Error!", "Please ensure you are connected and on mainnet.");
                 setMintInProgress(false);
             }
 
         } catch (error) {
-            openPopup(true, "Mint Error!", error.message);
+            openPopup(true, "Mint Error!", "Please ensure you are connected and on mainnet.");
+            console.error(error.message)
             setMintInProgress(false);
         }
     }
@@ -311,8 +351,7 @@ export default function Mint(
                     currency: process.env.NEXT_PUBLIC_CURRENCY
                 });
             } catch (error) {
-                // openPopup(true, "Whitelist Check Error!", error.message);
-                console.log(error)
+                return true;
             }
 
             let invites = await f0.myInvites();
@@ -327,13 +366,34 @@ export default function Mint(
     useEffect(() => {
         updateLoadingState(true);
         fetchConnectedAccount();
-        checkWalletHasWhitelist();
-        fetchTotals();
+
+        if (connected && hasCorrectNetwork) {
+            checkWalletHasWhitelist();
+            fetchTotals();
+        }
+
+
         updateLoadingState(false);
-    }, []);
+    });
 
     return (
         <>
+
+            {currentMintType
+                ?
+                <h1 className="mb-0 pt-4 pb-2 md:text-xl lg:text-xl leading-0 tracking-tight text-center text-cloverLightGreen md:text-4xl lg:md:text-xl lg:text-xl">
+                    <span className="capitalize text-3xl leading-tight border-0 border-gray-300 lg:text-5xl md:text-5xl sm:text-1xl">[ {currentMintType} Mint ]</span>
+                </h1>
+                :
+                <h1 className="mb-0 pt-4 pb-2 md:text-xl lg:text-xl leading-0 tracking-tight text-center text-cloverLightGreen md:text-4xl lg:md:text-xl lg:text-xl">
+                    <span className="capitalize text-3xl leading-tight border-0 border-gray-300 lg:text-5xl md:text-5xl sm:text-1xl">[ Mint ]</span>
+                </h1>
+            }
+
+            <div
+                className="capitalize p-4 text-center text-xl text-cloverLightGreen mx-4 mb-0 sm:lg:text-xl md:text-l md:text-2xl lg:text-2xl lg:text-3xl ">
+                Which Clover Will You Find?
+            </div>
 
             <div className="pb-0 grid grid-cols-1 gap-y-4 md:gap-4 mt-0 md:grid-rows-1 md:grid-cols-8 sm:px-8 xl:px-0">
 
@@ -570,11 +630,10 @@ export default function Mint(
                                                                                             {mintActive
                                                                                                 ?
                                                                                                 <div>
-                                                                                                    {hasWhitelist
+                                                                                                    {hasWhitelist || currentMintType === "public"
                                                                                                         ?
                                                                                                         <div>
                                                                                                             <button
-                                                                                                                disabled={!hasWhitelist}
                                                                                                                 className="w-full px-3 py-4 border border-8 border-cloverBorder md:text-2xltext-cloverLightGreen transition ease-in-out delay-50 duration-500 text-cloverLightGreen hover:bg-cloverLighterGreen bg-cloverDarkGreen rounded-lg disabled"
                                                                                                                 onClick={mintNFTs}
                                                                                                             >

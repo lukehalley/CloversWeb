@@ -22,10 +22,8 @@ export default function Nav(
 
     // First load
     useEffect( function() {
-
-
         fetchConnectedAccount();
-    },[]);
+    });
 
     return (
         <>
