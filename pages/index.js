@@ -20,7 +20,7 @@ import { Transition } from "@headlessui/react";
 export default function Home() {
 
     // Env Vars
-    const metamaskURL = process.env.NEXT_PUBLIC_DISCORD_LINK;
+    const metamaskURL = process.env.NEXT_PUBLIC_METAMASK_LINK;
     const discordURL = process.env.NEXT_PUBLIC_DISCORD_LINK;
     const twitterURL = process.env.NEXT_PUBLIC_TWITTER_LINK;
     const openseaURL = process.env.NEXT_PUBLIC_OPENSEA_LINK;
