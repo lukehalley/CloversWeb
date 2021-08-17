@@ -29,7 +29,16 @@ export default function Roadmap() {
 
                     {/*IMG*/}
                     <div className="order-2 md:order-2 grid-item flex flex-col items-center justify-between col-span-1 lg:col-span-4 md:col-span-3 space-y-4 border-8 border-cloverBorder rounded-none rounded">
-                        <img src="/gif-opt/eskimo.gif"/>
+
+                        <Image
+                            alt="eskimo"
+                            src="/gif-opt/eskimo.gif"
+                            blurDataURL={"thumbnail/tn-eskimo.png"}
+                            placeholder="blur"
+                            width={500}
+                            height={500}
+                        />
+
                     </div>
 
                     {/*TEXT*/}
@@ -79,7 +88,16 @@ export default function Roadmap() {
 
                 {/*IMG*/}
                 <div className="order-4 md:order-5 flex flex-col items-center justify-between col-span-1 lg:col-span-4 md:col-span-3 px-0 py-0 space-y-4 border-8 border-cloverBorder rounded-none rounded">
-                    <img src="/gif-opt/wizard.gif"/>
+
+                    <Image
+                        alt="wizard"
+                        src="/gif-opt/wizard.gif"
+                        blurDataURL={"thumbnail/tn-wizard.png"}
+                        placeholder="blur"
+                        width={500}
+                        height={500}
+                    />
+
                 </div>
 
                 {/*BLANK*/}
@@ -95,7 +113,16 @@ export default function Roadmap() {
 
                 {/*IMG*/}
                 <div className="order-8 md:order-8 flex flex-col items-center justify-between col-span-1 lg:col-span-4 md:col-span-3 px-0 py-0 space-y-4 border-8 border-cloverBorder rounded-none rounded">
-                    <img src="/gif-opt/explorer.gif"/>
+
+                    <Image
+                        alt="explorer"
+                        src="/gif-opt/explorer.gif"
+                        blurDataURL={"thumbnail/tn-explorer.png"}
+                        placeholder="blur"
+                        width={500}
+                        height={500}
+                    />
+
                 </div>
 
                 {/*TEXT*/}
@@ -146,7 +173,16 @@ export default function Roadmap() {
 
                 {/*IMG*/}
                 <div className="order-10 md:order-11 flex flex-col items-center justify-between col-span-1 lg:col-span-4 md:col-span-3 px-0 py-0 space-y-4 border-8 border-cloverBorder rounded-none rounded">
-                    <img src="/gif-opt/warrior.gif"/>
+
+                    <Image
+                        alt="warrior"
+                        src="/gif-opt/warrior.gif"
+                        blurDataURL={"thumbnail/tn-warrior.png"}
+                        placeholder="blur"
+                        width={500}
+                        height={500}
+                    />
+
                 </div>
 
                 {/*BLANK*/}

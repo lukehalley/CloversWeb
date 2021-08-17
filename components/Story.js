@@ -24,8 +24,20 @@ export default function Story() {
 
                     {/*IMG*/}
                     <div className="order-1 md:order-1 grid-item flex flex-col items-center justify-between col-span-1 lg:col-span-4 md:col-span-4 space-y-4 border-8 border-cloverBorder rounded-none rounded">
-                        <img src="/gif-opt/origin.gif"/>
+                        {/*<img src="/gif-opt/origin.gif"/>*/}
+
+                        <Image
+                            alt="Origin"
+                            src="/gif-opt/origin.gif"
+                            blurDataURL={"thumbnail/tn-origin.png"}
+                            placeholder="blur"
+                            width={500}
+                            height={500}
+                        />
+
                     </div>
+
+
 
                     {/*TEXT*/}
                     <div
@@ -72,13 +84,31 @@ export default function Story() {
 
                 {/*IMG*/}
                 <div className="order-3 md:order-4 flex flex-col items-center justify-between col-span-1 lg:col-span-4 md:col-span-4 px-0 py-0 space-y-4 border-8 border-cloverBorder rounded-none rounded">
-                    <img src="/gif-opt/transform.gif"/>
+
+                    <Image
+                        alt="transform"
+                        src="/gif-opt/transform.gif"
+                        blurDataURL={"thumbnail/tn-transform.png"}
+                        placeholder="blur"
+                        width={500}
+                        height={500}
+                    />
+
                 </div>
 
 
                 {/*IMG*/}
                 <div className="order-5 md:order-5 flex flex-col items-center justify-between col-span-1 lg:col-span-4 md:col-span-4 px-0 py-0 space-y-4 border-8 border-cloverBorder rounded-none rounded">
-                    <img src="/gif-opt/anti.gif"/>
+
+                    <Image
+                        alt="anti"
+                        src="/gif-opt/anti.gif"
+                        blurDataURL={"thumbnail/tn-anti.png"}
+                        placeholder="blur"
+                        width={500}
+                        height={500}
+                    />
+
                 </div>
 
                 {/*TEXT*/}
@@ -132,7 +162,16 @@ export default function Story() {
 
                 {/*IMG*/}
                 <div className="order-7 md:order-8 flex flex-col items-center justify-between col-span-1 lg:col-span-4 md:col-span-4 px-0 py-0 space-y-4 border-8 border-cloverBorder rounded-none rounded">
-                    <img src="/gif-opt/planet.gif"/>
+
+                    <Image
+                        alt="planet"
+                        src="/gif-opt/planet.gif"
+                        blurDataURL={"thumbnail/tn-planet.png"}
+                        placeholder="blur"
+                        width={500}
+                        height={500}
+                    />
+
                 </div>
 
             </div>

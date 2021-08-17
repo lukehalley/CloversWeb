@@ -67,11 +67,14 @@ export default function Mint(
                 if (currentMintType === "whitelist") {
 
                     inviteValue = await f0.invites();
+
+                    console.log(inviteValue);
+
                     const invite = (Object.keys(inviteValue)[0]);
                     inviteObj = inviteValue[invite];
 
                 } else if (currentMintType === "public") {
-                    inviteValue = await f0.invite(null)
+                    inviteValue = await f0.invite(null);
                     inviteObj = inviteValue
                 }
 
