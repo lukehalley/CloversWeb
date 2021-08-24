@@ -29,7 +29,7 @@ export default function Story() {
                         <Image
                             alt="Origin"
                             src="/gif-opt/origin.gif"
-                            blurDataURL={"thumbnail/tn-origin.png"}
+                            blurDataURL={"thumbnail/tn_origin.png"}
                             placeholder="blur"
                             width={500}
                             height={500}
@@ -88,7 +88,7 @@ export default function Story() {
                     <Image
                         alt="transform"
                         src="/gif-opt/transform.gif"
-                        blurDataURL={"thumbnail/tn-transform.png"}
+                        blurDataURL={"thumbnail/tn_transform.png"}
                         placeholder="blur"
                         width={500}
                         height={500}
@@ -103,7 +103,7 @@ export default function Story() {
                     <Image
                         alt="anti"
                         src="/gif-opt/anti.gif"
-                        blurDataURL={"thumbnail/tn-anti.png"}
+                        blurDataURL={"thumbnail/tn_anti.png"}
                         placeholder="blur"
                         width={500}
                         height={500}
@@ -166,7 +166,7 @@ export default function Story() {
                     <Image
                         alt="planet"
                         src="/gif-opt/planet.gif"
-                        blurDataURL={"thumbnail/tn-planet.png"}
+                        blurDataURL={"thumbnail/tn_planet.png"}
                         placeholder="blur"
                         width={500}
                         height={500}
