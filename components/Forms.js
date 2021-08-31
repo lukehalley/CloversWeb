@@ -150,7 +150,7 @@ export default function Forms() {
                         >
                             {imgDict["Common"].map((item, index) => {
                                 return <SwiperSlide>
-                                    <img src={"images-opt/common/" + item + ".png"} key={item}
+                                    <img src={"images/common/" + item + ".png"} key={item}
                                          alt="BigCo Inc. logo"/>
                                 </SwiperSlide>
                             })}
@@ -223,7 +223,7 @@ export default function Forms() {
                         >
                             {imgDict["special"].map((item, index) => {
                                 return <SwiperSlide>
-                                    <img src={"images-opt/special/" + item + ".png"} key={item}
+                                    <img src={"images/special/" + item + ".png"} key={item}
                                          alt="BigCo Inc. logo"/>
                                 </SwiperSlide>
                             })}
@@ -263,7 +263,7 @@ export default function Forms() {
                         >
                             {imgDict["rare"].map((item, index) => {
                                 return <SwiperSlide>
-                                    <img src={"images-opt/rare/" + item + ".png"} key={item}
+                                    <img src={"images/rare/" + item + ".png"} key={item}
                                          alt="BigCo Inc. logo"/>
                                 </SwiperSlide>
                             })}
@@ -336,7 +336,7 @@ export default function Forms() {
                         >
                             {imgDict["legendary"].map((item, index) => {
                                 return <SwiperSlide>
-                                    <img src={"images-opt/legendary/" + item + ".png"} key={item}
+                                    <img src={"images/legendary/" + item + ".png"} key={item}
                                          alt="BigCo Inc. logo"/>
                                 </SwiperSlide>
                             })}
