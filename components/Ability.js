@@ -33,7 +33,7 @@ export default function Roadmap() {
                         <Image
                             alt="eskimo"
                             src="/gif-opt/eskimo.gif"
-                            blurDataURL={"thumbnail/tn_eskimo.png"}
+                            blurDataURL={"thumbnail/tn_eskimo.jpg"}
                             placeholder="blur"
                             width={500}
                             height={500}
@@ -92,7 +92,7 @@ export default function Roadmap() {
                     <Image
                         alt="wizard"
                         src="/gif-opt/wizard.gif"
-                        blurDataURL={"thumbnail/tn_wizard.png"}
+                        blurDataURL={"thumbnail/tn_wizard.jpg"}
                         placeholder="blur"
                         width={500}
                         height={500}
@@ -117,7 +117,7 @@ export default function Roadmap() {
                     <Image
                         alt="explorer"
                         src="/gif-opt/explorer.gif"
-                        blurDataURL={"thumbnail/tn_explorer.png"}
+                        blurDataURL={"thumbnail/tn_explorer.jpg"}
                         placeholder="blur"
                         width={500}
                         height={500}
@@ -177,7 +177,7 @@ export default function Roadmap() {
                     <Image
                         alt="warrior"
                         src="/gif-opt/warrior.gif"
-                        blurDataURL={"thumbnail/tn_warrior.png"}
+                        blurDataURL={"thumbnail/tn_warrior.jpg"}
                         placeholder="blur"
                         width={500}
                         height={500}

@@ -75,11 +75,6 @@
     background-blend-mode: soft-light;
 }
 
-.space-bg{
-    background-image: url("../public/images/web/backgrounds/bg_space.png");
-    background-size:100% 100%;
-}
-
 disabled,
 button[disabled]{
     opacity: 0.90;

@@ -39,7 +39,7 @@ export default function Team() {
 
                     {/*IMG*/}
                     <div className="order-1 md:order-2 flex flex-col items-center justify-between col-span-1 lg:col-span-1 md:col-span-1 px-0 py-0 space-y-4 border-8 border-cloverBorder rounded-none rounded">
-                        <img className="" src="images/common/dude.png"/>
+                        <img className="" src="images-opt/common/dude.jpg"/>
                     </div>
 
                 </div>
