@@ -75,6 +75,12 @@
     background-blend-mode: soft-light;
 }
 
+.eth-bg{
+    background-image: url("../public/tiles/eth_tile.png");
+    background-color: rgba(22, 45, 14, 0.970);
+    background-blend-mode: soft-light;
+}
+
 disabled,
 button[disabled]{
     opacity: 0.90;

@@ -501,7 +501,7 @@ export default function Home() {
                                             ?
                                             <>
                                                 <div>
-                                                    <section id="mint" className="bg-repeat bg-blend-overlay book-bg">
+                                                    <section id="mint" className="bg-repeat bg-blend-overlay eth-bg">
                                                         <div className="container mx-auto p-4">
                                                             <Mint
                                                                 key="minter"
@@ -561,7 +561,7 @@ export default function Home() {
                                             </>
                                             :
                                             <>
-                                                <section id="mint" className="bg-repeat bg-blend-overlay book-bg">
+                                                <section id="mint" className="bg-repeat bg-blend-overlay eth-bg">
                                                     <div className="container mx-auto p-4">
                                                         <h1 className="mb-0 pt-4 pb-2 md:text-xl lg:text-xl leading-0 tracking-tight text-center text-cloverLightGreen md:text-4xl lg:md:text-xl lg:text-xl">
                                                             <span
