@@ -19,15 +19,17 @@ export default function Mint(
 
     }) {
 
+    const defaultTotalMinted = 0;
+
     // Minting state
     const [mintQuantity, setMintQuantity] = useState(1);
     const [MintSumTotal, setMintSumTotal] = useState(0.025);
     const [mintActive, setMintActive] = useState(false);
     const [mintPerWalletLimit, setMintPerWalletLimit] = useState(5);
-    const [totalMinted, setTotalMinted] = useState(0);
-    const [totalSupply, setTotalSupply] = useState(5);
+    const [totalMinted, setTotalMinted] = useState(defaultTotalMinted);
+    const [totalSupply, setTotalSupply] = useState(0);
     const [mintPrice, setMintPrice] = useState(0.025);
-    const [mintSoldOut, setMintSoldOut] = useState(true);
+    const [mintSoldOut, setMintSoldOut] = useState(false);
 
     const [hasWhitelist, setHasWhitelist] = useState(false);
     const [mintInProgress, setMintInProgress] = useState(false);
@@ -68,8 +70,6 @@ export default function Mint(
 
                     inviteValue = await f0.invites();
 
-                    console.log(inviteValue);
-
                     const invite = (Object.keys(inviteValue)[0]);
                     inviteObj = inviteValue[invite];
 
@@ -81,6 +81,8 @@ export default function Mint(
                 if (Object.keys(inviteValue).length === 0) {
                     setMintActive(false);
                 } else {
+
+                    setMintActive(true);
 
                     setMintPrice(Number(inviteObj.condition.converted.eth));
 
@@ -370,11 +372,11 @@ export default function Mint(
         updateLoadingState(true);
         fetchConnectedAccount();
 
-        if (connected && hasCorrectNetwork) {
+        if (connected && hasCorrectNetwork && totalMinted === defaultTotalMinted) {
+
             checkWalletHasWhitelist();
             fetchTotals();
         }
-
 
         updateLoadingState(false);
     });

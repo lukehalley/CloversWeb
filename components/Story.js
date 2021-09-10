@@ -46,8 +46,8 @@ export default function Story() {
                             <div className="row-span-0">
                                 <h1 className="mb-4 text-2xl md:text-4xl">[ The Conception ]</h1>
                             </div>
-                            <div className="capitalize lg:md:text-xl lg:text-xl">
-                                <p className="">
+                            <div className="lg:md:text-xl lg:text-xl">
+                                <p className="md:p-8">
                                     Years ago, during the conception of the metaverse a divine being was born - the origin Clover.
                                     <br/><br/>
                                     Harnessing the crystal which floats about its head - it created 10,000 beings known as Clovers.
@@ -69,8 +69,8 @@ export default function Story() {
                             <h1 className="mb-4 text-2xl md:text-4xl lg:text-4xl">[ The Clover ]</h1>
                         </div>
 
-                        <div className="capitalize lg:md:text-xl lg:text-xl">
-                            <p>
+                        <div className="lg:md:text-xl lg:text-xl">
+                            <p className="md:p-8">
                                 Each Clover is encoded with the ability to shape-shift into any state or being on command.
                                 <br/><br/>
                                 It is a distant relative of the  supernatural being known as the leprechaun. they are powerful but peaceful creatures.
@@ -118,8 +118,8 @@ export default function Story() {
                         <div className="row-span-0">
                             <h1 className="mb-4 text-2xl md:text-4xl lg:text-4xl">[ The Anti-Clover ]</h1>
                         </div>
-                        <div className="capitalize md:text-xl lg:text-xl">
-                            <p>
+                        <div className="md:text-xl lg:text-xl">
+                            <p className="md:p-8">
                                 When the Clovers were being created - a single one was created with corrupt data.
                                 the anti-Clover discovered it did not contain the same powers its siblings held.
                                 <br/><br/>
@@ -144,8 +144,8 @@ export default function Story() {
                             <div className="row-span-0">
                                 <h1 className="mb-4 text-2xl md:text-4xl lg:text-4xl">[ Planet Trefoil ]</h1>
                             </div>
-                            <div className="capitalize md:text-xl lg:text-xl">
-                                <p>
+                            <div className="md:text-xl lg:text-xl">
+                                <p className="md:p-8">
                                     When the Clovers were created - the origin Clover also created a home planet as a safe haven for them.
                                     <br/><br/>
                                     A trefoil - meaning 'three-leaved plant' in Latin for a graphic form composed of the outline of three overlapping rings - just like the Clover leaf.

@@ -13,7 +13,7 @@ export default function Slider() {
     return (
         <>
 
-            <div className="capitalize">
+            <div className="">
                 <h1 className="mb-0 pt-4 pb-2 md:text-xl lg:text-xl leading-0 tracking-tight text-center text-cloverLightGreen md:text-4xl lg:md:text-xl lg:text-xl">
                     <span className="text-3xl leading-tight border-0 border-gray-300 lg:text-5xl md:text-5xl sm:text-1xl">[ FAQ ]</span>
                 </h1>
@@ -49,32 +49,29 @@ export default function Slider() {
                         Launch date to be confirmed.
                     </p>
                 </div>
+
                 <div
                     className="w-full py-2 mx-auto m-6 bg-cloverDarkGreen bg-opacity-40 border-dashed border-8 border-cloverBorder sm:px-8 md:px-12 sm:py-8 sm:shadow lg:w-5/6 xl:w-2/3border-dashed border-8 border-cloverBorder">
                     <h3 className="px-4 pt-4 text-2xl text-green text-center md:px-4 md:py-4 md:text-4xl">
                         What Is The Price Of Minting A Clover?
                     </h3>
                     <p className="p-4 text-center text-base md:p-0 sm:text-lg md:text-normal">
-                        The price of a croc from the collection is 0.025 eth.
+                        The price of a Clover from the collection is 0.025 ETH.
                     </p>
                 </div>
 
                 <div
                     className="w-full py-2 mx-auto m-6 bg-cloverDarkGreen bg-opacity-40 border-dashed border-8 border-cloverBorder sm:px-8 md:px-12 sm:py-8 sm:shadow lg:w-5/6 xl:w-2/3border-dashed border-8 border-cloverBorder">
                     <h3 className="px-4 pt-4 text-2xl text-green text-center md:px-4 md:py-4 md:text-4xl">
-                        What Does My Clover Get Me?</h3>
+                        Where Is The Roadmap?
+                    </h3>
                     <p className="p-4 text-center text-base md:p-0 sm:text-lg md:text-normal">
-                        Minting an Clovers nft gets;
+                        From our experiences, we’ve found that roadmaps tend to lead to getting the community's hopes up and expectations are not always met.
                         <br/><br/>
-                        <ul className="list">
-                            <li>- You next-generation digital utility.</li>
-                            <li>- A pass to all things announced in any of our roadmap releases.</li>
-                            <li>- Access to future mints, life long frenship with 10,000 Clovers.</li>
-                            <li>- Life long frenship with 10,000 Clovers.</li>
-                            <li>- A beautiful pfp.</li>
-                        </ul>
+                        We feel the best way we can benefit the community of a project is to incorporate them in any decisions we make regarding the direction of our project.
                     </p>
                 </div>
+
                 <div
                     className="w-full py-0 mx-auto m-0 bg-cloverDarkGreen bg-opacity-40 border-dashed border-8 border-cloverBorder sm:px-8 sm:py-8 sm:shadow lg:w-5/6 xl:w-2/3border-dashed border-8 border-cloverBorder">
                     <h3 className="px-4 pt-4 text-2xl text-green text-center md:px-4 md:py-4 md:text-4xl">

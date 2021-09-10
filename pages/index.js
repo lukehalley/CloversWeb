@@ -596,13 +596,13 @@ export default function Home() {
                                     </section>
                                 </div>
 
-                                <div>
-                                    <section id="roadmap" className="bg-repeat bg-blend-overlay road-bg">
-                                        <div className="container mx-auto">
-                                            <Roadmap/>
-                                        </div>
-                                    </section>
-                                </div>
+                                {/*<div>*/}
+                                {/*    <section id="roadmap" className="bg-repeat bg-blend-overlay road-bg">*/}
+                                {/*        <div className="container mx-auto">*/}
+                                {/*            <Roadmap/>*/}
+                                {/*        </div>*/}
+                                {/*    </section>*/}
+                                {/*</div>*/}
 
                                 <div>
                                     <section id="faq" className="bg-repeat bg-blend-overlay question-bg">

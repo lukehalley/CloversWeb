@@ -109,14 +109,12 @@ export default function Forms() {
             </h1>
 
             <div
-                className="capitalize py-4 text-center text-xl text-cloverLightGreen mx-4 mb-0 sm:lg:text-xl md:text-l md:text-2xl lg:text-3xl ">
-                Below is all documented forms a Clover has said to be able to shape-shift into.
+                className="py-4 text-center text-xl text-cloverLightGreen mx-4 mb-0 sm:lg:text-xl md:text-l md:text-2xl lg:text-3xl ">
+                Here is the 27 different Clover forms and the four different rarity levels.
             </div>
 
             <div
                 className="p-0 text-center text-xl text-cloverLightGreen mx-4 mb-0 sm:lg:text-xl md:text-l md:text-2xl lg:text-3xl ">
-                They're is four different Rarity levels for each form.
-                <br></br>
                 [ Common | Special | Rare | Legendary ]
             </div>
 

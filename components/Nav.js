@@ -77,9 +77,9 @@ export default function Nav(
                                                 <Link to="forms" spy={true} smooth={true}>[ Forms ]</Link>
                                             </a>
 
-                                            <a className="text-1xl px-2 inline-block w-full p-0 font-medium text-left transition ease-in-out delay-50 duration-500 text-cloverDarkGreen hover:text-cloverLighterGreen md:w-auto md:px-0 md:mx-2 lg:mx-3 md:text-center">
-                                                <Link to="roadmap" spy={true} smooth={true}>[ Roadmap ]</Link>
-                                            </a>
+                                            {/*<a className="text-1xl px-2 inline-block w-full p-0 font-medium text-left transition ease-in-out delay-50 duration-500 text-cloverDarkGreen hover:text-cloverLighterGreen md:w-auto md:px-0 md:mx-2 lg:mx-3 md:text-center">*/}
+                                            {/*    <Link to="roadmap" spy={true} smooth={true}>[ Roadmap ]</Link>*/}
+                                            {/*</a>*/}
 
                                             <a className="text-1xl px-2 inline-block w-full p-0 font-medium text-left transition ease-in-out delay-50 duration-500 text-cloverDarkGreen hover:text-cloverLighterGreen md:w-auto md:px-0 md:mx-2 lg:mx-3 md:text-center">
                                                 <Link to="faq" spy={true} smooth={true}>[ FAQ ]</Link>
@@ -348,9 +348,9 @@ export default function Nav(
                                     <Link to="forms" spy={true} smooth={true}>[ forms ] </Link>
                                 </a>
 
-                                <a className="text-xl px-2 inline-block w-full p-0 font-medium text-left text-cloverLightGreen md:w-auto md:px-0 md:mx-2 hover:text-cloverLightGreen lg:mx-3 md:text-center">
-                                    <Link to="roadmap" spy={true} smooth={true}>[ roadmap ] </Link>
-                                </a>
+                                {/*<a className="text-xl px-2 inline-block w-full p-0 font-medium text-left text-cloverLightGreen md:w-auto md:px-0 md:mx-2 hover:text-cloverLightGreen lg:mx-3 md:text-center">*/}
+                                {/*    <Link to="roadmap" spy={true} smooth={true}>[ roadmap ] </Link>*/}
+                                {/*</a>*/}
 
                                 <a className="text-xl px-2 inline-block w-full p-0 font-medium text-left text-cloverLightGreen md:w-auto md:px-0 md:mx-2 hover:text-cloverLightGreen lg:mx-3 md:text-center">
                                     <Link to="faq" spy={true} smooth={true}>[ faq ] </Link>
