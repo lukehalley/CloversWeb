@@ -77,9 +77,7 @@ export default function Roadmap() {
                         </div>
                         <div className="md:text-xl text-l">
                             <p>
-                                There are 27 different forms in the collection.
-                                <br/><br/>
-                                A form is the base a Clover is built upon, for example a Wizard.
+                                There are 27 different base forms in the collection.
                                 <br/><br/>
                                 During the generation process a collection of traits and variations are chosen from - all exclusive to each form.
                             </p>
@@ -160,10 +158,9 @@ export default function Roadmap() {
                         </div>
                         <div className="md:text-xl text-l">
                             <p>
-                                Since we built the algorithm that generates the Clover from the ground up we added some unique features which
-                                seperates the collection from the rest.
+                                Since we built the algorithm that generates the Clovers from the ground up we added some unique features.
                                 <br/><br/>
-                                We implemented a clever system that matches each forms with traits and variations which complement each other.
+                                Each form is matched with its complementing traits and variations.
                             </p>
                         </div>
                     </div>
