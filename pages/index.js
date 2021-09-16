@@ -16,6 +16,7 @@ import moment from 'moment';
 import { ethers } from 'ethers'
 import { hasEthereum, requestAccount } from '../utils/ethereum'
 import { Transition } from "@headlessui/react";
+import Trailer from "../components/Trailer";
 
 export default function Home() {
 
@@ -486,6 +487,15 @@ export default function Home() {
                                         </div>
                                     </section>
                                 </div>
+
+                                {/*<div>*/}
+                                {/*    <section id="story" className="bg-repeat bg-blend-overlay book-bg">*/}
+                                {/*        <div className="container mx-auto">*/}
+                                {/*            <Trailer/>*/}
+                                {/*        </div>*/}
+                                {/*    </section>*/}
+                                {/*</div>*/}
+
                                 <div>
                                     <section id="story" className="bg-repeat bg-blend-overlay book-bg">
                                         <div className="container mx-auto">

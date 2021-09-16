@@ -70,7 +70,7 @@ export default function Nav(
                                             }
 
                                             <a className="text-1xl px-2 inline-block w-full p-0 font-medium text-left transition ease-in-out delay-50 duration-500 text-cloverDarkGreen hover:text-cloverLighterGreen md:w-auto md:px-0 md:mx-2 lg:mx-3 md:text-center">
-                                                <Link to="ability" spy={true} smooth={true}>[ Ability ]</Link>
+                                                <Link to="collection" spy={true} smooth={true}>[ Collection ]</Link>
                                             </a>
 
                                             <a className="text-1xl px-2 inline-block w-full p-0 font-medium text-left transition ease-in-out delay-50 duration-500 text-cloverDarkGreen hover:text-cloverLighterGreen md:w-auto md:px-0 md:mx-2 lg:mx-3 md:text-center">
@@ -333,19 +333,19 @@ export default function Nav(
                         <div className="z-50 absolute bg-cloverDarkGreen bg-opacity-95 md:hidden border-b-4 border-green" id="mobile-menu">
                             <div ref={ref} className="px-2 py-2 space-y-1 sm:px-3">
                                 <a className="text-xl px-2 inline-block w-full p-0 font-medium text-left text-cloverLightGreen md:w-auto md:px-0 md:mx-2 hover:text-cloverLightGreen lg:mx-3 md:text-center">
-                                    <Link to="mint" spy={true} smooth={true}>[ mint ] </Link>
+                                    <Link to="mint" spy={true} smooth={true}>[ Mint ] </Link>
                                 </a>
 
                                 <a className="text-xl px-2 inline-block w-full p-0 font-medium text-left text-cloverLightGreen md:w-auto md:px-0 md:mx-2 hover:text-cloverLightGreen lg:mx-3 md:text-center">
-                                    <Link to="story" spy={true} smooth={true}>[ story ] </Link>
+                                    <Link to="story" spy={true} smooth={true}>[ Story ] </Link>
                                 </a>
 
                                 <a className="text-xl px-2 inline-block w-full p-0 font-medium text-left text-cloverLightGreen md:w-auto md:px-0 md:mx-2 hover:text-cloverLightGreen lg:mx-3 md:text-center">
-                                    <Link to="ability" spy={true} smooth={true}>[ ability ] </Link>
+                                    <Link to="collection" spy={true} smooth={true}>[ Collection ] </Link>
                                 </a>
 
                                 <a className="text-xl px-2 inline-block w-full p-0 font-medium text-left text-cloverLightGreen md:w-auto md:px-0 md:mx-2 hover:text-cloverLightGreen lg:mx-3 md:text-center">
-                                    <Link to="forms" spy={true} smooth={true}>[ forms ] </Link>
+                                    <Link to="forms" spy={true} smooth={true}>[ Forms ] </Link>
                                 </a>
 
                                 {/*<a className="text-xl px-2 inline-block w-full p-0 font-medium text-left text-cloverLightGreen md:w-auto md:px-0 md:mx-2 hover:text-cloverLightGreen lg:mx-3 md:text-center">*/}
@@ -353,11 +353,11 @@ export default function Nav(
                                 {/*</a>*/}
 
                                 <a className="text-xl px-2 inline-block w-full p-0 font-medium text-left text-cloverLightGreen md:w-auto md:px-0 md:mx-2 hover:text-cloverLightGreen lg:mx-3 md:text-center">
-                                    <Link to="faq" spy={true} smooth={true}>[ faq ] </Link>
+                                    <Link to="faq" spy={true} smooth={true}>[ FAQ ] </Link>
                                 </a>
 
                                 <a className="text-xl px-2 inline-block w-full p-0 font-medium text-left text-cloverLightGreen md:w-auto md:px-0 md:mx-2 hover:text-cloverLightGreen lg:mx-3 md:text-center">
-                                    <Link to="team" spy={true} smooth={true}>[ team ] </Link>
+                                    <Link to="team" spy={true} smooth={true}>[ Team ] </Link>
                                 </a>
                             </div>
                         </div>

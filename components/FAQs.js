@@ -23,7 +23,7 @@ export default function Slider() {
                     <h1 className="px-4 pt-4 text-2xl text-green text-center md:px-4 md:py-4 md:text-4xl">
                         What Is The Total Supply?</h1>
                     <p className="p-4 text-center text-base md:p-0 sm:text-lg md:text-normal">
-                        A total of 10,000 unique Clovers will be available, split between the pre-sales and public
+                        A total of 4,000 unique Clovers will be available, split between the pre-sales and public
                         sale.
                         <br/><br/>
                         25 Clovers are reserved for the team with a portion allocated towards future events,

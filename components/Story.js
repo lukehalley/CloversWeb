@@ -19,11 +19,47 @@ export default function Story() {
 
             <div className="pb-4 grid grid-cols-1 gap-4 mx-4 mt-0 sm:grid-cols-8 lg:grid-cols-12 sm:px-8 xl:px-0">
 
+                <div className="grid-row-wrapper">
+
+                    {/*IMG*/}
+                    <div className="aspect-w-1 aspect-h-1 order-1 md:order-2 grid-item flex flex-col items-center justify-between col-span-1 lg:col-span-4 md:col-span-4 space-y-4 border-4 border-cloverBorder rounded-none rounded">
+                        {/*<img src="/gif-opt/origin.gif"/>*/}
+
+                        <iframe src="https://player.vimeo.com/video/687103626?h=65b7437ec4"
+                                allow="autoplay; fullscreen; picture-in-picture"
+                                title="Clovers Trailer"
+                                allowFullScreen
+                                frameborder="0"/>
+
+                        <script src="https://player.vimeo.com/api/player.js"/>
+                    </div>
+
+
+
+                    {/*TEXT*/}
+                    <div
+                        className="order-2 md:order-1 relative flex flex-col items-center text-center justify-between col-span-1 lg:col-span-8 md:col-span-4 p-4 overflow-hidden bg-cloverDarkGreen bg-opacity-40 border-dashed border-8 border-cloverBorder rounded-none rounded">
+                        <div className="h-full w-full flex flex-col justify-center items-center">
+                            <div className="row-span-0">
+                                <h1 className="mb-4 text-2xl md:text-4xl">[ Transmission 342.3.4 ]</h1>
+                            </div>
+                            <div className="lg:md:text-xl lg:text-xl">
+                                <p className="md:p-8">
+                                    On April 18th, 3033 - news leaked that a mysterious signal coming from the a distant star has reached planet Earth.
+                                    <br/><br/>
+                                    Most curiously, it came from a very narrow band of the radio spectrum: 982 megahertz, which typically only comes from transmissions of human-made satellites and spacecraft.
+                                    <br/><br/>
+                                    Years later - humans travelled into space, tracking this transmission to its source and discovered the species known as Clovers.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <div className="grid-row-wrapper">
 
                     {/*IMG*/}
-                    <div className="order-1 md:order-1 grid-item flex flex-col items-center justify-between col-span-1 lg:col-span-4 md:col-span-4 space-y-4 border-8 border-cloverBorder rounded-none rounded">
+                    <div className="order-3 md:order-3 grid-item flex flex-col items-center justify-between col-span-1 lg:col-span-4 md:col-span-4 space-y-4 border-8 border-cloverBorder rounded-none rounded">
                         {/*<img src="/gif-opt/origin.gif"/>*/}
 
                         <Image
@@ -41,16 +77,16 @@ export default function Story() {
 
                     {/*TEXT*/}
                     <div
-                        className="order-2 md:order-2 relative flex flex-col items-center text-center justify-between col-span-1 lg:col-span-8 md:col-span-4 p-4 overflow-hidden bg-cloverDarkGreen bg-opacity-40 border-dashed border-8 border-cloverBorder rounded-none rounded">
+                        className="order-4 md:order-4 relative flex flex-col items-center text-center justify-between col-span-1 lg:col-span-8 md:col-span-4 p-4 overflow-hidden bg-cloverDarkGreen bg-opacity-40 border-dashed border-8 border-cloverBorder rounded-none rounded">
                         <div className="h-full w-full flex flex-col justify-center items-center">
                             <div className="row-span-0">
                                 <h1 className="mb-4 text-2xl md:text-4xl">[ The Conception ]</h1>
                             </div>
                             <div className="lg:md:text-xl lg:text-xl">
                                 <p className="md:p-8">
-                                    Years ago, during the conception of the metaverse a divine being was born - the origin Clover.
+                                    Years ago, during the conception of the metaverse a divine being was born - the Origin Clover.
                                     <br/><br/>
-                                    Harnessing the crystal which floats about its head - it created 10,000 beings known as Clovers.
+                                    Harnessing the crystal which floats about its head - it created 4000 beings known as Clovers.
                                     <br/><br/>
                                     The origin Clover is a creature which hurts no being which does good - but contains enough power to protect if needs be.
                                 </p>
@@ -62,7 +98,7 @@ export default function Story() {
                 {/*--RIGHT--*/}
                 {/*TEXT*/}
                 <div
-                    className="order-4 md:order-3 relative flex flex-col items-center text-center justify-between col-span-1 lg:col-span-8 md:col-span-8 p-4 md:p-8 md:p-8 md:p-8 md:p-8 overflow-hidden bg-cloverDarkGreen bg-opacity-40 border-dashed border-8 border-cloverBorder rounded-none rounded">
+                    className="order-6 md:order-5 relative flex flex-col items-center text-center justify-between col-span-1 lg:col-span-8 md:col-span-8 p-4 md:p-8 md:p-8 md:p-8 md:p-8 overflow-hidden bg-cloverDarkGreen bg-opacity-40 border-dashed border-8 border-cloverBorder rounded-none rounded">
                     <div className="h-full w-full flex flex-col justify-center items-center">
                         <div className="row-span-0">
                             {/*<h1 className="mb-4">THIS WILL BE THE TITLE</h1>*/}
@@ -83,7 +119,7 @@ export default function Story() {
                 </div>
 
                 {/*IMG*/}
-                <div className="order-3 md:order-4 flex flex-col items-center justify-between col-span-1 lg:col-span-4 md:col-span-4 px-0 py-0 space-y-4 border-8 border-cloverBorder rounded-none rounded">
+                <div className="order-5 md:order-6 flex flex-col items-center justify-between col-span-1 lg:col-span-4 md:col-span-4 px-0 py-0 space-y-4 border-4 border-cloverBorder rounded-none rounded">
 
                     <Image
                         alt="transform"
@@ -98,7 +134,7 @@ export default function Story() {
 
 
                 {/*IMG*/}
-                <div className="order-5 md:order-5 flex flex-col items-center justify-between col-span-1 lg:col-span-4 md:col-span-4 px-0 py-0 space-y-4 border-8 border-cloverBorder rounded-none rounded">
+                <div className="order-8 md:order-7 flex flex-col items-center justify-between col-span-1 lg:col-span-4 md:col-span-4 px-0 py-0 space-y-4 border-4 border-cloverBorder rounded-none rounded">
 
                     <Image
                         alt="anti"
@@ -113,7 +149,7 @@ export default function Story() {
 
                 {/*TEXT*/}
                 <div
-                    className="order-6 md:order-6 relative flex flex-col items-center text-center justify-between col-span-1 lg:col-span-8 md:col-span-8 p-4 md:p-8 md:p-8 md:p-8 md:p-8 overflow-hidden bg-cloverDarkGreen bg-opacity-40 border-dashed border-8 border-cloverBorder rounded-none rounded">
+                    className="order-8 md:order-7 relative flex flex-col items-center text-center justify-between col-span-1 lg:col-span-8 md:col-span-8 p-4 md:p-8 md:p-8 md:p-8 md:p-8 overflow-hidden bg-cloverDarkGreen bg-opacity-40 border-dashed border-8 border-cloverBorder rounded-none rounded">
                     <div className="h-full w-full flex flex-col justify-center items-center">
                         <div className="row-span-0">
                             <h1 className="mb-4 text-2xl md:text-4xl lg:text-4xl">[ The Anti-Clover ]</h1>
@@ -136,7 +172,7 @@ export default function Story() {
 
                 {/*TEXT*/}
                 <div
-                    className="order-8 md:order-7 relative flex flex-col items-center text-center justify-between col-span-1 lg:col-span-8 md:col-span-8 p-4 md:p-8 md:p-8 md:p-8 md:p-8 overflow-hidden bg-cloverDarkGreen bg-opacity-40 border-dashed border-8 border-cloverBorder rounded-none rounded">
+                    className="order-10 md:order-9 relative flex flex-col items-center text-center justify-between col-span-1 lg:col-span-8 md:col-span-8 p-4 md:p-8 md:p-8 md:p-8 md:p-8 overflow-hidden bg-cloverDarkGreen bg-opacity-40 border-dashed border-8 border-cloverBorder rounded-none rounded">
                     <div className="h-full w-full flex flex-col justify-center items-center">
 
                         {/*</div>*/}
@@ -161,7 +197,7 @@ export default function Story() {
 
 
                 {/*IMG*/}
-                <div className="order-7 md:order-8 flex flex-col items-center justify-between col-span-1 lg:col-span-4 md:col-span-4 px-0 py-0 space-y-4 border-8 border-cloverBorder rounded-none rounded">
+                <div className="order-9 md:order-10 flex flex-col items-center justify-between col-span-1 lg:col-span-4 md:col-span-4 px-0 py-0 space-y-4 border-4 border-cloverBorder rounded-none rounded">
 
                     <Image
                         alt="planet"

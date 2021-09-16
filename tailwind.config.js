@@ -4,6 +4,9 @@ module.exports = {
   content: ['./src/**/*.{html,js}', './node_modules/tw-elements/dist/js/**/*.js'],
   purge: [],
   darkMode: false, // or 'media' or 'class'
+  plugins: [
+    require('@tailwindcss/aspect-ratio'),
+  ],
   theme: {
     extend: {
       screens: {
