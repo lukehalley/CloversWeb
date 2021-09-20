@@ -110,7 +110,7 @@ export default function Forms() {
 
             <div
                 className="py-4 text-center text-xl text-cloverLightGreen mx-4 mb-0 sm:lg:text-xl md:text-l md:text-2xl lg:text-3xl ">
-                Here is the 27 different Clover forms and the four different rarity levels.
+                Here are the 27 different Clover forms, and the four different rarity levels.
             </div>
 
             <div

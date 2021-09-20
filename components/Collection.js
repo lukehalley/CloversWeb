@@ -13,12 +13,12 @@ export default function Roadmap() {
 
             <div
                 className="p-4 text-center text-xl text-cloverLightGreen mx-4 mb-0 sm:lg:text-xl md:text-l md:text-2xl lg:text-2xl lg:text-3xl ">
-                Heres four key points about Clovers and what we did to make it different from all the rest.
+                Below are the main characteristics of the collection.
             </div>
 
             <div
                 className="p-0 text-center text-xl text-cloverLightGreen mx-4 mb-0 sm:lg:text-xl md:text-l md:text-2xl lg:text-3xl ">
-                [ Looks | Forms | Depth | Consistency ]
+                [ Appearance | Variation | Depth | Consistency ]
             </div>
 
             <div className="py-6 grid grid-cols-1 gap-4 mx-4 mt-0 sm:grid-cols-8 lg:grid-cols-12 sm:px-4 xl:px-0">
@@ -56,9 +56,9 @@ export default function Roadmap() {
                             </div>
                             <div className="md:text-xl text-l">
                                 <p>
-                                    Regardless of how rare a Clover is, we made sure each and everyone looked brilliant.
+                                    Regardless of rarity, it was essential that each Clover looked great.
                                     <br/><br/>
-                                    The collection contains some never seen before traits but also come classics from the NFT space.
+                                    New traits sit comfortably alongside some classic ones.
                                     <br/><br/>
                                 </p>
                             </div>
@@ -79,7 +79,7 @@ export default function Roadmap() {
                             <p>
                                 There are 27 different base forms in the collection.
                                 <br/><br/>
-                                During the generation process a collection of traits and variations are chosen from - all exclusive to each form.
+                                During the generation process different bases are chosen to make each Clover.
                             </p>
                         </div>
                     </div>
@@ -137,9 +137,9 @@ export default function Roadmap() {
                             </div>
                             <div className="md:text-xl text-l">
                                 <p>
-                                    Every Clover is not built the same - with up to 18 different layers making up each one.
+                                    The Clovers are not all built in the same way — up to 18 different layers are combined to make each one.
                                     <br/><br/>
-                                    As well as that - there are 322 different traits within the collection.
+                                    In addition, there are 322 different traits within the collection.
                                 </p>
                             </div>
                         </div>
@@ -158,9 +158,9 @@ export default function Roadmap() {
                         </div>
                         <div className="md:text-xl text-l">
                             <p>
-                                Since we built the algorithm that generates the Clovers from the ground up we added some unique features.
+                                The algorithm used to generate the Clovers was built from scratch.
                                 <br/><br/>
-                                Each form is matched with its complementing traits and variations.
+                                This ensured that each generated Clover was matched with complementing traits and variations.
                             </p>
                         </div>
                     </div>

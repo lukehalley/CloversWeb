@@ -7,10 +7,10 @@ export default function Team() {
         <>
 
             <h1 className="capitalize mb-0 pt-4 md:text-xl lg:text-xl leading-0 tracking-tight text-center text-cloverLightGreen md:text-4xl lg:md:text-xl lg:text-xl">
-                <span className="text-3xl leading-tight border-0 border-gray-300 lg:text-5xl md:text-5xl sm:text-1xl">[ Team ]</span>
+                <span className="text-3xl leading-tight border-0 border-gray-300 lg:text-5xl md:text-5xl sm:text-1xl">[ Development ]</span>
             </h1>
 
-            <div className="capitalize py-4 md:py-4 grid grid-cols-1 gap-4 mx-4 mt-0 lg:grid-cols-2 sm:px-8 xl:px-0">
+            <div className="py-4 md:py-4 grid grid-cols-1 gap-4 mx-4 mt-0 lg:grid-cols-2 sm:px-8 xl:px-0">
 
 
                 <div className="grid-row-wrapper">
@@ -28,10 +28,11 @@ export default function Team() {
                                 <p>
                                     [ founder + degen + dev ]
                                     <br/><br/>
-                                    LHK is the lead developer and artist of Clovers. He has been involved in software development for five years now.
+                                    This project was developed by me (LHK), during pre and post lockdown.
                                     <br/><br/>
-                                    when hes not writing code - he is either drinking coffee or going for long runs which he really enjoys for some odd reason.
+                                    My main objective was to create a fun NFT project, which had a great story behind it.
                                     <br/><br/>
+                                    I’ve learned a lot about the ins and outs of Web 3 during this process.
                                 </p>
                             </div>
                         </div>

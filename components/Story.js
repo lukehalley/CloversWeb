@@ -41,25 +41,60 @@ export default function Story() {
                         className="order-2 md:order-1 relative flex flex-col items-center text-center justify-between col-span-1 lg:col-span-8 md:col-span-4 p-4 overflow-hidden bg-cloverDarkGreen bg-opacity-40 border-dashed border-8 border-cloverBorder rounded-none rounded">
                         <div className="h-full w-full flex flex-col justify-center items-center">
                             <div className="row-span-0">
-                                <h1 className="mb-4 text-2xl md:text-4xl">[ Transmission 342.3.4 ]</h1>
+                                <h1 className="mb-4 text-2xl md:text-4xl">[ The Signal ]</h1>
                             </div>
                             <div className="lg:md:text-xl lg:text-xl">
                                 <p className="md:p-8">
-                                    On April 18th, 3033 - news leaked that a mysterious signal coming from the a distant star has reached planet Earth.
+                                    Signals originating from billions of light years away were detected by satellites on Earth. Humans discovered that these mysterious signals originated from a distant land known as the Metaverse.
                                     <br/><br/>
                                     Most curiously, it came from a very narrow band of the radio spectrum: 982 megahertz, which typically only comes from transmissions of human-made satellites and spacecraft.
                                     <br/><br/>
-                                    Years later - humans travelled into space, tracking this transmission to its source and discovered the species known as Clovers.
+                                    This transmission was decoded by humans which led to the discovery of the Clovers.
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
 
+                {/*--RIGHT--*/}
+                {/*TEXT*/}
+                <div
+                    className="order-4 md:order-4 relative flex flex-col items-center text-center justify-between col-span-1 lg:col-span-8 md:col-span-8 p-4 md:p-8 md:p-8 md:p-8 md:p-8 overflow-hidden bg-cloverDarkGreen bg-opacity-40 border-dashed border-8 border-cloverBorder rounded-none rounded">
+                    <div className="h-full w-full flex flex-col justify-center items-center">
+                        <div className="row-span-0">
+                            {/*<h1 className="mb-4">THIS WILL BE THE TITLE</h1>*/}
+                            <h1 className="mb-4 text-2xl md:text-4xl lg:text-4xl">[ The Clover ]</h1>
+                        </div>
+
+                        <div className="lg:md:text-xl lg:text-xl">
+                            <p className="md:p-8">
+                                Clovers are a cluster of 5,000 otherworldly creatures, hidden in the Metaverse. As distant relatives of the leprechaun, they are a powerful yet peaceful community. Like their predecessors, they have the ability to grant a single wish.
+                                <br/><br/>
+                                In order to avoid having to do this, each Clover is encoded with the ability to shape-shift on command.
+                                <br/><br/>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                {/*IMG*/}
+                <div className="order-3 md:order-3 flex flex-col items-center justify-between col-span-1 lg:col-span-4 md:col-span-4 px-0 py-0 space-y-4 border-4 border-cloverBorder rounded-none rounded">
+
+                    <Image
+                        alt="transform"
+                        src="/gif-opt/transform.gif"
+                        blurDataURL={"thumbnail/tn_transform.jpg"}
+                        placeholder="blur"
+                        width={500}
+                        height={500}
+                    />
+
+                </div>
+
                 <div className="grid-row-wrapper">
 
                     {/*IMG*/}
-                    <div className="order-3 md:order-3 grid-item flex flex-col items-center justify-between col-span-1 lg:col-span-4 md:col-span-4 space-y-4 border-8 border-cloverBorder rounded-none rounded">
+                    <div className="order-5 md:order-6 grid-item flex flex-col items-center justify-between col-span-1 lg:col-span-4 md:col-span-4 space-y-4 border-8 border-cloverBorder rounded-none rounded">
                         {/*<img src="/gif-opt/origin.gif"/>*/}
 
                         <Image
@@ -77,60 +112,25 @@ export default function Story() {
 
                     {/*TEXT*/}
                     <div
-                        className="order-4 md:order-4 relative flex flex-col items-center text-center justify-between col-span-1 lg:col-span-8 md:col-span-4 p-4 overflow-hidden bg-cloverDarkGreen bg-opacity-40 border-dashed border-8 border-cloverBorder rounded-none rounded">
+                        className="order-6 md:order-5 relative flex flex-col items-center text-center justify-between col-span-1 lg:col-span-8 md:col-span-4 p-4 overflow-hidden bg-cloverDarkGreen bg-opacity-40 border-dashed border-8 border-cloverBorder rounded-none rounded">
                         <div className="h-full w-full flex flex-col justify-center items-center">
                             <div className="row-span-0">
-                                <h1 className="mb-4 text-2xl md:text-4xl">[ The Conception ]</h1>
+                                <h1 className="mb-4 text-2xl md:text-4xl">[ The Origin Clover ]</h1>
                             </div>
                             <div className="lg:md:text-xl lg:text-xl">
                                 <p className="md:p-8">
-                                    Years ago, during the conception of the metaverse a divine being was born - the Origin Clover.
+                                    Over 3 billion years ago during the creation of the metaverse, a divine creature was brought to life— the Origin Clover.
                                     <br/><br/>
-                                    Harnessing the crystal which floats about its head - it created 4000 beings known as Clovers.
+                                    Drawing immense power from its druid crystal, the Origin Clover created 5,000 other Clovers in its likeness.
                                     <br/><br/>
-                                    The origin Clover is a creature which hurts no being which does good - but contains enough power to protect if needs be.
+                                    While the Origin Clover will never hurt any creature of good, it will use whatever power necessary against those which do harm.
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                {/*--RIGHT--*/}
-                {/*TEXT*/}
-                <div
-                    className="order-6 md:order-5 relative flex flex-col items-center text-center justify-between col-span-1 lg:col-span-8 md:col-span-8 p-4 md:p-8 md:p-8 md:p-8 md:p-8 overflow-hidden bg-cloverDarkGreen bg-opacity-40 border-dashed border-8 border-cloverBorder rounded-none rounded">
-                    <div className="h-full w-full flex flex-col justify-center items-center">
-                        <div className="row-span-0">
-                            {/*<h1 className="mb-4">THIS WILL BE THE TITLE</h1>*/}
-                            <h1 className="mb-4 text-2xl md:text-4xl lg:text-4xl">[ The Clover ]</h1>
-                        </div>
 
-                        <div className="lg:md:text-xl lg:text-xl">
-                            <p className="md:p-8">
-                                Each Clover is encoded with the ability to shape-shift into any state or being on command.
-                                <br/><br/>
-                                It is a distant relative of the  supernatural being known as the leprechaun. they are powerful but peaceful creatures.
-                                <br/><br/>
-                                However - if the Clover is found while in its  shape-shifted state
-                                a single wish must be granted to the being who found it.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                {/*IMG*/}
-                <div className="order-5 md:order-6 flex flex-col items-center justify-between col-span-1 lg:col-span-4 md:col-span-4 px-0 py-0 space-y-4 border-4 border-cloverBorder rounded-none rounded">
-
-                    <Image
-                        alt="transform"
-                        src="/gif-opt/transform.gif"
-                        blurDataURL={"thumbnail/tn_transform.jpg"}
-                        placeholder="blur"
-                        width={500}
-                        height={500}
-                    />
-
-                </div>
 
 
                 {/*IMG*/}
@@ -156,11 +156,9 @@ export default function Story() {
                         </div>
                         <div className="md:text-xl lg:text-xl">
                             <p className="md:p-8">
-                                When the Clovers were being created - a single one was created with corrupt data.
-                                the anti-Clover discovered it did not contain the same powers its siblings held.
+                                When the Clovers were being created, one was generated with corrupt metadata. On realising it did not hold the same powers as its siblings, the Anti-Clover became consumed with rage.
                                 <br/><br/>
-                                Out of anguish and jealousy, it set its one purpose in life to find and capture each and every Clover and use its one wish
-                                to against itself - to have it's existence wiped from the face of the metaverse.
+                                Full of anguish and jealousy, its sole purpose in life was to find and capture each and every Clover. Once ensnared, the Anti Clover would force the Clovers to use its one wish against itself thus wiping their very existence from the metaverse.
                             </p>
                         </div>
                     </div>
@@ -178,15 +176,13 @@ export default function Story() {
                         {/*</div>*/}
                         <div className="row-span-0">
                             <div className="row-span-0">
-                                <h1 className="mb-4 text-2xl md:text-4xl lg:text-4xl">[ Planet Trefoil ]</h1>
+                                <h1 className="mb-4 text-2xl md:text-4xl lg:text-4xl">[ The Home ]</h1>
                             </div>
                             <div className="md:text-xl lg:text-xl">
                                 <p className="md:p-8">
-                                    When the Clovers were created - the origin Clover also created a home planet as a safe haven for them.
+                                    When the Clovers were created. the Origin Clover also created a home planet. This safe haven became known as Planet Trefoil with rich grasslands, endless forests, and sparkling blue oceans.
                                     <br/><br/>
-                                    A trefoil - meaning 'three-leaved plant' in Latin for a graphic form composed of the outline of three overlapping rings - just like the Clover leaf.
-                                    <br/><br/>
-                                    The planet has endless forests, rich grasslands, and deep oceans.
+                                    When the Anti-Clover started to hunt down the Clovers, they were forced to flee Planet Trefoil, shape-shift and inhabit different worlds.
                                 </p>
                             </div>
                         </div>

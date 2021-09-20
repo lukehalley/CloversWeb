@@ -46,7 +46,7 @@ export default function Hero(
                             </h2>
                             <div
                                 className="capitalize px-4 text-center mx-auto mt-2 text-cloverLightGreen md:max-w-lg lg:text-lg">
-                                A collection of 4,000 unique beings
+                                A collection of 5,000 unique beings
                             </div>
                             <div
                                 className="capitalize px-4 text-center mx-auto mt-0 text-cloverLightGreen md:max-w-lg lg:text-lg">
