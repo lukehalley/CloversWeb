@@ -332,12 +332,14 @@ export default function Nav(
                     {(ref) => (
                         <div className="z-50 absolute bg-cloverDarkGreen bg-opacity-95 md:hidden border-b-4 border-green" id="mobile-menu">
                             <div ref={ref} className="px-2 py-2 space-y-1 sm:px-3">
-                                <a className="text-xl px-2 inline-block w-full p-0 font-medium text-left text-cloverLightGreen md:w-auto md:px-0 md:mx-2 hover:text-cloverLightGreen lg:mx-3 md:text-center">
-                                    <Link to="mint" spy={true} smooth={true}>[ Mint ] </Link>
-                                </a>
+
 
                                 <a className="text-xl px-2 inline-block w-full p-0 font-medium text-left text-cloverLightGreen md:w-auto md:px-0 md:mx-2 hover:text-cloverLightGreen lg:mx-3 md:text-center">
                                     <Link to="story" spy={true} smooth={true}>[ Story ] </Link>
+                                </a>
+
+                                <a className="text-xl px-2 inline-block w-full p-0 font-medium text-left text-cloverLightGreen md:w-auto md:px-0 md:mx-2 hover:text-cloverLightGreen lg:mx-3 md:text-center">
+                                    <Link to="mint" spy={true} smooth={true}>[ Mint ] </Link>
                                 </a>
 
                                 <a className="text-xl px-2 inline-block w-full p-0 font-medium text-left text-cloverLightGreen md:w-auto md:px-0 md:mx-2 hover:text-cloverLightGreen lg:mx-3 md:text-center">

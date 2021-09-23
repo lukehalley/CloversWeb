@@ -591,7 +591,7 @@ export default function Home() {
                                 }
 
                                 <div>
-                                    <section id="ability" className="bg-repeat bg-blend-overlay snowflake-bg">
+                                    <section id="collection" className="bg-repeat bg-blend-overlay snowflake-bg">
                                         <div className="container mx-auto">
                                             <Ability/>
                                         </div>

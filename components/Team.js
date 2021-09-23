@@ -28,7 +28,7 @@ export default function Team() {
                                 <p>
                                     [ founder + degen + dev ]
                                     <br/><br/>
-                                    This project was developed by me (LHK), during pre and post lockdown.
+                                    This project was developed by me during pre and post lockdown.
                                     <br/><br/>
                                     My main objective was to create a fun NFT project, which had a great story behind it.
                                     <br/><br/>
@@ -40,7 +40,7 @@ export default function Team() {
 
                     {/*IMG*/}
                     <div className="order-1 md:order-2 flex flex-col items-center justify-between col-span-1 lg:col-span-1 md:col-span-1 px-0 py-0 space-y-4 border-8 border-cloverBorder rounded-none rounded">
-                        <img className="" src="images-opt/common/dude.jpg"/>
+                        <img className="" src="images-opt/dev.jpg"/>
                     </div>
 
                 </div>
