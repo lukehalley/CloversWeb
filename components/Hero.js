@@ -50,7 +50,7 @@ export default function Hero(
                             </div>
                             <div
                                 className="capitalize px-4 text-center mx-auto mt-0 text-cloverLightGreen md:max-w-lg lg:text-lg">
-                                hiding from the a dark spirit.
+                                hiding from a dark spirit.
                             </div>
 
                             <div className="flex flex-col items-center mt-4 text-center">
