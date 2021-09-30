@@ -27,7 +27,7 @@ export default function Home() {
     const openseaURL = process.env.NEXT_PUBLIC_OPENSEA_LINK;
 
     // Global Show Mint
-    const globalShowMint = (process.env.NEXT_PUBLIC_SHOW_MINT === 'true');
+    const globalAllowMint = (process.env.NEXT_PUBLIC_SHOW_MINT === 'true');
 
     // Page State
     const [siteIsLoading, setSiteIsLoading] = useState(false);
@@ -421,14 +421,18 @@ export default function Home() {
 
     // On Load
     useEffect(() => {
-        reloadOnAccountChange();
-        reloadOnNetworkChange();
-        checkNetwork();
-        listenToMetamaskAccount();
-        setConnectedAccount();
-        initScrollUpToggle();
-        initMintDataWatcher();
-        watchPreMintTime(preSaleMintDate);
+
+        if (globalAllowMint) {
+            reloadOnAccountChange();
+            reloadOnNetworkChange();
+            checkNetwork();
+            listenToMetamaskAccount();
+            setConnectedAccount();
+            initScrollUpToggle();
+            initMintDataWatcher();
+            watchPreMintTime(preSaleMintDate);
+        }
+
     }, []);
 
     return (
@@ -462,7 +466,7 @@ export default function Home() {
                                         <div className="h-screen flex flex-col">
                                             <div className="">
                                                 <Nav
-                                                    globalShowMint={globalShowMint}
+                                                    globalAllowMint={globalAllowMint}
                                                     connected={connected} updateConnectedState={updateConnectedState}
                                                     loading={loading} updateLoadingState={updateLoadingState}
                                                     hasMetamask={hasMetamask}
@@ -504,7 +508,7 @@ export default function Home() {
                                     </section>
                                 </div>
 
-                                {globalShowMint
+                                {globalAllowMint
                                     ?
                                     <>
                                         {mintDatePassed
@@ -516,7 +520,7 @@ export default function Home() {
                                                             <Mint
                                                                 key="minter"
                                                                 openPopup={openPopup}
-                                                                globalShowMint={globalShowMint}
+                                                                globalAllowMint={globalAllowMint}
                                                                 currentMintType={currentMintType}
                                                                 countdownMessage={countdownMessage}
                                                                 preSaleMintDate={publicSaleMintDate}
@@ -542,7 +546,7 @@ export default function Home() {
                                                                     ?
                                                                     <>
                                                                         <MintCountdown
-                                                                            globalShowMint={globalShowMint}
+                                                                            globalAllowMint={globalAllowMint}
                                                                             countdownMessage={countdownMessage}
                                                                             preSaleMintDate={publicSaleMintDate}
                                                                             connected={connected}

@@ -5,7 +5,7 @@ import {Link} from 'react-scroll'
 
 export default function Nav(
     {
-        globalShowMint,
+        globalAllowMint,
         connected,
         loading,
         hasMetamask,
@@ -55,7 +55,7 @@ export default function Nav(
                                             </a>
 
                                             {
-                                                globalShowMint
+                                                globalAllowMint
                                                 ?
                                                     <>
 
@@ -103,67 +103,80 @@ export default function Nav(
                                     {/*BUTTON*/}
                                     <div className="flex-none">
 
-                                        {hasMetamask
-                                            ?
-                                            <>
-                                                {hasCorrectNetwork
-                                                    ?
-                                                    <>
-                                                        <button
-                                                            className="bg-opacity-90 inline-flex shadow-lg items-center w-full px-6 py-3 text-sm font-medium text-cloverLightGreen bg-cloverDarkGreen md:px-3 md:w-auto lg:px-5 hover:bg-cloverDarkGreen"
-                                                            onClick={handleConnectWallet}
-                                                            disabled={connected}
-                                                        >
+                                        {
+                                            globalAllowMint
+                                                ?
+                                                <>
 
-                                                            {!loading
+                                                    {hasMetamask
+                                                        ?
+                                                        <>
+                                                            {hasCorrectNetwork
                                                                 ?
                                                                 <>
-                                                                    {connected
-                                                                        ?
-                                                                        <span
-                                                                            className="animate-pulse rounded-full h-2 w-2 block mr-2 bg-cloverLightGreen"
-                                                                        />
-                                                                        :
-                                                                        <i className="fa-solid fa-wallet pr-2"/>
-                                                                    }
-                                                                    { walletText }
-                                                                </>
-                                                                :
-                                                                <span>Connecting...</span>
-                                                            }
-                                                        </button>
-                                                    </>
-                                                    :
-                                                    <>
-                                                        <button
-                                                            className="bg-opacity-90 inline-flex shadow-lg items-center w-full md:px-6 md:py-3 text-sm font-medium text-cloverLightGreen bg-cloverDarkGreen md:px-3 md:w-auto lg:px-5 hover:bg-cloverDarkGreen"
-                                                            onClick={switchToCorrectNetwork}
-                                                        >
+                                                                    <button
+                                                                        className="bg-opacity-90 inline-flex shadow-lg items-center w-full px-6 py-3 text-sm font-medium text-cloverLightGreen bg-cloverDarkGreen md:px-3 md:w-auto lg:px-5 hover:bg-cloverDarkGreen"
+                                                                        onClick={handleConnectWallet}
+                                                                        disabled={connected}
+                                                                    >
 
-                                                            {!loading
-                                                                ?
-                                                                <>
-                                                                    <span className="animate-pulse rounded-full h-2 w-2 block mr-2 bg-cloverLightRed"/>
-                                                                    Switch Network
+                                                                        {!loading
+                                                                            ?
+                                                                            <>
+                                                                                {connected
+                                                                                    ?
+                                                                                    <span
+                                                                                        className="animate-pulse rounded-full h-2 w-2 block mr-2 bg-cloverLightGreen"
+                                                                                    />
+                                                                                    :
+                                                                                    <i className="fa-solid fa-wallet pr-2"/>
+                                                                                }
+                                                                                { walletText }
+                                                                            </>
+                                                                            :
+                                                                            <span>Connecting...</span>
+                                                                        }
+                                                                    </button>
                                                                 </>
                                                                 :
-                                                                <span>Connecting...</span>
+                                                                <>
+                                                                    <button
+                                                                        className="bg-opacity-90 inline-flex shadow-lg items-center w-full md:px-6 md:py-3 text-sm font-medium text-cloverLightGreen bg-cloverDarkGreen md:px-3 md:w-auto lg:px-5 hover:bg-cloverDarkGreen"
+                                                                        onClick={switchToCorrectNetwork}
+                                                                    >
+
+                                                                        {!loading
+                                                                            ?
+                                                                            <>
+                                                                                <span className="animate-pulse rounded-full h-2 w-2 block mr-2 bg-cloverLightRed"/>
+                                                                                Switch Network
+                                                                            </>
+                                                                            :
+                                                                            <span>Connecting...</span>
+                                                                        }
+                                                                    </button>
+                                                                </>
                                                             }
-                                                        </button>
-                                                    </>
-                                                }
-                                            </>
-                                            :
-                                            <>
-                                                <button
-                                                    className="bg-opacity-90 inline-flex shadow-lg items-center w-full md:px-6 md:py-3 text-sm font-medium text-cloverLightGreen bg-cloverDarkGreen md:px-3 md:w-auto lg:px-5 hover:bg-cloverDarkGreen"
-                                                    onClick={installMetamask}
-                                                >
-                                                    <span className="p-1 md:p-0 animate-pulse rounded-full h-2 w-2 block mr-2 bg-cloverLightRed"/>
-                                                    Install Metamask
-                                                </button>
-                                            </>
+                                                        </>
+                                                        :
+                                                        <>
+                                                            <button
+                                                                className="bg-opacity-90 inline-flex shadow-lg items-center w-full md:px-6 md:py-3 text-sm font-medium text-cloverLightGreen bg-cloverDarkGreen md:px-3 md:w-auto lg:px-5 hover:bg-cloverDarkGreen"
+                                                                onClick={installMetamask}
+                                                            >
+                                                                <span className="p-1 md:p-0 animate-pulse rounded-full h-2 w-2 block mr-2 bg-cloverLightRed"/>
+                                                                Install Metamask
+                                                            </button>
+                                                        </>
+                                                    }
+
+                                                </>
+                                                :
+                                                <>
+                                                </>
                                         }
+
+
 
 
                                     </div>
@@ -189,75 +202,88 @@ export default function Nav(
                                 <div className="text-center">
                                     <div className="flex-none">
 
-                                        {hasMetamask
-                                            ?
-                                            <>
-                                                {hasCorrectNetwork
-                                                    ?
-                                                    <>
-                                                        <button
-                                                            className="border-2 border-cloverLightGreen bg-opacity-90 inline-flex shadow-lg items-center rounded-lg w-full p-2 text-sm font-medium text-cloverLightGreen bg-cloverDarkGreen md:px-3 md:w-auto lg:px-5 hover:bg-cloverDarkGreen"
-                                                            onClick={handleConnectWallet}
-                                                            disabled={connected}
-                                                        >
+                                        {
+                                            globalAllowMint
+                                                ?
+                                                <>
 
-                                                            {!loading
+                                                    {hasMetamask
+                                                        ?
+                                                        <>
+                                                            {hasCorrectNetwork
                                                                 ?
                                                                 <>
-                                                                    {connected
-                                                                        ?
-                                                                        <>
+                                                                    <button
+                                                                        className="border-2 border-cloverLightGreen bg-opacity-90 inline-flex shadow-lg items-center rounded-lg w-full p-2 text-sm font-medium text-cloverLightGreen bg-cloverDarkGreen md:px-3 md:w-auto lg:px-5 hover:bg-cloverDarkGreen"
+                                                                        onClick={handleConnectWallet}
+                                                                        disabled={connected}
+                                                                    >
+
+                                                                        {!loading
+                                                                            ?
+                                                                            <>
+                                                                                {connected
+                                                                                    ?
+                                                                                    <>
                                                                 <span
                                                                     className="animate-pulse p-1 rounded-full h-2 w-2 block mr-2 bg-cloverLightGreen"
                                                                 />
-                                                                            Connected
-                                                                        </>
-                                                                        :
+                                                                                        Connected
+                                                                                    </>
+                                                                                    :
 
-                                                                        <>
-                                                                            <i className="fa-solid fa-wallet pr-2"/>
-                                                                            <p className="">Connect</p>
+                                                                                    <>
+                                                                                        <i className="fa-solid fa-wallet pr-2"/>
+                                                                                        <p className="">Connect</p>
 
-                                                                        </>
-                                                                    }
+                                                                                    </>
+                                                                                }
 
+                                                                            </>
+                                                                            :
+                                                                            <span>Connecting...</span>
+                                                                        }
+                                                                    </button>
                                                                 </>
                                                                 :
-                                                                <span>Connecting...</span>
-                                                            }
-                                                        </button>
-                                                    </>
-                                                    :
-                                                    <>
-                                                        <button
-                                                            className="border-2 border-cloverLightGreen bg-opacity-90 inline-flex shadow-lg items-center rounded-lg w-full p-2 text-sm font-medium text-cloverLightGreen bg-cloverDarkGreen md:px-3 md:w-auto lg:px-5 hover:bg-cloverDarkGreen"
-                                                            onClick={switchToCorrectNetwork}
-                                                        >
-
-                                                            {!loading
-                                                                ?
                                                                 <>
-                                                                    <span className="animate-pulse p-1 rounded-full h-2 w-2 block mr-2 bg-cloverLightRed"/>
-                                                                    { "Switch" }
+                                                                    <button
+                                                                        className="border-2 border-cloverLightGreen bg-opacity-90 inline-flex shadow-lg items-center rounded-lg w-full p-2 text-sm font-medium text-cloverLightGreen bg-cloverDarkGreen md:px-3 md:w-auto lg:px-5 hover:bg-cloverDarkGreen"
+                                                                        onClick={switchToCorrectNetwork}
+                                                                    >
+
+                                                                        {!loading
+                                                                            ?
+                                                                            <>
+                                                                                <span className="animate-pulse p-1 rounded-full h-2 w-2 block mr-2 bg-cloverLightRed"/>
+                                                                                { "Switch" }
+                                                                            </>
+                                                                            :
+                                                                            <span>Switching...</span>
+                                                                        }
+                                                                    </button>
                                                                 </>
-                                                                :
-                                                                <span>Switching...</span>
                                                             }
-                                                        </button>
-                                                    </>
-                                                }
-                                            </>
-                                            :
-                                            <>
-                                                <button
-                                                    className="border-2 border-cloverLightGreen bg-opacity-90 inline-flex shadow-lg items-center rounded-lg w-full py-1 px-2 text-sm font-medium text-cloverLightGreen bg-cloverDarkGreen md:px-3 md:w-auto lg:px-5 hover:bg-cloverDarkGreen"
-                                                    onClick={installMetamask}
-                                                >
-                                                    <span className="animate-pulse p-1 rounded-full h-2 w-2 block mr-2 bg-cloverLightRed"/>
-                                                    Install Metamask
-                                                </button>
-                                            </>
+                                                        </>
+                                                        :
+                                                        <>
+                                                            <button
+                                                                className="border-2 border-cloverLightGreen bg-opacity-90 inline-flex shadow-lg items-center rounded-lg w-full py-1 px-2 text-sm font-medium text-cloverLightGreen bg-cloverDarkGreen md:px-3 md:w-auto lg:px-5 hover:bg-cloverDarkGreen"
+                                                                onClick={installMetamask}
+                                                            >
+                                                                <span className="animate-pulse p-1 rounded-full h-2 w-2 block mr-2 bg-cloverLightRed"/>
+                                                                Install Metamask
+                                                            </button>
+                                                        </>
+                                                    }
+
+                                                </>
+                                                :
+                                                <>
+                                                </>
                                         }
+
+
 
 
                                     </div>

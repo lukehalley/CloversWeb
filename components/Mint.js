@@ -78,48 +78,52 @@ export default function Mint(
                     inviteObj = inviteValue
                 }
 
-                if (Object.keys(inviteValue).length === 0) {
-                    setMintActive(false);
-                } else {
-
-                    setMintActive(true);
-
-                    setMintPrice(Number(inviteObj.condition.converted.eth));
-
-                    if (mintQuantity <= 1) {
-                        setMintSumTotal(Number(inviteObj.condition.converted.eth));
-                    }
-
-
-                    setMintPerWalletLimit(inviteObj.condition.converted.limit);
-
-                    f0.config().then((configValue) => {
-                        setTotalSupply(Number(configValue.converted.supply));
-                        f0.nextId().then((nextIdValue) => {
-                            setTotalMinted(Number(nextIdValue - 1));
-
-                            if (totalMinted === totalSupply) {
-                                setMintSoldOut(true)
-                            } else {
-                                setMintSoldOut(false)
-                            }
-
-                        });
-                    });
-
-
-                    if (totalMinted >= totalSupply) {
+                if (inviteValue != null){
+                    if (Object.keys(inviteValue).length === 0) {
                         setMintActive(false);
                     } else {
+
                         setMintActive(true);
 
-                        const mintsRemaining = totalSupply - totalMinted;
+                        setMintPrice(Number(inviteObj.condition.converted.eth));
 
-                        if (mintsRemaining < mintPerWalletLimit) {
-                            setMintPerWalletLimit(mintsRemaining)
+                        if (mintQuantity <= 1) {
+                            setMintSumTotal(Number(inviteObj.condition.converted.eth));
+                        }
+
+
+                        setMintPerWalletLimit(inviteObj.condition.converted.limit);
+
+                        f0.config().then((configValue) => {
+                            setTotalSupply(Number(configValue.converted.supply));
+                            f0.nextId().then((nextIdValue) => {
+                                setTotalMinted(Number(nextIdValue - 1));
+
+                                if (totalMinted === totalSupply) {
+                                    setMintSoldOut(true)
+                                } else {
+                                    setMintSoldOut(false)
+                                }
+
+                            });
+                        });
+
+
+                        if (totalMinted >= totalSupply) {
+                            setMintActive(false);
+                        } else {
+                            setMintActive(true);
+
+                            const mintsRemaining = totalSupply - totalMinted;
+
+                            if (mintsRemaining < mintPerWalletLimit) {
+                                setMintPerWalletLimit(mintsRemaining)
+                            }
                         }
                     }
                 }
+
+
 
             } else {
                 setMintActive(false);
