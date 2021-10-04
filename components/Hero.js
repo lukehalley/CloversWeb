@@ -11,6 +11,9 @@ export default function Hero(
     }
 ) {
 
+    // Global Show Mint
+    const globalShowOpeanseaButton = (process.env.NEXT_PUBLIC_SHOW_OPENSEA === 'true');
+
     const [scrollDownBtnVisible, setScrollDownBtnVisible] = useState(true);
 
     const scrollLimit = 300;
@@ -82,12 +85,22 @@ export default function Hero(
                                 <div className="flex flex-row">
 
                                     <div>
-                                        <button
-                                            onClick={openOpensea}
-                                            className="border-2 border-cloverLightGreen bg-opacity-90 bg-cloverDarkGreen shadow-lg transition ease-in-out delay-50 duration-500 text-cloverLightGreen hover:bg-cloverLighterGreen py-2 px-4 mx-2 rounded inline-flex items-center">
-                                            <i className="fa-solid fa-sailboat pr-2"/>
-                                            <span>Opensea</span>
-                                        </button>
+                                        {
+                                            globalShowOpeanseaButton
+                                            ?
+                                                <>
+                                                    <button
+                                                        onClick={openOpensea}
+                                                        className="border-2 border-cloverLightGreen bg-opacity-90 bg-cloverDarkGreen shadow-lg transition ease-in-out delay-50 duration-500 text-cloverLightGreen hover:bg-cloverLighterGreen py-2 px-4 mx-2 rounded inline-flex items-center">
+                                                        <i className="fa-solid fa-sailboat pr-2"/>
+                                                        <span>Opensea</span>
+                                                    </button>
+                                                </>
+                                            :
+                                                <>
+                                                </>
+                                        }
+
                                     </div>
                                 </div>
                             </div>
