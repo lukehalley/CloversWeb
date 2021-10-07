@@ -5,6 +5,7 @@ import Image from "next/dist/client/image";
 
 export default function Hero(
     {
+        globalAllowMint,
         openOpensea,
         openDiscord,
         openTwitter,
@@ -55,6 +56,24 @@ export default function Hero(
                                 className="capitalize px-4 text-center mx-auto mt-0 text-cloverLightGreen md:max-w-lg lg:text-lg">
                                 hiding from a dark spirit.
                             </div>
+
+                            {
+                                globalAllowMint
+                                ?
+                                    <>
+                                    </>
+                                :
+                                    <>
+                                        <div
+                                            className="capitalize pt-2 text-center mx-auto mt-0 text-cloverLightGreen md:max-w-lg lg:text-lg">
+                                            Minting Soon...
+                                        </div>
+                                    </>
+                            }
+
+
+
+
 
                             <div className="flex flex-col items-center mt-4 text-center">
 

@@ -483,6 +483,7 @@ export default function Home() {
                                             </div>
                                             <div className="flex-1  mx-auto h-full">
                                                 <Hero
+                                                    globalAllowMint={globalAllowMint}
                                                     openOpensea={openOpensea}
                                                     openDiscord={openDiscord}
                                                     openTwitter={openTwitter}

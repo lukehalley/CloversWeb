@@ -99,14 +99,14 @@ export default function Nav(
 
                         <div className="hidden md:block flex-none w-1/5">
                             <div className="flex justify-center items-center">
-                                <div className="border-2 border-cloverLightGreen text-center rounded">
-                                    {/*BUTTON*/}
-                                    <div className="flex-none">
 
-                                        {
-                                            globalAllowMint
-                                                ?
-                                                <>
+                                {
+                                    globalAllowMint
+                                        ?
+                                        <>
+                                            <div className="border-2 border-cloverLightGreen text-center rounded">
+                                                {/*BUTTON*/}
+                                                <div className="flex-none">
 
                                                     {hasMetamask
                                                         ?
@@ -169,18 +169,15 @@ export default function Nav(
                                                             </button>
                                                         </>
                                                     }
+                                                </div>
+                                            </div>
+                                        </>
+                                        :
+                                        <>
+                                        </>
+                                }
 
-                                                </>
-                                                :
-                                                <>
-                                                </>
-                                        }
 
-
-
-
-                                    </div>
-                                </div>
                             </div>
                         </div>
 
@@ -201,91 +198,6 @@ export default function Nav(
                             <div className="flex justify-center items-center">
                                 <div className="text-center">
                                     <div className="flex-none">
-
-                                        {
-                                            globalAllowMint
-                                                ?
-                                                <>
-
-                                                    {hasMetamask
-                                                        ?
-                                                        <>
-                                                            {hasCorrectNetwork
-                                                                ?
-                                                                <>
-                                                                    <button
-                                                                        className="border-2 border-cloverLightGreen bg-opacity-90 inline-flex shadow-lg items-center rounded-lg w-full p-2 text-sm font-medium text-cloverLightGreen bg-cloverDarkGreen md:px-3 md:w-auto lg:px-5 hover:bg-cloverDarkGreen"
-                                                                        onClick={handleConnectWallet}
-                                                                        disabled={connected}
-                                                                    >
-
-                                                                        {!loading
-                                                                            ?
-                                                                            <>
-                                                                                {connected
-                                                                                    ?
-                                                                                    <>
-                                                                <span
-                                                                    className="animate-pulse p-1 rounded-full h-2 w-2 block mr-2 bg-cloverLightGreen"
-                                                                />
-                                                                                        Connected
-                                                                                    </>
-                                                                                    :
-
-                                                                                    <>
-                                                                                        <i className="fa-solid fa-wallet pr-2"/>
-                                                                                        <p className="">Connect</p>
-
-                                                                                    </>
-                                                                                }
-
-                                                                            </>
-                                                                            :
-                                                                            <span>Connecting...</span>
-                                                                        }
-                                                                    </button>
-                                                                </>
-                                                                :
-                                                                <>
-                                                                    <button
-                                                                        className="border-2 border-cloverLightGreen bg-opacity-90 inline-flex shadow-lg items-center rounded-lg w-full p-2 text-sm font-medium text-cloverLightGreen bg-cloverDarkGreen md:px-3 md:w-auto lg:px-5 hover:bg-cloverDarkGreen"
-                                                                        onClick={switchToCorrectNetwork}
-                                                                    >
-
-                                                                        {!loading
-                                                                            ?
-                                                                            <>
-                                                                                <span className="animate-pulse p-1 rounded-full h-2 w-2 block mr-2 bg-cloverLightRed"/>
-                                                                                { "Switch" }
-                                                                            </>
-                                                                            :
-                                                                            <span>Switching...</span>
-                                                                        }
-                                                                    </button>
-                                                                </>
-                                                            }
-                                                        </>
-                                                        :
-                                                        <>
-                                                            <button
-                                                                className="border-2 border-cloverLightGreen bg-opacity-90 inline-flex shadow-lg items-center rounded-lg w-full py-1 px-2 text-sm font-medium text-cloverLightGreen bg-cloverDarkGreen md:px-3 md:w-auto lg:px-5 hover:bg-cloverDarkGreen"
-                                                                onClick={installMetamask}
-                                                            >
-                                                                <span className="animate-pulse p-1 rounded-full h-2 w-2 block mr-2 bg-cloverLightRed"/>
-                                                                Install Metamask
-                                                            </button>
-                                                        </>
-                                                    }
-
-                                                </>
-                                                :
-                                                <>
-                                                </>
-                                        }
-
-
-
-
                                     </div>
                                 </div>
                             </div>
@@ -364,9 +276,22 @@ export default function Nav(
                                     <Link to="story" spy={true} smooth={true}>[ Story ] </Link>
                                 </a>
 
-                                <a className="text-xl px-2 inline-block w-full p-0 font-medium text-left text-cloverLightGreen md:w-auto md:px-0 md:mx-2 hover:text-cloverLightGreen lg:mx-3 md:text-center">
-                                    <Link to="mint" spy={true} smooth={true}>[ Mint ] </Link>
-                                </a>
+                                {
+                                    globalAllowMint
+                                        ?
+                                        <>
+
+                                            <a className="text-xl px-2 inline-block w-full p-0 font-medium text-left text-cloverLightGreen md:w-auto md:px-0 md:mx-2 hover:text-cloverLightGreen lg:mx-3 md:text-center">
+                                                <Link to="mint" spy={true} smooth={true}>[ Mint ] </Link>
+                                            </a>
+
+                                        </>
+                                        :
+                                        <>
+                                        </>
+                                }
+
+
 
                                 <a className="text-xl px-2 inline-block w-full p-0 font-medium text-left text-cloverLightGreen md:w-auto md:px-0 md:mx-2 hover:text-cloverLightGreen lg:mx-3 md:text-center">
                                     <Link to="collection" spy={true} smooth={true}>[ Collection ] </Link>
