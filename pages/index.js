@@ -441,7 +441,7 @@ export default function Home() {
 
             <Head>
                 <title>Clovers</title>
-                <meta name="description" content="They're Hiding. Which One Will You Find? A Collection Of 5,000 Unique Beings Hiding From A Dark Spirit." />
+                <meta name="description" content="They're Hiding - Which One Will You Find? A Collection Of 5,000 Unique Beings Hiding From A Dark Spirit." />
                 <link rel="icon" href="favicon.ico" />
             </Head>
 
