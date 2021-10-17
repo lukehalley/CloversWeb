@@ -47,9 +47,9 @@ export default function Story() {
                                 <p className="md:p-8">
                                     Signals originating from billions of light years away were detected by satellites on Earth. Humans discovered that these mysterious signals originated from a distant land known as the Metaverse.
                                     <br/><br/>
-                                    Most curiously, it came from a very narrow band of the radio spectrum: 982 megahertz, which typically only comes from transmissions of human-made satellites and spacecraft.
+                                    Curiously, they came from a very narrow band of the radio spectrum: 982 megahertz. Such signals typically only come from transmissions of human-made satellites and spacecraft.
                                     <br/><br/>
-                                    This transmission was decoded by humans which led to the discovery of the Clovers.
+                                    These transmissions were decoded by humans and led to the discovery of the Clovers.
                                 </p>
                             </div>
                         </div>
