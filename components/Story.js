@@ -68,7 +68,7 @@ export default function Story() {
 
                         <div className="lg:md:text-xl lg:text-xl">
                             <p className="md:p-8">
-                                Clovers are a cluster of 5,000 otherworldly creatures, hidden in the Metaverse. As distant relatives of the leprechaun, they are a powerful yet peaceful community. Like their predecessors, they have the ability to grant a single wish.
+                                Clovers are a cluster of otherworldly creatures, hidden in the Metaverse. As distant relatives of the leprechaun, they are a powerful yet peaceful community. Like their predecessors, they have the ability to grant a single wish.
                                 <br/><br/>
                                 In order to avoid having to do this, each Clover is encoded with the ability to shape-shift on command.
                                 <br/><br/>
@@ -121,7 +121,7 @@ export default function Story() {
                                 <p className="md:p-8">
                                     Over 3 billion years ago during the creation of the metaverse, a divine creature was brought to life— the Origin Clover.
                                     <br/><br/>
-                                    Drawing immense power from its druid crystal, the Origin Clover created 5,000 other Clovers in its likeness.
+                                    Drawing immense power from its druid crystal, the Origin Clover created other Clovers in its likeness.
                                     <br/><br/>
                                     While the Origin Clover will never hurt any creature of good, it will use whatever power necessary against those which do harm.
                                 </p>
