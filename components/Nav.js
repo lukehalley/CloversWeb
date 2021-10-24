@@ -22,7 +22,9 @@ export default function Nav(
 
     // First load
     useEffect( function() {
-        fetchConnectedAccount();
+        if (globalAllowMint) {
+            fetchConnectedAccount();
+        }
     });
 
     return (

@@ -5,6 +5,7 @@ import { Transition } from "@headlessui/react";
 
 export default function Mint(
     {
+        globalAllowMint,
         currentMintType,
         connected,
         loading, updateLoadingState,
@@ -373,16 +374,18 @@ export default function Mint(
 
     // On Load
     useEffect(() => {
-        updateLoadingState(true);
-        fetchConnectedAccount();
 
-        if (connected && hasCorrectNetwork && totalMinted === defaultTotalMinted) {
-
-            checkWalletHasWhitelist();
-            fetchTotals();
+        if (globalAllowMint) {
+            updateLoadingState(true);
+            fetchConnectedAccount();
+            if (connected && hasCorrectNetwork && totalMinted === defaultTotalMinted) {
+                checkWalletHasWhitelist();
+                fetchTotals();
+            }
+            updateLoadingState(false);
         }
 
-        updateLoadingState(false);
+
     });
 
     return (
