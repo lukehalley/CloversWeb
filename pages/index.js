@@ -422,13 +422,14 @@ export default function Home() {
     // On Load
     useEffect(() => {
 
+        initScrollUpToggle();
+
         if (globalAllowMint) {
             reloadOnAccountChange();
             reloadOnNetworkChange();
             checkNetwork();
             listenToMetamaskAccount();
             setConnectedAccount();
-            initScrollUpToggle();
             initMintDataWatcher();
             watchPreMintTime(preSaleMintDate);
         }
